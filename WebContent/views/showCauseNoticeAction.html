@@ -1,0 +1,166 @@
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="header_button">
+				<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Add Show Cause Notice Action</h2>
+				<!-- <a ng-click="backToPreviousState()"><img
+					src="images/DashboardIcons/backold.png" class="backButton"
+					width="100px;"></a> -->
+				<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<!--first form-->
+		<form class="form-horizontal" role="form" name="showCauseNoticeActionForm" novalidate>
+			<div class="f_form_content">
+				<h2>Show Cause Notice Action</h2>
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
+
+					<div class="col-md-12" style="display: none;">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-md-3 form-control-label">Tscn_id
+							</label>
+							<div class="col-md-6">
+								<input type="text" id="tcau_id" name="tcau_id"
+									value="${scau_id}">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group row">
+							<label class="col-sm-3 form-control-label" for="sel1">Status
+								for notice :</label>
+							<div class="col-sm-3">
+								<select class="form-control" id="tcau_status" ng-model="showCauseNoticeAction.tcau_status" name="tcau_status" ng-options="s.id as s.name for s in statusForNotice">
+									<option value="">--Select--</option>
+								</select><i class="asterisk_input"></i>
+									 <div ng-messages="showCauseNoticeActionForm.tcau_status.$error" ng-if="showCauseNoticeActionForm.$submitted">
+								  <span class="error-text" ng-message="required">Please select status for notice.</span>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="col-md-12">
+						<div class="form-group row">
+							<label for="inputPassword2" class="col-sm-3 form-control-label">Action
+								Taken :</label>
+							<div class="col-sm-6">
+								<textarea class="form-control" ng-model="showCauseNoticeAction.tscn_action_taken" required="required"
+									id="tscn_action_taken" name="tscn_action_taken"
+									placeholder="Action Taken"></textarea>
+						</div>
+						<div ng-messages="showCauseNoticeActionForm.tscn_action_taken.$error" ng-if="showCauseNoticeActionForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter action taken.</span>
+							</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group row">
+							<label for="inputPassword2" class="col-sm-3 form-control-label">Next
+								Action Item :</label>
+							<div class="col-sm-6">
+								<textarea class="form-control" ng-model="showCauseNoticeAction.tscn_next_action_item" required="required"
+									id="tscn_next_action_item" name="tscn_next_action_item"
+									placeholder="Next Action Item"></textarea>
+							</div>
+							<div ng-messages="showCauseNoticeActionForm.tscn_next_action_item.$error" ng-if="showCauseNoticeActionForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter next action item.</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-sm-3 form-control-label">Comments
+								:</label>
+							<div class="col-sm-6">
+								<textarea class="form-control" ng-model="showCauseNoticeAction.tscn_comment" required="required"
+									id="tscn_comments" name="tscn_comments"
+									placeholder="Comments Taken"></textarea>
+							</div>
+							<div ng-messages="showCauseNoticeActionForm.tscn_comments.$error" ng-if="showCauseNoticeActionForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter comments.</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="inputPassword3" class="form-control-label col-sm-3"
+								for="sel1">Next Due Date :</label>
+							<div class="col-sm-6">
+								<p class="input-group" style="width: 450px;">
+									<input type="text" class="form-control" ng-change="validateDates()"
+										uib-datepicker-popup="{{format}}" ng-model="showCauseNoticeAction.tscn_next_due_date"
+										is-open="popup_next_due_date.opened" close-text="Close"
+										alt-input-formats="altInputFormats" readonly="readonly"
+										required="true" /> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="dueDate()">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								<p class="error-text">{{errMessage.tscn_next_due_date}}</p>
+								</p>
+								</p>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-12" id="remainderDate">
+						<div class="form-group">
+							<label for="inputPassword4" class="form-control-label col-sm-3"
+								for="sel1">Remainder Date :</label>
+							<div class="col-sm-6">
+								<p class="input-group" style="width: 450px;">
+									<input type="text" class="form-control" ng-change="validateDates()"
+										uib-datepicker-popup="{{format}}" ng-model="showCauseNoticeAction.tscn_reminder_date"
+										is-open="popup_reminder_date.opened" close-text="Close"
+										alt-input-formats="altInputFormats" readonly="readonly"
+										required="true" /> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="reminder()">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								<p class="error-text">{{errMessage.tscn_reminder_date}}</p>
+								</p>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-12">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-sm-3 form-control-label">Documents</label>
+							<div class='col-md-6'>
+								<input type="file" multiple class="btn btn-myWarning"
+									id="action_document"
+									file-model="showCauseNoticeAction.action_document"
+									name="action_document">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-2"></div>
+				<div class="col-md-12 litigation_buttons">
+					<br>
+					<center>
+						<input type="submit" class="btn btn-myPrimary" ng-click ="createShowCuaseNoticeAction(showCauseNoticeActionForm.$submitted);" value="Submit" />
+					</center>
+				</div>
+			</div>
+		</form>
+
+		<div style="clear: both"></div>
+
+	</div>
+</div>

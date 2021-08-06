@@ -1,0 +1,130 @@
+<div>
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="header_button">
+				<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Set Access Level</h2>
+				<!-- <a ng-click="backToPreviousState()"><img src="images/DashboardIcons/backold.png" class="backButton" width="100px;"></a> -->
+				<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<!--first form-->
+		<form autocomplete="off" name="addUserForm" class="form-horizontal" ng-keypress="keyPressHandler($event)" novalidate>	
+			<div class="f_form_content">
+				<h2>Set Access</h2>
+				<div class="col-md-12">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">User Name:</label>
+							<div class="col-sm-9">
+								{{userAccessObj.user_first_name}} {{userAccessObj.user_last_name}}
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">Entity:</label>
+							<div class="col-sm-9">
+								<select class="form-control" name="orga_id" ng-model="userAccessObj.umap_orga" ng-options="e.orga_name for e in entityList"  ng-change="getEntityDependentArray()" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.orga_id.$error" ng-if="addUserForm.$submitted">
+										  <span class="error-text" ng-message="required">Select Entity.</span>
+									</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">Unit:</label>
+							<div class="col-sm-9">
+								<!-- <select class="form-control" name="user_location_id"
+									id="user_loca_id">
+									<option value="0">--Select--</option>
+								</select> -->
+								
+							<!-- 	<div class="input-group input-group-sm search-control">
+								
+								<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>									
+          							<input type="text" class="form-control" placeholder="Search Unit" ng-model="query">
+        						
+								</div> -->
+								<select class="form-control" name="loca_id" ng-model="userAccessObj.umap_loca"  ng-options="u.loca_name for u in unitList | orderBy:'loca_name'" ng-change="getUnitDependentArray()" multiple style="height:200px">
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.loca_id.$error" ng-if="addUserForm.$submitted">
+										  <span class="error-text" ng-message="required">Select unit.</span>
+									
+									</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">Function:</label>
+							<div class="col-sm-9">
+								<select class="form-control" name="umap_dept_id" ng-model="userAccessObj.umap_dept" ng-options=" f.dept_name for f in functionList"   >
+									<option value="">--Select--</option>
+									</select>
+									<i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.umap_dept_id.$error" ng-if="addUserForm.$submitted">
+										  <span class="error-text" ng-message="required">Select function.</span>
+									</div>
+							</div>
+						</div>
+
+						<div class="col-md-12 litigation_buttons">
+							<br>
+
+							<center>
+								<button type="submit" ng-click="addAccessLevel(addUserForm.$valid)" class="btn btn-myPrimary">Add Access level</button>
+									<!-- <button type="button" class="btn btn-myDefault"
+								onclick="window.location.href ='./listUsers' ">Back</button> -->
+							</center>
+
+						</div>
+					</div>
+
+
+					<div class="col-md-6 litigation_buttons">
+						<div style="float: right">
+							<button type="submit" id="set_access" class="btn btn-myPrimary" ng-click="saveAccess(addUserForm.$submitted)">Save Access</button>
+						</div>
+						<div id="total_count"></div>
+						<table border="1" id="id_tblrow"
+							class="table table-striped table-bordered"
+							style="float: left; width: 100%; clear: both;margin-top: 10px;">
+							<thead>
+								<tr>
+									<td>Entity</td>
+									<td>Unit</td>
+									<td>Function</td>
+									<td>Action</td>
+								</tr>
+
+							</thead>
+							<tbody>
+							<tr ng-repeat="list in userAccessList" ng-if="userAccessList.length>0">
+								<td>{{list.orga_name}}</td>
+								<td>{{list.loca_name}}</td>
+								<td>{{list.dept_name}}</td>
+								<td>
+								<button type="button" ng-click="removeUserAccess(list,$event,$index)"  
+								class="btn btn-sm btn-danger" >
+								<i class='fa fa-trash'></i>&nbsp;Remove
+								</button></td>
+							</tr>
+							<tr ng-if="userAccessList.length==0"><td colspan="3">No record found</td></tr>
+						</table>
+					</div>
+
+				</div>
+
+			</div>
+		</form>
+
+		<div style="clear: both"></div>
+
+	</div>
+</div>
+</div>

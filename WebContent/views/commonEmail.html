@@ -1,0 +1,154 @@
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<!--heading text-->
+			<div class="col-md-12">
+				<div class="header_button">
+					<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Calender</button>-->
+					<h2 id="user_header">Common Email</h2>
+					<a ng-click="backToPreviousState()"><img
+						src="images/DashboardIcons/backold.png" class="backButton"
+						width="100px;"></a>
+				</div>
+			</div>
+
+			<div class="div_style"></div>
+			<!--first form-->
+			<form class="form-horizontal" name="taskSearchForm" role="form"
+				id="form">
+				<div class="f_form_content">
+					<h2>Search</h2>
+
+					<div class="col-md-12">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Entity
+									:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="orga_id"
+										ng-model="searchObj.orga_id"
+										ng-options="e.orga_id as e.orga_name for e in originalEntityListt"
+										ng-change="getEntityDependentArray()">
+										<option value="">--Select--</option>
+									</select>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Unit :</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="loca_id"
+										ng-model="searchObj.loca_id"
+										ng-options="u.loca_id as u.loca_name for u in unitList | orderBy:'loca_name'"
+										ng-change="getUnitDependentArray()">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Function:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="dept_id"
+										ng-model="searchObj.dept_id"
+										ng-options="f.dept_id as f.dept_name for f in functionList"
+										ng-change="getFunctionDependentArray()">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Users:</label>
+								<div class="col-sm-5">
+								<multiselect class="multiselect"
+								name="exec_id"
+								ng-model="searchObj.executor_id"
+								options="ex.user_email as ex.user_name for ex in executorListt"
+								header="--Select--" selected-header="Users selected "
+								multiple="true" 
+								required> </multiselect>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</form>
+			<!--END first form-->
+			<div style="clear: both;"></div>
+			<form class="form-horizontal" name="commonEmailForm" novalidate>
+			<div class="f_form_content">
+				<h2>Email Body</h2>
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
+                <div id="restOfTheControls">
+                	<div class="col-md-12">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-sm-3 control-label">Subject:</label>
+							<div class="col-sm-5">
+								<textarea rows="2"  class="form-control" ng-model="tmapObj.subject" name="Subject" placeholder="Subject" required></textarea>
+								<div ng-messages="commonEmailForm.Subject.$error" ng-if="commonEmailForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter subject.</span>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-12">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-sm-3 control-label">Email Body:</label>
+							<div class="col-sm-5">
+								<textarea rows="10"  class="form-control" ng-model="tmapObj.body" name="Body" placeholder="Body" required></textarea>
+								<div ng-messages="commonEmailForm.Body.$error" ng-if="commonEmailForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter Body.</span>
+							</div>
+							</div>
+						</div>
+					</div>
+
+							<div id="filesContainer">
+								<div class='col-md-12'>
+									<div id="div0" class="form-group row">
+										<span class="glyphicons glyphicons-remove-sign"></span> <label
+											class="col-sm-3 control-label">Attach File :</label>
+										<div class="col-sm-5">
+											<input type="file" multiple class="btn btn-myWarning"
+												id="ttrn_proof_of_compliance" valid-file
+												ng-model="proofCompliance.ttrn_proof_of_compliance"
+												name="ttrn_proof_of_compliance"><br />
+										</div>
+									</div>
+								</div>
+								<br>
+							</div>
+						</div>
+                </div>
+                <div class="col-md-2"></div>
+				<div class="col-md-12 litigation_buttons">
+					<br>
+						<center><!-- <i class="glyphicon glyphicon-envelope"></i> -->
+							<!-- <input
+								type="submit"
+								ng-click="saveCompletion(commonEmailForm.$valid)"
+								class=" btn btn-myPrimary" value="Send" /> -->
+								<button class=" btn btn-myPrimary" ng-click="sendCommonEmailAlert(commonEmailForm.$valid)" type="submit">
+   								<span class="glyphicon glyphicon-envelope" style="font-size: 15px">&nbsp;Send</span>
+								</button>
+								
+						</center>
+					</div>
+                </div>
+			</form>
+			<br>
+		</div>
+
+
+	</div>
+</div>

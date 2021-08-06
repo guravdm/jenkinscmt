@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28 Oct, 2015, 12:55:20 PM
+    Author     : admin
+*/
+
+.DashBoardForm-group{
+    float: left;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 5px;
+}
+.DashBoardForm-control{
+    /*    //background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        //border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        color: #555;
+        display: block;
+        font-size: 12px;
+        height: 34px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    */
+    float: left;
+    width: 100%;
+    height: 27px;
+}
+.image{
+    height: 25px;
+    width: 25px;
+}
+table tr td{
+    padding: 10px;
+}
+
+.OrgonogramImages{
+    height: 30%;
+    width: 40%;
+}

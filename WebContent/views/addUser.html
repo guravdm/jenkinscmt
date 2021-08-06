@@ -1,0 +1,377 @@
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<!--heading text-->
+
+			<div class="col-md-12">
+				<div class="header_button">
+					<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+					<h2 style="color: #032BEC; font-size: 24px; float: left;"
+						ng-if="userObj.user_id==0">Add User Information</h2>
+					<h2 style="color: #032BEC; font-size: 24px; float: left;"
+						ng-if="userObj.user_id!=0">Update User Information</h2>
+					<!-- <a ng-click="backToPreviousState()"><img src="images/DashboardIcons/backold.png" class="backButton" width="100px;"></a> -->
+					<site-header Back="" forward="forward"></site-header>
+				</div>
+			</div>
+			<div style="clear: both"></div>
+			<!--first form-->
+			<form autocomplete="off" name="addUserForm" class="form-horizontal"
+				novalidate>
+				<div class="col-lg-12">
+					<center>
+						<h2 style="color: red;">&#42; Mandatory Fields</h2>
+					</center>
+				</div>
+
+				<div class="f_form_content">
+					<h2 ng-if="userObj.user_id==0">Add User</h2>
+					<h2 ng-if="userObj.user_id!=0">Edit User</h2>
+
+					<div class="col-md-12">
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">First
+									Name:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="user_first_name"
+										ng-model="userObj.user_first_name"
+										placeholder="Enter First Name"
+										ng-pattern="/^[a-zA-Z _\\\/.’'-]+$/" required /><i
+										class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_first_name.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											enter first name.</span>
+									</div>
+									<div ng-messages="addUserForm.user_first_name.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="pattern">Special
+											charcters are not allowed.</span>
+									</div>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Last
+									Name:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="user_last_name"
+										ng-model="userObj.user_last_name"
+										placeholder="Enter Last Name"
+										ng-pattern="/^[a-zA-Z _\\\/.’'-]+$/" required /><i
+										class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_last_name.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											enter last name.</span>
+									</div>
+									<div ng-messages="addUserForm.user_first_name.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="pattern">Special
+											charcters are not allowed.</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Mobile
+									No.:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="user_mobile"
+										ng-maxlength="12" ng-minlength="10"
+										placeholder="Enter Mobile Number"
+										ng-model="userObj.user_mobile" />
+									<div ng-messages="addUserForm.user_mobile.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="maxlength">Please
+											enter maximum 12 digits</span> <span class="error-text"
+											ng-message="minlength">Please enter minimum 10 digits</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Mail
+									ID:</label>
+								<div class="col-sm-9">
+									<input type="email" class="form-control" name="user_email"
+										ng-model="userObj.user_email" placeholder="Enter email-id"
+										required /><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_email.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											enter email-id.</span> <span class="error-text" ng-message="email">Please
+											enter valid email-id.</span>
+									</div>
+
+								</div>
+							</div>
+
+
+							<div class="form-group" ng-if="userObj.user_id==0">
+								<label class="control-label col-sm-3" for="sel1">User
+									Name:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="user_username"
+										ng-model="userObj.user_username" placeholder="Enter User Name"
+										required /><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_username.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											enter user name.</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-if="userObj.user_id>0">
+								<label class="control-label col-sm-3" for="sel1">User
+									Name:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="user_username"
+										ng-model="userObj.user_username" placeholder="Enter User Name"
+										required /><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_username.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											enter user name.</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-if="userObj.user_id==0">
+								<label class="control-label col-sm-3" for="sel1">User
+									Password:</label>
+								<div class="col-sm-9">
+									<!-- <input type="password"  name="user_userpassword" id ="user_userpassword" class="form-control" placeholder="Enter Password"/> <i class="asterisk_input"></i> -->
+									<input type="password" class="form-control"
+										name="user_userpassword" ng-model="userObj.user_userpassword"
+										placeholder="Enter Password" required /><i
+										class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_userpassword.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											enter password.</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-if="userObj.user_id>0">
+								<label class="control-label col-sm-3" for="sel1">User
+									Password:</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control"
+										name="user_userpassword" ng-model="userObj.user_userpassword"
+										placeholder="Enter Password" />
+								</div>
+							</div>
+
+							<div class="form-group" ng-if="userObj.user_id==0">
+								<label class="control-label col-sm-3" for="sel1">Confirm
+									Password:</label>
+								<div class="col-sm-9">
+
+									<input type="password" class="form-control"
+										ng-pattern="\b{{userObj.user_userpassword}}\b"
+										name="confirm_password" ng-model="userObj.confirm_password"
+										placeholder="Enter Confirm Password" required /><i
+										class="asterisk_input"></i>
+									<div ng-messages="addUserForm.confirm_password.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Enter
+											password.</span>
+									</div>
+
+									<div ng-messages="addUserForm.confirm_password.$error">
+										<span class="error-text" ng-message="pattern">Confirm
+											password must be equal to password.</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group" ng-if="userObj.user_id>0">
+								<label class="control-label col-sm-3" for="sel1">Confirm
+									Password:</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control"
+										name="confirm_password" ng-model="userObj.confirm_password"
+										placeholder="Enter Confirm Password" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="">Gender:</label>
+								<div class="col-sm-9">
+								<!-- ng-options="e.name for e in gender" -->
+									<select class="form-control" name="gender"
+										ng-model="userObj.gender" 
+										required>
+										<option selected="selected" value="">--Select--</option>
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.gender.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											select Gender</span>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="col-md-6">
+
+
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Vertical:</label>
+								<div class="col-sm-9">
+									<select class="form-control" name="user_organization_id"
+										ng-model="userObj.user_organization_id"
+										ng-options="e.orga_id as e.orga_name for e in entityList"
+										ng-change="getEntityDependentArray()" required>
+										<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_organization_id.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											select entity name</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Unit:</label>
+								<div class="col-sm-9">
+
+									<select class="form-control" name="user_location_id"
+										ng-model="userObj.user_location_id"
+										ng-options="u.loca_id as u.loca_name for u in unitList | orderBy:'loca_name'"
+										ng-change="getUnitDependentArray()" required>
+										<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_location_id.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											select unit name.</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Function:</label>
+								<div class="col-sm-9">
+									<select class="form-control" name="user_department_id"
+										ng-model="userObj.user_department_id"
+										ng-options="f.dept_id as f.dept_name for f in functionList"
+										ng-change="getDesignationList()" required>
+										<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_department_id.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											select function name.</span>
+									</div>
+
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Employee
+									ID:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" name="user_employee_id"
+										ng-model="userObj.user_employee_id"
+										placeholder="Enter Employee ID" />
+									<div ng-messages="addUserForm.user_employee_id.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Enter
+											employee Id.</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group" ng-if="userObj.user_id!=0">
+								<label class="control-label col-sm-3" for="sel1">Designation:</label>
+								<div class="col-sm-9">
+									<select class="form-control" name="desi_id"
+										ng-model="userObj.user_designation_id"
+										ng-options="d.desi_id as d.desi_name for d in designationList">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group" ng-if="userObj.user_id==0">
+								<label class="control-label col-sm-3" for="sel1">Designation:</label>
+								<div class="col-sm-9">
+									<select class="form-control" name="desi_id"
+										ng-model="userObj.user_designation_id"
+										ng-options="d.desi_id as d.desi_name for d in designationListttt">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Role:</label>
+								<div class="col-sm-9">
+									<select class="form-control" name="user_role_id"
+										ng-model="userObj.user_role_id"
+										ng-options="r.user_role_id as r.user_role_name for r in roleArray"
+										required>
+										<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="addUserForm.user_role_id.$error"
+										ng-if="addUserForm.$submitted">
+										<span class="error-text" ng-message="required">Please
+											select role name</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Address:</label>
+								<div class="col-sm-9">
+									<textarea class="form-control" rows="4" cols="6"
+										ng-model="userObj.user_address" name="user_address"
+										placeholder="Enter Address"></textarea>
+								</div>
+							</div>
+							<div class="form-group" ng-if="userObj.user_id!=0">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-9 litigation_buttons">
+									<a class="btn btn-myPrimary"
+										ng-click="editUserAccess(userObj.user_id,userObj.user_first_name,userObj.user_last_name)">Set
+										User Access</a>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="col-md-12 litigation_buttons">
+							<br>
+
+							<center>
+								<button ng-if="userObj.user_id==0" type="submit"
+									ng-click="addUser(addUserForm.$valid)"
+									class="btn btn-myPrimary">Add</button>
+								<button ng-if="userObj.user_id!=0" type="submit"
+									ng-click="updateUser(addUserForm.$valid)"
+									class="btn btn-myPrimary">Update</button>
+
+							</center>
+						</div>
+
+					</div>
+				</div>
+
+			</form>
+
+			<div style="clear: both"></div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+

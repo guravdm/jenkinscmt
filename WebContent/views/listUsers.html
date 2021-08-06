@@ -1,0 +1,132 @@
+
+<style>
+.ajax-loader {
+	position: absolute;
+	left: 45%;
+	top: 50%;
+	margin-left: -25px; /* -1 * image width / 2 */
+	margin-top: -25px; /* -1 * image height / 2 */
+	display: block; # mydiv { position : absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background-color: grey;
+	opacity: .8;
+}
+}
+</style>
+<div id="mydiv" ng-show="loading">
+	<img  class="pl-3 ajax-loader"
+		src="images/Loader/ajax-loader.gif" width="70px" height="70px"/>
+</div>
+<div>
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<div class="header_button">
+					<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Calender</button>-->
+					<h2 id="user_header">User</h2>
+					<!-- <a ng-click="backToPreviousState()"><img
+						src="images/DashboardIcons/backold.png" class="backButton"
+						width="100px;"></a> -->
+					<site-header Back="" forward="forward"></site-header>
+				</div>
+			</div>
+			<div class="col-md-6">
+			
+				<!-- <a ui-sref="UserAccess" class="btn btn-primary">Set access level</a> &nbsp; --> 
+				<a ng-click="showAddUser()" class="btn btn-primary">Add	User</a> &nbsp;
+				<a ui-sref="mappingList" class="btn btn-primary">Mapping List</a> &nbsp;
+				<a ng-click="ExportUserList()" ng-if="showButton" class="btn btn-primary">Export Users List</a> 
+				<a ng-click="showImportForm()" ng-if="userRoleId == 7" class="btn btn-primary">Import Users List</a> 
+						
+			</div>
+			
+		</div>
+		<div id="div_style"></div>
+		<!--first form-->
+		<div class="table_data1">
+			<div class="container">
+			Search : <input type="text" size="22px" ng-model="search"  placeholder="Enter First/Last/User Name" />
+				<table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+					<thead>
+						<tr id="table_row">
+							<td>Sr No</td>
+							<td>First Name</td>
+							<td>Last Name</td>
+							<td>User Name</td>
+							<td>User Role</td>
+							<td>Edit</td>						
+							<td>Enable/Disable</td>
+							<td>Send Credentials</td>
+						</tr>
+					</thead>
+					<tbody>
+						
+							<tr ng-repeat="user in userList | filter : search| orderBy:'user_id'">
+								<td>{{$index+1}}</td>
+								<td>{{user.user_first_name}}</td>
+								<td>{{user.user_last_name}}</td>
+								<td>{{user.user_username}}</td>
+								<td>{{user.user_role_name}}</td>
+								<td class="edit"><a><button ng-click="showEditEntity(user.user_id)"
+											type="button"  class="btn btn-primary">
+											<i class="fa fa-pencil-square-o"></i> &nbsp;Edit
+										</button></a></td>
+								<td ng-if="user.user_enable_status==1">
+								<input class="btn btn-danger" type="button"
+												name="DisableUser" value="Disable"
+											ng-click="changeUserStatus(0,user.user_id)" />
+							 </td>
+							 <td ng-if="user.user_enable_status==0"><input class="btn btn-success" type="button"
+												name="EnableTask" value="Enable"
+												ng-click="changeUserStatus(1,user.user_id)" /></td>
+							<td class="edit"><a><button ng-click="sendCredentials(user.user_id)"
+											type="button"  class="btn btn-primary">
+											<i class="fa fa-pencil-square-o"></i> &nbsp;Send Credentials
+										</button></a></td>
+									
+							</tr>						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div style="display: none;">
+				<table id="ExportUserList" class="table table-striped table-bordered"
+					width="100%" cellspacing="0">
+					<thead>
+						<tr id="table_row">
+							<td>Name</td>
+							<td>Username</td>
+							<td>User Role</td>
+							<td>Email Id</td>
+							<td>Organization Name</td>
+							<td>Location Name</td>
+							<td>Department Name</td>
+							<td>IsActive</td>
+						</tr>
+					</thead>
+					<tbody>
+							<tr ng-repeat="users in exportlist">
+								<td>{{users.user_fullname}}</td>
+								<td>{{users.user_username}}</td>
+								<td>{{users.user_role_name}}</td>
+								<td>{{users.user_email}}</td>
+								<td>{{users.orga_name}}</td>
+								<td>{{users.loca_name}}</td>
+								<td>{{users.dept_name}}</td>
+								<td>{{users.user_enable_status}}</td>		
+							</tr>						
+					</tbody>
+				</table>
+			
+		
+		
+	</div>
+</div>
+</div>

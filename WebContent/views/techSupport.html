@@ -1,0 +1,111 @@
+<div class="page_cont_padd">
+	<div class="page_container">
+		<div class="col-md-12">
+			<div class="header_button">
+				<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Support</h2>
+				<!-- <a ng-click="backToPreviousState()"><img src="images/DashboardIcons/backold.png" class="backButton" width="100px;"></a> -->
+				<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<br>
+		<div class="f_form_content">
+			<div class="col-md-12">
+
+				<div class="col-md-12">
+
+					<h2>Contact Us</h2>
+
+					<div class="col-md-6" id='c_form'>
+						<form name="contactform" id="contact-form" method="post"
+							novalidate>
+							<div>
+								<div class="span5">
+									<label>Full Name</label> <input type="text"
+										class="form-control" id="user_username" name="fuser_username"
+										ng-model="techSupportCredentials.Cname"
+										placeholder="Enter fullName" required>
+									<div ng-messages="contactform.fuser_username.$error"
+										ng-if="contactform.$submitted">
+										<span class="error-text" ng-message="required">Please
+											enter full name.</span>
+									</div>
+									<label>Mobile</label> <input type="text" class="form-control"
+										name="user_mobile" ng-model="techSupportCredentials.Cmobile"
+										id="user_email" placeholder="Enter Mobile No" required>
+									<div ng-messages="contactform.user_mobile.$error"
+										ng-if="contactform.$submitted">
+										<span class="error-text" ng-message="required">Enter
+											Mobile No.</span>
+									</div>
+									<label>Email Address</label> <input type="text"
+										class="form-control" name="user_email"
+										ng-model="techSupportCredentials.Cemail" id="user_email"
+										placeholder="Enter Email ID" required>
+									<div ng-messages="contactform.user_email.$error"
+										ng-if="contactform.$submitted">
+										<span class="error-text" ng-message="required">Enter
+											Email ID.</span>
+									</div>
+								</div>
+								<div class="span7">
+									<label>Query</label>
+									<textarea name="Cmessage" id="Cmessage"
+										ng-model="techSupportCredentials.Cmessage"
+										class="form-control" rows="8" required></textarea>
+									<div ng-messages="contactform.Cmessager"
+										ng-if="contactform.$submitted">
+										<span class="error-text" ng-message="required">Enter
+											Email ID.</span>
+									</div>
+								</div>
+
+							</div>
+							<br />
+							<button type="submit" class="btn btn-primary "
+								ng-click="sendQuery(contactform.$valid)">Send Message</button>
+						</form>
+						<br>
+						<br>
+						<!-- <div id='Cerr' class="alert alert-danger">  </div>-->
+					</div>
+
+					<div class="col-md-6">
+
+						<div class="span3">
+
+							<h4>
+								<strong style="color: #005cc3">Lexcare Global
+									Consultants Pvt. Ltd.</strong>
+							</h4>
+							<p style="color: black;">
+								<i class="fa fa-map-marker"
+									style="font-size: 18px; margin-right: 10px;"></i>The Capital,
+								202, B Wing, Baner-Pashan Link Road, Next to Rolling Hill, Baner<br>
+								Pune - 411045
+							</p>
+							<p style="color: black;">
+								<span class="glyphicon glyphicon-envelope"></span><a
+									href="mailto:support@lexcareglobal.com" style="color: black;">
+									support@lexcareglobal.com</a>
+							</p>
+							<p style="color: black;">
+								<span class="glyphicon glyphicon-earphone"></span> +020 6719
+								1111
+							</p>
+							<p style="color: black; text-decoration: underline;">
+								<i class="fa fa-globe"
+									style="font-size: 18px; margin-right: 10px;"></i><a
+									style="color: black; text-decoration: underline;" href="">http://www.lexcareglobal.com</a>
+							</p>
+						</div>
+					</div>
+					<div class="col-md-6" id='c_msg'></div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,624 @@
+
+<html>
+<head>
+<title>LexCare :: Compliance Management Tool V-1.0</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="keywords" content="">
+<meta name="discription" content="">
+<meta name="author" content="">
+
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- IE Compatible  -->
+<!--[if IE]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script src="http://www.jqchart.com/js/excanvas.js"></script>
+<![endif]-->
+
+
+<style>
+::-webkit-scrollbar {
+	width: 0.7em;
+	height: 2em
+}
+
+::-webkit-scrollbar-button {
+	background: #ccc
+}
+
+::-webkit-scrollbar-track-piece {
+	background: #888
+}
+
+::-webkit-scrollbar-thumb {
+	background: #eee
+}
+
+i {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	margin-left: 7px;
+	margin-bottom: 4px;
+}
+
+.page_container {
+	margin-top: 47px !important;
+}
+
+.down {
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.modal-dialog {
+	width: 390px !important;
+	margin: 0px auto !important;
+}
+
+.row {
+	margin-right: -65px !important;
+}
+
+.img-layout {
+	border-radius: 50%;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 40px !important;
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+
+/* * {
+	overflow-x: hidden;
+} */
+ul.dropdown-menu {
+	margin-top: -21px;
+	margin-left: 35px;
+}
+</style>
+
+<script>
+	function closedMenu() {
+		$("#slide").hide();
+	};
+</script>
+
+<style>
+.color {
+	background-color: #9ea7b5;
+}
+</style>
+</head>
+<body>
+
+	<!--navbar-->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img class="logo" src="images/emcurelogo1.png" height="30px"
+					style="margin-top: 20%">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="" style="color: white; font-size: 12px;">
+						{{currentuser}}</a></li>
+				<li><a class="fa fa-sign-out" ng-click="logout()"
+					style="color: white; font-size: 12px;"> Sign Out</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="page_cont_padd">
+		<div class="page_container">
+
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<a ui-sref="dashboard">
+									<center>
+										<img src="images/menu/Dashboard.png" height="110px"
+											width="145px">
+									</center>
+									<h4 style="text-align: center;">Dashboard</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- <div class="col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<a type="button" data-toggle="dropdown"
+									style="text-decoration: none;">
+									<center>
+										<img src="images/todo.png" height="110px" width="120px">
+									</center>
+									<h4 style="text-align: center;">
+										To Do List <i class="down"></i>
+									</h4>
+									<ul class="dropdown-menu">
+										<li><a ui-sref="upcomming">Upcoming</a></li>
+										<li><a ui-sref="posing">Posing</a></li>
+										<li><a ui-sref="over-due">Over Due</a></li>
+										<li><a ui-sref="upcomming">Upcoming</a></li>
+										<li><a ui-sref="posing">Nearing</a></li>
+										<li><a ui-sref="overdue">Over Due</a></li>
+										<li ng-if="getUserRoleId == 1 || getUserRoleId == 6"><a
+											ui-sref="reopened">Re-opened</a></li>
+										<li ng-if="getUserRoleId >= 2 "><a
+											ui-sref="waitingforapproval">Waiting for approval</a></li>
+									</ul>
+								</a>
+							</div>
+						</div>
+					</div> -->
+
+					<div class="col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<a ui-sref="showComplianceRepository"
+									style="text-decoration: none;">
+									<center>
+										<!-- <img src="images/menu/taskrepo.png" height="110px"
+											width="120px"> -->
+										<img src="images/icons8-repository-100.png" height="110px"
+											width="120px">
+									</center>
+									<h4 style="text-align: center;">Task Repository</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<a ui-sref="ComplianceCalendar" style="text-decoration: none;">
+									<center>
+										<img src="images/menu/calendar.png" height="110px"
+											width="120px">
+									</center>
+									<h4 style="text-align: center;">Calendar</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<a ui-sref="TechSupport" style="text-decoration: none;">
+									<center>
+										<img src="images/menu/technical-support.png" height="110px"
+											width="155px">
+									</center>
+									<h4 style="text-align: center;">Support</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-sm-4">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<a ui-sref="listShowCauseNotice" style="text-decoration: none;">
+									<center>
+										<img src="images/menu/legal_update.png" height="110px"
+											width="155px">
+									</center>
+									<h4 style="text-align: center;">Show-Cause Notice</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-sm-4" id="admin_menu_icon"
+						ng-if="getUserRoleId>=6 && getUserRoleId<=7">
+						<div class="panel panel-primary">
+							<div class="panel-body">
+								<a onclick="toggleMenu()" style="text-decoration: none;"
+									id="admin_menu_icon">
+									<center>
+										<img src="images/menu/app-icon.png" height="110px"
+											width="105px" class="menu_sub" id="app_icon">
+									</center>
+									<h4 style="text-align: center;">Admin</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+				<div class="col-sm-5">
+					<div class="panel panel-primary">
+						<div class="panel-body color">
+							<strong>Chairman's <span style="color: white;">Message</span></strong>
+						</div>
+						<div class="panel-footer">
+
+							<p>
+								We, at Emcure, believe in being a legally compliant and ethical
+								Organisation. Good Corporate Governance is part of our DNA.
+								Compliance for us is not an option but an integral part of our
+								corporate culture.<img src="images/ceoimg.png"
+									class="img-layout" align="right" width="175px" height="185px" />
+								Legal Compliance Manager is an IT-enabled Legal Compliance
+								Management System to monitor and ensure legal compliance of all
+								Central, State and Local laws across the Company, it's
+								Subsidiaries and all locations. <br />Emcure expects every
+								Employee to demonstrate his/her commitment in observing and
+								complying with the various Laws, Rules and Regulations of the
+								Country and help the Company in becoming a responsinble
+								corporate citizen. I look forward to your using the system and
+								ensuring that the Company is legally compliant at all times.
+							</p>
+							<BR clear=”left” />
+
+							<p>
+								With best wishes, <br /> Satish Mehta<br /> Managing Director
+								& CEO
+							</p>
+
+
+
+
+							<!-- <p>Dear fellow Emcureans,</p>
+							<p>
+								Emcure is dynamic, employee driven orgnaization and accordingly
+								has created its very own Intranet Portal called <b>"EmPage"</b>
+								to strengthen internal communication and information management
+								across a centralized platform.
+							</p>
+
+							<p>
+								The <b>"EmPage"</b> portal will serve as an easy to use browser
+								interface for employee engagement in today's fast moving
+								environment saddled with a glut of information often times
+								leading to confusion.
+							</p>
+
+							<p>
+								A campaign to present and explain about the visibility, scope
+								and the global reach of <b>"EmPage"</b> will be kicking off
+								shortly with the help of our IT/HR teams.
+							</p>
+
+							<p>I encourage you to try out the tool at your earliest
+								convenience and provide feedback so that we can make it more
+								robust.</p>
+
+							<p>
+								Your Sincerely,<br /> Satish Mehta
+							</p> -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row"></div>
+			<div class="row"></div>
+
+			<div class="container" style="display: none;">
+				<div class="col-md-10">
+					<div class="header_button">
+						<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Calender</button>-->
+						<h2 style="color: #032BEC; font-size: 24px; float: left;">Home</h2>
+						<!-- <a href="./userLogout" type="button" class="btn btn-success"
+						style="margin-left: 110%; margin-top: -35px;">Sign out</a> -->
+					</div>
+				</div>
+
+				<div class="f_form_content" style="margin-top: 60px;">
+					<div class="col-md-12">
+						<div class="col-md-2">
+							<a ui-sref="dashboard">
+								<center>
+									<img src="images/menu/Dashboard.png" height="110px"
+										width="145px">
+								</center>
+								<h4 style="text-align: center;">Dashboard</h4>
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a ui-sref="showComplianceRepository"
+								style="text-decoration: none;">
+								<center>
+									<img src="images/menu/taskrepo.png" height="110px"
+										width="120px">
+								</center>
+								<h4 style="text-align: center;">Task Repository</h4>
+							</a>
+						</div>
+
+
+
+
+
+						<div class="col-md-2">
+
+							<a type="button" data-toggle="dropdown"
+								style="text-decoration: none;">
+								<center>
+									<img src="images/menu/taskrepo.png" height="110px"
+										width="120px">
+								</center>
+								<h4 style="text-align: center;">
+									To Do List <i class="down"></i>
+								</h4>
+								<ul class="dropdown-menu">
+									<li><a ui-sref="upcomming">Upcoming</a></li>
+									<li><a ui-sref="posing">Posing</a></li>
+									<li><a ui-sref="overdue">Over Due</a></li>
+								</ul>
+							</a>
+						</div>
+
+
+						<div class="col-md-2">
+							<a ui-sref="ComplianceCalendar" style="text-decoration: none;">
+								<center>
+									<img src="images/menu/calendar.png" height="110px"
+										width="120px">
+								</center>
+								<h4 style="text-align: center;">Calendar</h4>
+							</a>
+						</div>
+						<div class="col-md-2">
+							<a ui-sref="TechSupport" style="text-decoration: none;">
+								<center>
+									<img src="images/menu/technical-support.png" height="110px"
+										width="155px">
+								</center>
+								<h4 style="text-align: center;">Support</h4>
+							</a>
+						</div>
+						<div class="col-md-2" id="legal_update_icon">
+							<a ui-sref="listShowCauseNotice" style="text-decoration: none;">
+								<center>
+									<img src="images/menu/legal_update.png" height="110px"
+										width="155px">
+								</center> <span style="text-align: center; font-size: 14px;">Show-Cause
+									Notice</span>
+							</a>
+						</div>
+						<div class="col-md-2" id="admin_menu_icon"
+							ng-if="getUserRoleId>=6 && getUserRoleId<=7">
+							<!-- <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button> -->
+							<a onclick="toggleMenu()" style="text-decoration: none;"
+								id="admin_menu_icon">
+								<center>
+									<img src="images/menu/app-icon.png" height="110px"
+										width="105px" class="menu_sub" id="app_icon">
+								</center>
+								<h4 style="text-align: center;">Admin</h4>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-md">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Admin Menu</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row" style="margin-left: 15px;">
+							<div class="col-sm-3">
+								<div class="icon1">
+									<a style="text-decoration: none;" href="./listOrganizations"><img
+										src="images/dash_board/headoffice.png" width="75px;"
+										height="75px;" />
+										<p style="margin-top: 5px;">Entity</p></a>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="icon1">
+									<a style="text-decoration: none;" href="./listTypeOfUnit"><img
+										src="images/dash_board/UnitTypes.png" width="75px;"
+										height="75px;" />
+										<p style="margin-top: 5px;">Type Of Unit</p></a>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="icon1">
+									<a style="text-decoration: none;" href="./listLocations"><img
+										src="images/dash_board/location_new.png" width="75px;"
+										height="75px;" />
+										<p style="margin-top: 5px;">Unit</p></a>
+								</div>
+							</div>
+						</div>
+						<div class="row" style="margin-left: 15px;"></div>
+						<div class="row" style="margin-left: 15px;">
+							<div class="col-md-3">
+								<div class="icon1">
+									<a style="text-decoration: none;" href="./listDepartments"><img
+										src="images/dash_board/department.jpg" width="75px;"
+										height="75px;">
+										<p style="margin-top: 5px;">Function</p></a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="icon2">
+									<a style="text-decoration: none;" href="./listDesignations"><img
+										src="images/dash_board/Designation.png" width="75px;"
+										height="75px;">
+										<p style="margin-top: 5px;">Designations</p></a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="icon2">
+									<a style="text-decoration: none;" href="./listEntitiesMapping"><img
+										src="images/dash_board/UserEntityMapping.png" width="75px;"
+										height="75px;">
+										<p style="margin-top: 5px;">Entity Mapping</p></a>
+								</div>
+							</div>
+						</div>
+						<div class="row" style="margin-left: 15px;">
+							<div class="col-md-3">
+								<div class="icon2">
+									<a style="text-decoration: none;" href="./listUsers"><img
+										src="images/dash_board/AddUser.png" width="75px;"
+										height="75px;">
+										<p style="margin-top: 5px;">Users</p></a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="icon3">
+									<a style="text-decoration: none;"
+										href="./showComplianceMappingPanel"><img
+										src="images/dash_board/taskMapping.png" width="75px;"
+										height="75px;">
+										<p style="margin-top: 5px;">
+											<strong>Tasks Mapping</strong>
+										</p></a>
+								</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="icon3">
+									<a style="text-decoration: none;"
+										href="./ShowSubTaskMappingPanel"><img
+										src="images/dash_board/Subtask.png" width="75px;"
+										height="75px;">
+										<p style="margin-top: 5px;">
+											<strong>Sub Task</strong>
+										</p></a>
+								</div>
+							</div>
+						</div>
+						<div class="row" style="margin-left: 15px;">
+							<div class="col-md-3">
+								<div class="icon3">
+									<a style="text-decoration: none;" href="./ShowActivityLog">
+										<img src="images/dash_board/user_Activity_log.png"
+										height="75px" width="75px">
+										<p style="margin-top: 5px;">Activity Log</p>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="icon3">
+									<a style="text-decoration: none;" href="./exportCustomizedData">
+										<img src="images/dash_board/export.png" height="75px"
+										width="75px">
+										<p style="margin-top: 5px;">Export Data</p>
+									</a>
+								</div>
+							</div>
+
+
+							<div class="col-md-4"></div>
+
+							<div class="col-md-4">
+								<div class="icon3">
+									<a href="" onclick="closedMenu()"
+										style="text-decoration: none;"> <!-- <img src="https://img.icons8.com/ios/50/000000/closed-sign.png" > -->
+										<!-- <i class="fal fa-times-circle fa-3x" aria-hidden="true"></i> -->
+										<i style="margin-top: 70px; margin-left: 50px;"
+										class='glyphicon glyphicon-remove-circle uploadClose'
+										title='Close'></i> <!-- <p style="margin-top: 5px;">Close</p> -->
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Angular js liberaries -->
+	<script type="text/javascript" src="js/liberary/angular/angular.js"></script>
+	<script type="text/javascript"
+		src="js/liberary/angular/angular-ui-router.min.js"></script>
+	<!-- <script type="text/javascript" src="js/liberary/angular/lodash-3.9.3.min.js"></script> -->
+	<script type="text/javascript"
+		src="js/liberary/angular/angular-touch.min.js"></script>
+	<script type="text/javascript"
+		src="js/liberary/angular/angular-animate.min.js"></script>
+	<script type="text/javascript"
+		src="js/liberary/angular/angular-cookies.min.js"></script>
+	<script type="text/javascript"
+		src="js/liberary/angular/angular-messages.min.js"></script>
+	<script type="text/javascript"
+		src="js/liberary/angular/angular-sanitize.min.js"></script>
+
+	<script type="text/javascript"
+		src="js/app/controller/dashboardController.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			/* $('#adminMenu').click(function(){
+				$( "#dialog" ).dialog();
+			}); */
+
+			$('#profile_icon').click(function() {
+				$("#dialog").dialog();
+			});
+
+			$("#admin_menu_icon").click(function() {
+				$("#myModal").modal();
+			});
+
+			/* function toggleMenu() {
+				$("#slide").slideToggle("transition:all 1s ease");
+				$("#profile").hide();
+			}
+			
+			$('#closeModal').click(function() {
+				toggleMenu().hide();
+			}); */
+
+			function toggleProfileMenu() {
+				$("#profile").slideToggle("transition:all 1s ease");
+				$("#slide").hide();
+			}
+			;
+		});
+	</script>
+
+</body>
+</html>

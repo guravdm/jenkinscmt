@@ -1,0 +1,124 @@
+<div class="page_cont_padd">
+	<div class="page_container">
+		<div class="row">
+			<div class="col-sm-12">
+				<form class="form-horizontal" role="form">
+					<div class="f_form_content">
+						<h2>Compliance Repository Search</h2>
+
+						<div class="col-md-12">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">Vertical
+										:</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="o.orga_id as o.orga_name for o in entityList"
+											ng-model="searchObj.orga_id"
+											ng-change="getUnitListByEntity(searchObj.orga_id);getComplianceRepository();getLegislationList()"
+											class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">Unit :</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="l.loca_id as l.loca_name for l in unitList | orderBy:'loca_name'"
+											ng-model="searchObj.loca_id"
+											ng-change="getFunctionListByUnit(searchObj.loca_id,searchObj.orga_id);getComplianceRepository();getLegislationListByOrga()"
+											class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="dept_id">Function
+										:</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="d.dept_id as d.dept_name for d in functionList"
+											ng-model="searchObj.dept_id" class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-md-12 litigation_buttons" id="searchButtons">
+								<center>
+									<button type="button" class="btn btn-myPrimary"
+										ng-click="searchLists()" id="searchTask">Search</button>
+
+								</center>
+							</div>
+
+
+						</div>
+
+
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="f_form_content">
+					<h2>Executor Search</h2>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<td
+									style="text-align: center; background-color: green; color: white;"
+									colspan="7">List of Unit for Addition
+									/Deletion/Modification Unit Name Location</td>
+							</tr>
+							<tr>
+								<th>#</th>
+								<th>Vertical</th>
+								<th>Unit Name</th>
+								<th>Function</th>
+								<th>Executor</th>
+								<th>Email</th>
+								<th>Mobile No</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in exeList track by $index">
+								<td>{{ $index+1 }}</td>
+								<td>{{ item.vertical }}</td>
+								<td>{{ item.unitName }}</td>
+								<td>{{ item.function }}</td>
+								<td>{{ item.executor }}</td>
+								<td>{{ item.email }}</td>
+								<td>{{ item.mobNo }}</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>#</th>
+								<th>Vertical</th>
+								<th>Unit Name</th>
+								<th>Function</th>
+								<th>Executor</th>
+								<th>Email</th>
+								<th>Mobile No</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>

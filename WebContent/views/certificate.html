@@ -1,0 +1,215 @@
+<style>
+.ptag {
+	text-align: justify;
+}
+
+h4 {
+	text-align: center
+}
+</style>
+<div class="table_data" id="printPage">
+	<div class="container">
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+
+				<a ng-click="printCertificate()" class="btn btn-primary btn-sm pull-right">Print
+					Certificate</a>
+			</div>
+
+		</div>
+
+		<!-- Content Header (Page header) -->
+
+
+		<!-- Main content -->
+		<div style="height: 100%;">
+			<section class="content">
+				<center>
+					<h3>Compliance Certificate</h3>
+					<center>
+						<!--<img id="imgLogo" style="float: left; margin-left: 80px;"
+							src="images/50x50.png" />-->
+						<p
+							style="float: left; margin-left: 100px; clear: both; margin-top: 10px;">
+							<strong>Date : &nbsp;{{certificate.currDate}}</strong>
+						</p>
+						<p
+							style="float: left; margin-left: 100px; clear: both; margin-top: 10px;">
+							<strong>To, </strong>
+						</p>
+						
+						<div style="float: left; margin-left: 100px; clear: both; margin-top: 10px;"><strong>Board of Directors</strong></div>
+						<div style="float: left; margin-left: 100px; clear: both; margin-top: 10px;"><strong> KIMS Health Care Management Limited</strong></div>
+						<div style="float: left; margin-left: 100px; clear: both; margin-top: 10px;"><strong> Trivandrum, Kerala</strong></div>
+										
+						
+						<p
+							style="float: left; margin-left: 100px; clear: both; margin-top: 20px;">
+							<strong>Dear Sir/Madam ,</strong>
+						</p>
+						<p
+							style="float: left; margin-left: 100px; clear: both; margin-top: 5px;">
+							<strong>Subject : Compliance Certificate for the quarter
+								( {{certificate.month}} {{certificate.year}} ). </strong>
+						</p>
+						<p class="ptag"
+							style="float: left; margin-left: 100px; margin-bottom: 5px; margin-top: 5px; margin-right: 60px; text-align: justify;">
+							I, {{currentuser}} do hereby confirm and certify that all below mentioned Applicable 
+							Legislations (mentioned in Annexure 1) have been complied addressed for the above mentioned period and necessary forms have been 
+							filed by the Department within the stipulated time period (except which has been mentioned specially
+							 mentioned in Annexure 2).
+						</p>
+							
+						<p	style="float: left; margin-left: 100px; clear: both; margin-top: 5px; margin-right: 60px; text-align: justify;">
+							Please find enclosed annexures pertaining to the same.</p>
+					
+						<p	style="float: left; margin-left: 100px; clear: both; margin-top: 5px; margin-right: 60px; text-align: justify;">
+							Annexure 1 contains applicable Legislations and Rules.</p>
+						<p	style="float: left; margin-left: 100px; clear: both; margin-top: 5px; margin-right: 60px; text-align: justify;">
+							Annexure 2 contains the reason of non-compliance and the action taken for all non-complied activities.</p>
+						<p
+							style="float: left; margin-left: 100px; clear: both; margin-top: 5px; margin-right: 60px; text-align: justify;">
+							Annexure 3 contains details of show-cause notices received during this period.</p>
+
+
+						<p
+							style="float: left; margin-left: 100px; clear: both; margin-top: 5px;">Thanking
+							You,</p>
+
+
+						<p id="lastP"
+							style="float: right; margin-right: 130px; clear: both; margin-top: 30px;">
+							<strong>Your's Sincerely</strong><br>
+							<i>{{currentuser}}</i> <br>
+						</p>
+			</section>
+		</div>
+		<!-- /.content -->
+
+
+	</div>
+	<hr style="height: 1px; border: none; color: #333; background-color: #333;" />
+	
+	
+
+		<h4>Annexure 1</h4>
+
+		<table id="example" class="table table-striped table-bordered"
+			width="100%" cellspacing="0">
+			<thead>
+				<tr style="background: #0B6EC3; color: #fff;">
+
+					<th>Name Of Legislation</th>
+					<th>Rule</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+					
+					<tr ng-repeat="legName in legTask" ng-if="task.length>0">
+						<td>{{legName.task_legi_name}}</td>
+						<td>{{legName.task_rule_name}}</td>
+					
+					</tr>
+					<tr ng-if="legTask.length==0"> 
+					  <td colspan="13">No result found.</td>
+					</tr>
+			</tbody>
+		</table>
+
+		<!-- /Annextures -->
+	
+
+	
+
+		<h4>Annexure 2</h4>
+
+		<table id="example" class="table table-striped table-bordered"
+			width="100%" cellspacing="0">
+			<thead>
+				<tr style="background: #0B6EC3; color: #fff;">
+
+					<th>Task Id</th>
+					<th>Legislation</th>
+					<th>Rule</th>
+					<th>Who</th>
+					<th>When</th>
+					<th>Activity</th>
+					<th>Executor</th>
+					<th>Evaluator</th>
+					<th>Function Head</th>
+					<th>Impact</th>
+					<th>Frequency</th>
+					<th>Legal Due Date</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+					
+					<tr ng-repeat="non_complied in task" ng-if="task.length>0">
+						<td>{{non_complied.client_task_id}}</td>
+						<td>{{non_complied.task_legi_name}}</td>
+						<td>{{non_complied.task_rule_name}}</td>
+						<td>{{non_complied.task_who}}</td>
+						<td>{{non_complied.task_when}}</td>
+						<td>{{non_complied.task_activity}}</td>
+						<td>{{non_complied.task_executor}}</td>
+						<td>{{non_complied.task_evaluator}}</td>
+						<td>{{non_complied.task_functionhead}}</td>
+						<td>{{non_complied.task_impact}}</td>
+						<td>{{non_complied.task_frequency}}</td>
+						<td>{{non_complied.task_legal_due_date}}</td>
+					
+					</tr>
+					<tr ng-if="task.length==0"> 
+					  <td colspan="13">No result found.</td>
+					</tr>
+			</tbody>
+		</table>
+
+		<!-- /Annextures -->
+	
+	
+	
+
+		<h4>Annexure 2 </h4>
+		<table id="example" class="table table-striped table-bordered"
+			width="100%" cellspacing="0">
+			<thead>
+				<tr style="background: #0B6EC3; color: #fff;">
+					<th>Entity</th>
+					<th>Unit</th>
+					<th>Function</th>
+					<th>Related To</th>
+					<th>Notice Date</th>
+					<th>Received Date</th>
+					<th>Deadline Date</th>
+					<th>Responsible Person</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr ng-repeat="noti in notices" ng-if="notices.length>0">
+						<td>{{noti.orga_name}}</td>
+						<td>{{noti.loca_name}}</td>
+						<td>{{noti.dept_name}}</td>
+						<td>{{noti.notice_related_to}}</td>
+						<td>{{noti.notice_date}}</td>
+						<td>{{noti.notice_recived_date}}</td>
+						<td>{{noti.notice_deadline_date}}</td>
+						<td>{{noti.notice_responsible_name}}</td>
+						<td>{{noti.notice_status}}</td>
+					</tr>
+					<tr ng-if="notices.length==0"> 
+					  <td colspan="13">No result found.</td>
+					</tr>
+			</tbody>
+		</table>
+	
+
+	
+	
+	<br /> <br /> <br />
+</div>

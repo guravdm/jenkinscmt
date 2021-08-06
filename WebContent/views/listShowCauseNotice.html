@@ -1,0 +1,139 @@
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="col-md-10">
+				<div class="header_button">
+					<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+					<h2 style="color: #032BEC; font-size: 24px; float: left;">Show
+						Cause Notices</h2>
+					<!-- <a ng-click="backToPreviousState()"><img
+						src="images/DashboardIcons/backold.png" class="backButton"
+						width="100px;"></a> -->
+					<site-header Back="" forward="forward"></site-header>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<center>
+					<a ui-sref="createShowCauseNotice"  class="btn btn-primary">Create
+						New</a>
+				</center>
+
+
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<!--first form-->
+		<form role="form" class="form-horizontal" >
+			<div class="f_form_content">
+				<h2>Search</h2>
+
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="user_orga_id" class="control-label col-sm-4"
+								for="sel1">Vertical :</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="orga_id" ng-model="searchObj.orga_id" ng-options="e.orga_id as e.orga_name for e in entityList" ng-change="getEntityDependentArray()" required>
+									<option value="">--Select--</option>
+									 </select>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="user_loca_id" class="control-label col-sm-4"
+								for="sel1">Unit :</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="loca_id" ng-model="searchObj.loca_id" ng-options="u.loca_id as u.loca_name for u in unitList | orderBy:'loca_name'" ng-change="getUnitDependentArray()">
+									<option value="">--Select--</option>
+									</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="user_dept_id" class="control-label col-sm-4"
+								for="sel1">Function :</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="dept_id" ng-model="searchObj.dept_id" ng-options="f.dept_id as f.dept_name for f in functionList">
+									<option value="">--Select--</option>
+									</select>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="col-md-12 litigation_buttons">
+
+					<center>
+						<button type="submit" ng-click="searchTasks()"  class="btn btn-myPrimary btn-save">Search</button>
+					</center>
+
+				</div>
+			</div>
+		</form>
+
+		<div style="clear: both"></div>
+
+		<div class="table_data1">
+			<div class="container">
+
+
+
+				<table class="table table-striped table-bordered" width="100%"
+					cellspacing="0">
+					<thead>
+						<tr style="background: #0B6EC3; color: #fff;">
+							<th>Sr.No.</th>
+							<th>Vertical</th>
+							<th>Unit</th>
+							<th>Function</th>
+							<th>Show Cause Related to</th>
+							<th>Notice Date</th>
+							<th>Received Date</th>
+							<th>Deadline Date</th>
+							<!-- <th>Comments</th> -->
+							<th>Action Taken</th>
+							<!-- <th>Next Action Item</th> -->
+							<th>Responsible Person</th>
+							<th>Reporting person</th>
+							<th>Remainder Date</th>
+							<th>Update</th>
+							<th>Status</th>
+							<!-- <th>Document</th> -->
+						</tr>
+					</thead>
+
+					<tbody id="searchResult">
+						<tr ng-repeat="notice in ShowCauseNoticeList">
+								<td><center><a target="_blank" ng-click="getShowCauseHistoryList(notice.scau_id)">{{$index+1}}</a></center></td>
+								<td>{{notice.orga_name}}</td>
+								<td>{{notice.loca_name}}</td>
+								<td>{{notice.dept_name}}</td>
+								<td>{{notice.related_to}}</td>
+								<td>{{notice.notice_date}}</td>
+								<td>{{notice.recieved_date}}</td>
+								<td>{{notice.deadline_date}}</td>
+								<td>{{notice.action_taken}}</td>
+								<td>{{notice.responsible_user_name}}</td>
+								<td>{{notice.reporting_user_name}}</td>
+								<td>{{notice.reminder_date}}</td>
+								<td class="edit"><a><button ng-click="editShowCuaeNotice(notice.scau_id)"
+											type="button"  class="btn btn-primary">
+											<i class="fa fa-pencil-square-o"></i> &nbsp;Edit
+										</button></a></td>
+								<td>{{notice.status}} </td>
+								
+									
+							</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

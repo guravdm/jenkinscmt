@@ -1,0 +1,321 @@
+
+<div class="page_cont_padd">
+	<div class="page_container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="header_button">
+						<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+						<h2 style="color: #032BEC; font-size: 24px; float: left;">Default
+							Task Configuration</h2>
+						<!-- <a ng-click="backToPreviousState()"><img
+							src="images/DashboardIcons/backold.png" class="backButton"
+							width="100px;"></a> -->
+						<site-header Back="" forward="forward"></site-header>
+					</div>
+				</div>
+
+			</div>
+			<!-- Filters -->
+			<form class="form-horizontal" role="form" method="post">
+				<div class="f_form_content">
+					<h2>Search</h2>
+					<div class="col-md-12">
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Vertical
+									:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="orga_id" ng-model="searchObj.orga_id" ng-options="e.orga_id as e.orga_name for e in entityList" ng-change="getEntityDependentArray()">
+									<option value="">--Select--</option>
+									 </select>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Unit :</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="loca_id" ng-model="searchObj.loca_id" ng-options="u.loca_id as u.loca_name for u in unitList | orderBy:'loca_name'" ng-change="getUnitDependentArray()">
+									<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Function:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="dept_id" ng-model="searchObj.dept_id" ng-options="f.dept_id as f.dept_name for f in functionList" ng-change="getFunctionDependentArray()">
+									<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Executor:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="exec_id" ng-model="searchObj.executor_id" ng-options="ex.exec_id as ex.exec_name for ex in executorList">
+									<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Evaluator:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="eval_id" ng-model="searchObj.evaluator_id" ng-options="ev.eval_id as ev.eval_name for ev in evaluatorList">
+									<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Type:</label>
+								<div class="col-sm-8">
+									<select id="dtco_after_before" class="form-control" ng-model="searchObj.dtco_after_before" ng-options="t.id as t.name for t in after_before" required>
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 litigation_buttons">
+						<br>
+						<center>
+							<div id="search">
+						<button type="submit" ng-click="searchTasks()"  class="btn btn-myPrimary btn-save">Search</button>
+						</div>
+							
+						</center>
+						
+					</div>
+				</div>
+			</form>
+
+			<div style="overflow-x: scroll;">
+				<label class="control-label " for="">Total Task : {{taskList.length}}</label> 
+				<table id="example" class="table table-striped table-bordered"
+					width="100%" cellspacing="0">
+					<thead id="task_table_body">
+						<tr style="background: #0B6EC3; color: #fff;">
+							<th>Task Id</th>
+							<th>Client Task Id</th>
+							<th>Frequency</th>
+							<th>Event</th>
+							<th>Sub Event</th>
+							<th>Type</th>
+							<th>Edit/Update</th>
+						</tr>
+					</thead>
+					<tbody id="search_result">
+						
+						<tr ng-repeat="list in taskList" ng-if="taskList.length>0">
+							 	<td>{{list.lexcare_task_id}} </td>
+								<td>{{list.dtco_client_task_id}}</td>
+								<td>{{list.dtco_frequency}}</td>
+								<td>{{list.dtco_event}}</td>
+								<td>{{list.dtco_sub_event}}</td>
+								<td>{{list.dtco_after_before}}</td>
+								<td>
+								<img title="Edit Configuration" style="cursor: pointer; cursor: hand;" src="images/taskActivationImg/config.png"
+								ng-click="editDefaultConfiguration(list)" width="40px" height="40px" />
+								</td>
+								
+							
+							</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="editConfiguration" class="modal fade" role="dialog">
+<div class="modal-dialog">
+	<div class="modal-content" style="width: 117%">
+	<form autocomplete="off" name="configForm" class="form-horizontal" novalidate>
+		<div class="modal-header">
+			<button aria-hidden="true" data-dismiss="modal"
+				class="bootbox-close-button close" type="button">×</button>
+			<h4 class="modal-title">
+				Update Default Task Configuration for &nbsp;<strong>{{NtmapObj.dtco_client_task_id}}</strong>
+			</h4>
+		</div>
+		<div class="modal-body">
+			<div class="bootbox-body">
+				<style>
+#legalDateConfig {
+	z-index: 1151 !important;
+}
+
+table tr td {
+	text-align: center;
+	padding: 5px;
+}
+
+table tr th {
+	text-align: center;
+}
+
+table tr td input {
+	text-align: center;
+}
+
+table tr td select option {
+	text-align: center;
+}
+</style>
+				<div class="row">
+					<div class="col-md-12">
+						<table width="100%">
+							<tbody>
+								<tr>
+									<th style="padding-bottom: 20px;">#</th>
+									<th style="padding-bottom: 20px;">Original Configuration</th>
+									<th style="padding-bottom: 20px;">New Configuration</th>
+								</tr>
+								
+								
+								<tr>
+									<td ><label for="sel1" class="control-label col-sm-12">Type</label></td>
+									<td ><div class="form-group">
+											<div class="col-sm-12">
+												<input type="text" name="task_impact" ng-model="tmapObj.dtco_after_before" readonly="" class="form-control" required>
+											</div>
+										</div>
+										
+										</td>
+									<td>
+									   <select style="margin-top: -15px;" name="type"  id="dtco_after_before" class="form-control" ng-model="NtmapObj.dtco_after_before" ng-options="t.id as t.name for t in after_before" required>
+										<option value="">--Select--</option>
+										
+									</select> 
+									   <div ng-messages="configForm.type.$error" ng-if="configForm.$submitted">
+									      <span class="error-text" ng-message="required">Select Type.</span>
+								       </div>
+									</td>
+								</tr>
+								
+								
+								<tr ng-if="NtmapObj.dtco_after_before!='Same'">
+									
+									<td><label for="sel1" class="control-label col-sm-12">Buffer Days</label></td>
+									<td></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input type="number"  placeholder="Buffer Days.." ng-model="NtmapObj.ttrn_prior_days_buffer" name="update_alert_prior_days"
+													class="form-control" id="update_alert_prior_days">
+											</div>
+										</div></td>
+								</tr>
+								<tr ng-if="NtmapObj.dtco_after_before!='Same'">
+									<td><label for="sel1" class="control-label col-sm-12">Legal Days</label></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input type="number" ng-model="tmapObj.dtco_legal_days" readonly="" class="form-control">
+											</div>
+										</div></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input class="form-control" name="legal_days" placeholder="Entity Head Days.." ng-change="getDays();validateDays();" ng-model="NtmapObj.dtco_legal_days" type="text">
+											</div>
+											<div ng-messages="configForm.legal_days.$error" ng-if="configForm.$submitted">
+							            </div> 
+							            <p class="error-text">{{errMessage.lh_date}}</p>
+										</div></td>
+								</tr>
+								<tr ng-if="NtmapObj.dtco_after_before!='Same'">
+									<td><label for="sel1" class="control-label col-sm-12">Unit Head Days</label></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input type="number" ng-model="tmapObj.dtco_uh_days" readonly="" class="form-control">
+											</div>
+										</div></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input class="form-control" name="unithead_days" placeholder="Unit Head Days.." ng-model="NtmapObj.dtco_uh_days" type="text">
+											</div>
+											<div ng-messages="configForm.unithead_days.$error" ng-if="configForm.$submitted">
+								          <span class="error-text" ng-message="required">Select date. </span> 
+							            </div> 
+							            <p class="error-text">{{errMessage.uh_date}}</p>
+										</div></td>
+								</tr>
+								<tr ng-if="NtmapObj.dtco_after_before!='Same'">
+									<td><label for="sel1" class="control-label col-sm-12">Function Head Days</label></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input type="number" ng-model="tmapObj.dtco_fh_days" readonly="" class="form-control">
+											</div>
+										</div></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input class="form-control" name="functionhead_days" placeholder="Function Head Days.." ng-model="NtmapObj.dtco_fh_days" type="text">
+											</div>
+											<div ng-messages="configForm.functionhead_days.$error" ng-if="configForm.$submitted">
+								          <span class="error-text" ng-message="required">Select date. </span> 
+							            </div> 
+							            <p class="error-text">{{errMessage.fh_date}}</p>
+										</div></td>
+								</tr>
+								<tr ng-if="NtmapObj.dtco_after_before!='Same'">
+									<td><label for="sel1" class="control-label col-sm-12">Evaluator Days</label></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input type="number" ng-model="tmapObj.dtco_rw_days" readonly="" class="form-control">
+											</div>
+										</div></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input class="form-control" name="evaluator_days" placeholder="Evaluator Days.." ng-model="NtmapObj.dtco_rw_days" type="text">
+											</div>
+											<div ng-messages="configForm.evaluator_days.$error" ng-if="configForm.$submitted">
+							            </div> 
+							            <p class="error-text">{{errMessage.rw_date}}</p>
+										</div></td>
+								</tr>
+								<tr ng-if="NtmapObj.dtco_after_before!='Same'">
+									<td><label for="sel1" class="control-label col-sm-12">Executor Days</label></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input type="number" ng-model="tmapObj.dtco_pr_days" readonly="" class="form-control">
+											</div>
+										</div></td>
+									<td><div class="form-group">
+											<div class="col-sm-12">
+												<input class="form-control" name="executor_days" placeholder="Executor Days.." ng-model="NtmapObj.dtco_pr_days" type="text">
+											</div>
+											<div ng-messages="configForm.executor_days.$error" ng-if="configForm.$submitted">
+							            </div> 
+							            <p class="error-text">{{errMessage.pr_date}}</p>
+										</div></td>
+								</tr>
+								<tr>
+									<td style="Display:none;">
+									      <input type="text" class="form-control" name="validate_dates" ng-model="NtmapObj.validate_dates"/>
+											   <div ng-messages="configForm.validate_dates.$error" ng-if="configForm.$submitted">
+											      <span class="error-text" ng-message="required">Check Date validation.</span>
+										       </div>
+						             </td>
+						             <td></td>
+									<td><input type="submit" ng-click="updateDefaultTaskConfiguration(configForm.$valid);"
+										value="Update Configuration" name="config"
+										class="btn btn-success"></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	</div>
+</div>
+</div>

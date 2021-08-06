@@ -1,0 +1,411 @@
+
+<div>
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="header_button">
+				<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Reports</h2>
+				<!-- <a ng-click="backToPreviousState()"><img
+					src="images/DashboardIcons/backold.png" class="backButton"
+					width="100px;"></a> -->
+				<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<!--first form-->
+		<form name="taskSearchForm" class="form-horizontal" role="form">
+			<div class="f_form_content">
+				<h2>Search</h2>
+
+				<div class="col-md-12">
+					<div class="col-md-2" style=" margin-left: 270px;" >
+						<label class="radio-inline control-label"  > 
+								<input type="radio" id="reportPeriod" name="legalDate" value="reportPeriod" ng-model="tmapObj.ChooseROrL">
+								Report Period
+								</label> 
+					</div>
+						<div id="reportPeriodBody">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">From :</label>
+									<div class="col-sm-8">
+										<div flex-gt-xs>
+											<md-datepicker ng-model="from_date" md-placeholder="Enter date" md-max-date="max_date"></md-datepicker>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">To :</label>
+									<div class="col-sm-8">
+										<div flex-gt-xs>
+											<md-datepicker ng-model="to_date" md-placeholder="Enter date" md-max-date="max_date"></md-datepicker>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-md-2" style=" margin-left: 270px;">
+							<label class="radio-inline control-label"> <input type="radio"
+								id="legalDate" name="legalDate" value="legalDate"
+								ng-model="searchObj.ChooseROrL">Legal Date
+							</label>
+					</div> -->
+                     <!-- <div id="legalDateBody" ng-if="searchObj.ChooseROrL =='legalDate'">
+                   	<div class="col-md-3">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">From :</label>
+							<div class="col-sm-8">
+								<div flex-gt-xs>
+											<md-datepicker ng-model="searchObj.legalDateTo"
+												md-placeholder="Enter date"></md-datepicker>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">To :</label>
+							<div class="col-sm-8">
+								<div flex-gt-xs>
+											<md-datepicker ng-model="searchObj.legalDateTo"
+												md-placeholder="Enter date"></md-datepicker>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div> -->
+					<br>
+					<br>
+					<br>
+					<!-- <br>
+					<br> -->
+					<div class="col-md-4">
+					<div class="form-group">
+							  <label class="control-label col-sm-4" for="sel1">Vertical:</label>
+							  <div class="col-sm-8">
+								<select class="form-control" name="user_organization_id" ng-model="tmapObj.entity_id" ng-options="e.orga_id as e.orga_name for e in entityList" ng-change="getEntityDependentArray()" >
+									<option value="">--Select--</option>
+								</select>
+							  </div>
+							</div>
+						</div>
+						<div class="col-md-4">
+						<div class="form-group">
+							  <label class="control-label col-sm-4" for="sel1">Unit:</label>
+							  <div class="col-sm-8">
+							 						  
+							  <select class="form-control" name="user_location_id" ng-model="tmapObj.unit_id" ng-options="u.loca_id as u.loca_name for u in unitList | orderBy:'loca_name'" ng-change="getUnitDependentArray()" >
+									<option value="">--Select--</option>
+								</select>
+							  </div>
+							</div>
+						</div>
+					<div class="col-md-4">
+					<div class="form-group">
+							  <label class="control-label col-sm-4" for="sel1">Function:</label>
+							  <div class="col-sm-8">
+								<select class="form-control" name="user_department_id" ng-model="tmapObj.func_id" ng-options="f.dept_id as f.dept_name for f in functionList" ng-change="" >
+									<option value="">--Select--</option>
+								</select>
+							  </div>
+							</div>
+							</div>
+					<!-- <div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Evaluator
+								:</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="tmap_rw_user_id" ng-model=""  ng-change="" >
+									<option value="">--Select--</option>
+									</select>
+							</div>
+						</div>
+					</div> -->
+					<!-- <div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Executor
+								:</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="tmap_pr_user_id" ng-model=""  ng-change="" >
+									<option value="">--Select--</option>
+									</select>
+							</div>
+						</div>
+					</div> -->
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Complied/Non-Complied
+								:</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="status" ng-model="tmapObj.legal_status" ng-options = "s.id as s.name for s in statusList" ng-change="" >
+								      <option value="">--Select--</option>
+								   </select>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">  Impact
+								:</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="impact" ng-model="tmapObj.task_impact" ng-options = "i.id as i.name for i in impactList" >
+								      <option value="">--Select--</option>
+								   </select>
+							</div>
+						</div>
+					</div> 
+					
+					
+					<!-- <div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="sel1" >Legislation :</label>
+								<div class="col-sm-10">
+									
+									<input type="hidden" id='legi_id' name="legi_id" value="0" />
+									<input type="text" class="form-control" name="legislation" id="legislation" />
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="sel1">Rule :</label>
+								<div class="col-sm-10">
+									
+									<input type="hidden" id='rule_id' name="rule_id" value="0" />
+									<input type="text" class="form-control" name="rule" id="rule" />
+									
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</div>
+
+				<br>
+				<div class="col-md-12 litigation_buttons">
+					<div id="leti_button">
+						<div class="col-md=12">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<div class="col-md-12">
+								<center>
+										<button type="submit"
+											ng-click="getTaskList(taskSearchForm.$valid)"
+											class="btn btn-myPrimary btn-save">Generate Report</button>
+										<button ng-if="taskList.length>0" class="btn btn-myWarning toggle" id="ExportTask" name="ExportTask"
+										ng-click="toggle()" data-toggle="exportTable">Export
+										Data</button>
+									</center>
+								</div>
+								<div class="col-md-12">
+									<div class="panel-body" id="exportTable">
+										<div class="list-group border-bottom">
+										
+											<!-- <a href="#" class="list-group-item col-md-3"
+												onClick="ExportExcels_Maintask()"><img
+												src='images/reportIcons/xls.png' width="24" /> Main Task (XLS)</a>
+											
+											<a href="#" class="list-group-item col-md-3"
+												onClick="ExportExcels_Subtask()"><img
+												src='images/reportIcons/xls.png' width="24" /> Sub Task (XLS)</a>
+											
+											<a href="javascript:generateMaintask_Pdf()"
+												class="list-group-item col-md-3" ><img
+												src='images/reportIcons/pdf.png' width="24" />Main Task PDF</a>
+											
+											<a href="javascript:generateSubtask_Pdf()"
+												class="list-group-item col-md-3" ><img
+												src='images/reportIcons/pdf.png' width="24" />Sub Task PDF</a>	 -->
+												
+											<div ng-hide="ExportTask">
+											<a ng-if="taskList.length>0" class="list-group-item col-md-6" 
+												ng-click="ExportExcels_Maintask()"><img
+												src='images/reportIcons/xls.png' width="24" /> Main Tasks (XLS)</a>
+											
+											<a ng-if="taskList.length>0" ng-click ="generateMaintask_Pdf()"
+												class="list-group-item col-md-6" ><img
+												src='images/reportIcons/pdf.png' width="24" /> Main Tasks (PDF)</a>
+											
+											<a ng-if="subTaskList.length>0" class="list-group-item col-md-6"
+												ng-click="ExportExcels_Subtask()"><img
+												src='images/reportIcons/xls.png' width="24" /> Sub Tasks (XLS)</a>
+												
+											<a ng-if="subTaskList.length>0" ng-click ="generateSubtask_Pdf()"
+												class="list-group-item col-md-6" ><img
+												src='images/reportIcons/pdf.png' width="24" /> Sub Tasks (PDF)</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+					
+				</div>
+			</div>
+		</form>
+
+		<div style="clear: both"></div>
+		<!-- Tab Nevigation -->
+		<!-- <ul id="myTab" class="nav nav-tabs mynav-tabs">
+			
+			<li class="active"><a href="#MainTask" data-toggle="tab"><label>Main
+						Tasks ({{taskList.length}}) </a></li>
+
+			<li><a href="#SubTask" data-toggle="tab"><label>Sub
+						Tasks (<label id="SubTaskConut">0</label>) </a></li>
+			
+				<li class="active"><a href="#MainTask" data-toggle="tab"><label>Tasks (<label id="MainTaskConut">0</label>) </a></li>
+			
+		</ul> -->
+		<div class="col-md-12" style="padding: 5px; font-size: 12px;">
+		<!-- <div class="tab-content">
+			<div class="tab-pane fade in active" id="MainTask">
+				<div class="f_form_content">
+					<h2>Main Tasks</h2>
+					<div id="reportList_sub_div" style="width: 99%; overflow-x: scroll;"> -->
+					<md-content> 
+			       <md-tabs md-dynamic-height md-border-bottom>
+			              <md-tab ng-if="taskList.length>0" label="Main Tasks ({{taskList.length}})"> 
+			                   <div class="col-md-12"
+						style="overflow-x: scroll; margin-top: 20px; width: 96%;">
+						<table id="reportList1" class="table table-striped table-bordered"  width="100%" cellspacing="0">
+							<thead>
+								<tr style="background: #0B6EC3; color: #fff;">
+									<th>Sr.No.</th>
+								<th>Client Task ID</th>
+								<th>Vertical</th>
+								<th>Unit</th>
+								<th>Function</th>
+								<th>Legislation</th>
+								<th>Rule</th>
+								<th>Reference</th>
+								<th>Who</th>
+								<th>When</th>
+								<th>Activity</th>
+								<th>Owner</th>
+								<th>Approver</th>
+								<th>Function Head</th>
+								<th>Impact</th>
+								<th>Implication</th>
+								<th>Original Frequency</th>
+								<th>Frequency</th>
+								<th>Legal Due Date</th>
+								<th>Completed Date</th>
+								<th>Submitted Date</th>
+								<th>Status</th>
+								<th>Document Attached</th>
+								<th>Comments</th>
+								<th>Reason For Non-Compliance</th>
+								</tr>
+							</thead>
+							<tbody id="SubtaskReport">
+								 <tr ng-repeat="list in taskList" ng-if="taskList.length>0">
+							 	<td>{{$index+1}}</td>
+								<td>{{list.tmap_client_task_id}}</td>
+								<td>{{list.entity_name}}</td>
+								<td>{{list.unit_name}}</td>
+								<td>{{list.function_name}}</td>
+								<td>{{list.task_legi_name}}</td>
+								<td>{{list.task_rule_name}}</td>
+								<td>{{list.task_reference}}</td>
+								<td>{{list.task_who}}</td>
+								<td>{{list.task_when}}</td>
+								<td>{{list.task_activity}}</td>
+								<td>{{list.executor_name}}</td>
+								<td>{{list.evaluator_name}}</td>
+								<td>{{list.fun_head_name}}</td>
+								<td>{{list.task_impact}}</td>
+								<td>{{list.task_implication}}</td>
+								<td>{{list.original_frequecny}}</td>
+								<td>{{list.task_frequency}}</td>
+								<td>{{list.ttrn_legal_due_date}}</td>
+								<td>{{list.ttrn_completed_date}}</td>
+								<td>{{list.ttrn_submitted_date}}</td>
+								<td>{{list.task_status}}</td>
+								<td ng-if="list.document_attached == 1">Yes</td>
+								<td ng-if="list.document_attached == 0">No</td>
+								<td>{{list.ttrn_performer_comments}}<br>
+								<b ng-if="list.document_attached == 1">Document: </b><p ng-repeat="doc in list.document_list">
+							             <a style="cursor: pointer; color: blue;" ng-click="downloadProof(doc.udoc_id)"> {{doc.udoc_original_file_name}} </a>
+							         </p>
+								</td>
+								<td>{{list.ttrn_reason_for_non_compliance}}</td>
+							
+							</tr>
+							<tr ng-if="taskList.length==0"><td colspan="20">No record found</td></tr>
+							</tbody>
+						</table>
+					</div>
+					 </md-tab>
+					 
+					 <md-tab ng-if="subTaskList.length>0" label="Sub Tasks ({{subTaskList.length}})">
+				<div style="overflow-x: scroll; margin-top: 20px; width: 100%;"
+					class="col-md-12">
+					<table id="reportList2" class="table table-bordered" style="width: 100%;">
+						<thead>
+							<tr style="background: #0B6EC3; color: #fff;">
+								<th>Sr. No.</th>
+								<th>Client Task ID</th>
+								<th>Sub Task ID</th>
+								<th>Vertical</th>
+								<th>Unit</th>
+								<th>Function</th>
+								<th>Equipment Type</th>	
+								<th>Equipment No</th>
+								<th>Equipment Unit</th>
+								<th>Equipment Description</th>
+								<th>Frequency</th>
+								<th>Owner</th>
+								<th>Examination Date</th>
+								<th>Completed Date</th>
+								<th>Submitted Date</th>
+								<th>Legal Status</th>
+								<th>Comments</th>
+								<th>Reason For Non-Compliance</th>
+							</tr>
+						</thead>
+						<tbody id="SubtaskReport">
+								 <tr ng-repeat="list in subTaskList" ng-if="subTaskList.length>0">
+							 	<td>{{$index+1}}</td>
+								<td>{{list.tmap_client_task_id}}</td>
+								<td>{{list.sub_task_id}}</td>
+								<td>{{list.entity_name}}</td>
+								<td>{{list.unit_name}}</td>
+								<td>{{list.function_name}}</td>
+								<td></td>
+								<td>{{list.equi_number}}</td>
+								<td>{{list.equi_location}}</td>
+								<td>{{list.equi_description}}</td>
+								<td>{{list.task_frequency}}</td>
+								<td>{{list.executor_name}}</td>
+								<td>{{list.ttrn_legal_due_date}}</td>
+								<td>{{list.ttrn_completed_date}}</td>
+								<td>{{list.ttrn_submitted_date}}</td>
+								<td>{{list.task_status}}</td>
+								<td>{{list.ttrn_performer_comments}}</td>
+								<td>{{list.ttrn_reason_for_non_compliance}}</td>
+							</tr>
+							<tr ng-if="subTaskList.length==0"><td colspan="20">No record found</td></tr>
+							</tbody>
+						</table>
+				</div>
+				</md-tab>  
+			        </md-tabs> 
+			</md-content>
+			</div>
+			
+		</div>
+		</div>
+	</div>
+</div>
+</div>

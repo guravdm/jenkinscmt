@@ -1,0 +1,57 @@
+<!-- <ng-include src="'views/partial/header.html'"></ng-include> -->
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<!--heading text-->
+			<div class="col-md-12">
+				<div class="header_button">
+					<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+					<h2 style="color: #032BEC; font-size: 24px; float: left;">Function</h2>
+					<!-- <a ng-click="backToPreviousState()"><img src="images/DashboardIcons/backold.png"
+						class="backButton" width="100px;"></a> -->
+					<site-header Back="" forward="forward"></site-header>
+				</div>
+			</div>
+			<div style="clear: both"></div>
+			<!--first form-->
+			<form autocomplete="off" name="deparmentForm" class="form-horizontal" novalidate>
+				<div class="col-lg-12">
+					<center>
+						<h2 style="color: red;">&#42; Mandatory Fields</h2>
+					</center>
+				</div>
+
+				<div class="f_form_content">
+					<h2 ng-if="departmentObj.dept_id==0">Create Function</h2>
+					<h2 ng-if="departmentObj.dept_id!=0">Edit Function</h2>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Function:</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" name="dept_name" ng-minlength="2" ng-model="departmentObj.dept_name" ng-keyup="duplicateDepartment(deparmentForm.$valid)" ng-keydown="duplicateDepartment(deparmentForm.$valid)"  ng-pattern="/^[a-zA-Z _\\\/.’'-]+$/" required/><i class="asterisk_input"></i>
+								<div ng-messages="deparmentForm.dept_name.$error" ng-if="deparmentForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter department name.</span>
+								  <span class="error-text" ng-message="minlength">Department name should be more than single character</span>
+								</div>
+								<span class="error-text" ng-if="!newDeptName">Department name already exist.</span>
+								<div ng-messages="deparmentForm.dept_name.$error" ng-if="departmentForm.$submitted">
+								  <span class="error-text" ng-message="pattern">Special charcters are not allowed.</span>
+							   </div>
+							</div>
+						</div>
+					</div>
+				<div class="col-md-12 litigation_buttons">
+						<br><center>
+						<input type="submit" ng-if="departmentObj.dept_id==0" ng-click="addDepartment(deparmentForm.$valid)" value="Add" class="btn btn-myPrimary btn-save"/>
+						<input type="submit" ng-if="departmentObj.dept_id!=0"  ng-click="updateDepartment(deparmentForm.$valid)" value="Update" class="btn btn-myPrimary btn-update" />
+						</center>
+					</div>
+				</div>
+			</form>
+
+			<div style="clear: both"></div>
+
+		</div>
+	</div>
+</div>
+

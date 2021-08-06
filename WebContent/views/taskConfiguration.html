@@ -1,0 +1,649 @@
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+ -->
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<!--heading text-->
+
+			<div class="col-md-12">
+				<div class="header_button">
+					<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Calender</button>-->
+					<h2 id="user_header">Task Configuration</h2>
+					<!-- <a ng-click="backToPreviousState()"><img
+					src="images/DashboardIcons/backold.png" class="backButton"
+					width="100px;"></a> -->
+					<site-header Back="" forward="forward"></site-header>
+				</div>
+			</div>
+
+			<div class="div_style"></div>
+			<!--first form-->
+
+
+			<form autocomplete="off" name="taskSearchForm"
+				class="form-horizontal" novalidate>
+				<div class="col-md-12">
+					<center>
+						<h2 style="color: red;">&#42; Mandatory Fields</h2>
+					</center>
+				</div>
+				<div class="f_form_content">
+					<h2>Search</h2>
+					<div class="col-md-12">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Country:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="country_id"
+										ng-model="searchObj.country_id"
+										ng-options="c.country_id as c.country_name for c in countriesList"
+										ng-change="getList();" required>
+										<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="taskSearchForm.country_id.$error"
+										ng-if="taskSearchForm.$submitted">
+										<span class="error-text" ng-message="required">Select
+											Country.</span>
+									</div>
+
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Choose
+									:</label>
+								<div class="col-md-6">
+									<label class="radio-inline"> <input type="radio"
+										id="state" name="state" value="states"
+										ng-model="searchObj.ChooseSOrC" ng-change="getList()">States
+									</label> <label class="radio-inline"> <input type="radio"
+										id="central" name="state" value="central"
+										ng-model="searchObj.ChooseSOrC" ng-change="getList();">Central
+									</label>
+								</div>
+							</div>
+							<div class="form-group" id="stateBody"
+								ng-if="searchObj.ChooseSOrC =='states'">
+								<label class="control-label col-sm-4" for="sel1">State :</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="state_id"
+										ng-model="searchObj.state_id"
+										ng-options="s.state_id as s.state_name for s in stateList"
+										ng-change="getCategoryOfLawList();getalllegiList()">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Category
+									of Law :</label>
+								<div class="col-sm-4">
+									<select class="form-control" name="cat_id"
+										ng-model="searchObj.cat_id"
+										ng-options="c.cat_law_id as c.cat_law_name for c in categoryOfLawList"
+										ng-change="getalllegiList()">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Legislation
+									:</label>
+								<div class="col-sm-9">
+									<ui-select ng-model="legiList.selected" theme="bootstrap"
+										style="max-width: 545px;" ng-change="getalllegiRuleList()">
+									<ui-select-match placeholder="Select legislation">
+									{{$select.selected.legi_name}}
+									<button class="clear" ng-click="clearLegiList($event)">X</button>
+									</ui-select-match> <ui-select-choices
+										repeat="legiList in alllegiList  | propsFilter: {legi_name: $select.search}">
+									<div
+										ng-bind-html="legiList.legi_name | highlight: $select.search"></div>
+									<!--   {{legiList.legi_name}} --> </ui-select-choices> </ui-select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-3" for="sel1">Rules :</label>
+								<div class="col-sm-9">
+									<ui-select ng-model="legiRuleL.selected" theme="bootstrap"
+										style="max-width: 545px;" remove-selected="false">
+									<ui-select-match placeholder="Select rules">
+									<button class="clear" ng-click="clearLegiRuleL($event)">X</button>
+									{{$select.selected.rule_name}} </ui-select-match> <ui-select-choices
+										repeat="legiRuleL in legiRuleList  | propsFilter: {rule_name: $select.search}">
+
+									<div
+										ng-bind-html="legiRuleL.rule_name | highlight: $select.search"></div>
+									<!-- ////{{legiRuleL.rule_name}} --> </ui-select-choices> </ui-select>
+									<br /> (<strong>Note :</strong> If Rule is not available then
+									Select <strong>'NA'</strong> Option)
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Vertical
+									:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="tmap_orga_id"
+										ng-model="searchObj.tmap_orga_id"
+										ng-options="e.orga_id as e.orga_name for e in entityList"
+										ng-change="getUnitListByEntity(searchObj.tmap_orga_id)">
+										<option value="">--Select--</option>
+									</select>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Unit :</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="tmap_loca_id"
+										ng-model="searchObj.tmap_loca_id"
+										ng-options="u.loca_id as u.loca_name for u in unitList | orderBy:'loca_name'"
+										ng-change="getFunctionListByUnit()" multiple
+										style="height: 200px">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Function
+									:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="tmap_dept_id"
+										ng-model="searchObj.tmap_dept_id"
+										ng-options="f.dept_id as f.dept_name for f in functionList"
+										ng-change="getExecutorList()">
+										<option value="">--Select--</option>
+									</select>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Owner :</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="tmap_pr_user_id"
+										ng-model="searchObj.tmap_pr_user_id"
+										ng-options="ex.user_id as ex.user_name for ex in executorList"
+										ng-change="getEvaluatorList()">
+										<option value="">--Select--</option>
+									</select>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Approver
+									:</label>
+								<div class="col-sm-8">
+									<select class="form-control" name="tmap_rw_user_id"
+										ng-model="searchObj.tmap_rw_user_id"
+										ng-options="ev.user_id as ev.user_name for ev in evaluatorList">
+										<option value="">--Select--</option>
+									</select>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Frequency:</label>
+								<div class="col-sm-8">
+									<select class="form-control" id="tmap_frequency"
+										ng-model="searchObj.frequency">
+										<option value="NA">-- Select Frequency --</option>
+										<option value="User_Defined">User Defined</option>
+										<option value="One_Time">One Time</option>
+										<option value="Weekly">Weekly</option>
+										<option value="Fortnightly">Fortnightly</option>
+										<option value="Monthly">Monthly</option>
+										<option value="Two_Monthly">Two Monthly</option>
+										<option value="Quarterly">Quarterly</option>
+										<option value="Half_Yearly">Half Yearly</option>
+										<option value="Yearly">Yearly</option>
+										<option value="Two_Yearly">Two yearly</option>
+										<option value="Three_Yearly">Three yearly</option>
+										<option value="Five_Yearly">Five Yearly</option>
+										<option value="Eight_Yearly">Eight yearly</option>
+										<option value="Ten_Yearly">Ten Yearly</option>
+										<option value="Event_Based">Event based</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="col-md-12 litigation_buttons">
+						<br>
+						<center>
+							<div id="search">
+								<input type="submit"
+									ng-click="getTaskList(taskSearchForm.$valid)" value="Search"
+									class="btn btn-myPrimary btn-save" />
+							</div>
+						</center>
+					</div>
+				</div>
+			</form>
+
+			<div class="row" ng-if="tmapObj.tasks_list.length>0">
+				<!-- ng-if="tmapObj.tasks_list.length>0" -->
+				<div class="col-md-10">
+					<form autocomplete="off" name="configForm" class="form-horizontal"
+						novalidate>
+						<table id="example1" class="table" width="90%" cellspacing="0">
+							<thead>
+								<tr style="background: #0B6EC3; color: #fff;">
+									<th>#</th>
+									<th>Impact On Vertical</th>
+									<th>Impact On Unit</th>
+									<th>Impact</th>
+									<th>Document / Historical</th>
+								</tr>
+							</thead>
+							<tbody id="multiConfig">
+								<tr>
+									<td><strong>1)</strong></td>
+									<td><select class="form-control" name="entity_impact"
+										ng-model="tmapObj.ttrn_impact_on_organization"
+										ng-options="i.id as i.name for i in impactEntityList"
+										ng-change="getUnitImpact()">
+											<option value="">--Select--</option>
+									</select>
+										<div ng-messages="configForm.entity_impact.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												impact on Vertical.</span>
+										</div></td>
+									<td><select class="form-control" name="unit_impact"
+										ng-model="tmapObj.ttrn_impact_on_unit"
+										ng-options="i.id as i.name for i in impactUnitList">
+											<option value="">--Select--</option>
+									</select>
+										<div ng-messages="configForm.unit_impact.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												impact on unit.</span>
+										</div></td>
+									<td><select class="form-control" name="task_impact"
+										ng-model="tmapObj.ttrn_impact"
+										ng-options="i.id as i.name for i in impactList">
+											<option value="">-- Select --</option>
+									</select>
+										<div ng-messages="configForm.task_impact.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												impact.</span>
+										</div></td>
+									<td><div class="form-group">
+											<div style="padding: 0px; width: 100%;" class="col-sm-12">
+												<label for="sel1" style="margin-left: 13px;"
+													class="control-label">Doc. :</label> <label
+													class="radio-inline"><input type="radio"
+													ng-model="tmapObj.ttrn_document" value="1" name="optradio">Yes</label>
+												<label class="radio-inline"><input type="radio"
+													ng-model="tmapObj.ttrn_document" value="0" name="optradio">No</label>
+											</div>
+										</div>
+										<div style="clear: both;"></div>
+										<div class="form-group">
+											<div style="padding: 0px; width: 100%;" class="col-sm-12">
+												<label for="sel1" style="margin-left: 13px;"
+													class="control-label">Hist. :</label> <label
+													class="radio-inline"><input type="radio" value="1"
+													ng-model="tmapObj.ttrn_historical" name="optradio1">Yes</label>
+												<label class="radio-inline"><input type="radio"
+													ng-model="tmapObj.ttrn_historical" value="0"
+													name="optradio1">No</label>
+											</div>
+										</div></td>
+
+								</tr>
+
+
+							</tbody>
+						</table>
+						<table class="table table-striped table-bordered" cellspacing="0"
+							width="90%">
+							<thead>
+								<tr style="background: #0B6EC3; color: #fff;">
+									<th>#</th>
+									<th>Frequency</th>
+									<th
+										ng-show="tmapObj.ttrn_frequency_for_operation != 'User_Defined' && tmapObj.ttrn_frequency_for_operation != 'Event_Based'">Days
+										Buffes(Days)</th>
+									<th
+										ng-show="tmapObj.ttrn_frequency_for_operation != 'User_Defined' && tmapObj.ttrn_frequency_for_operation != 'Event_Based'">Alert
+										Prior Days</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>2)</strong></td>
+									<td><select class="form-control" name="frequency_oper"
+										ng-model="tmapObj.ttrn_frequency_for_operation"
+										ng-options="f.id as f.name for f in frequency" required>
+											<option value="">--Select--</option>
+									</select>
+										<div ng-messages="configForm.frequency_oper.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												frequency.</span>
+										</div></td>
+									<td class="hideForUserDefinedFrequency"
+										ng-show="tmapObj.ttrn_frequency_for_operation != 'User_Defined' && tmapObj.ttrn_frequency_for_operation != 'Event_Based'">
+										<div class="form-group">
+											<label class="control-label col-sm-4" for="">Due Date
+												Buffer:</label>
+											<div class="col-sm-8">
+												<input class="form-control"
+													ng-change="getDates();validateDates();"
+													ng-model="tmapObj.ttrn_prior_days_buffer" type="text">
+											</div>
+										</div>
+									</td>
+									<td class="hideForUserDefinedFrequency"
+										ng-show="tmapObj.ttrn_frequency_for_operation != 'User_Defined' && tmapObj.ttrn_frequency_for_operation != 'Event_Based'">
+										<div class="form-group">
+											<label class="control-label col-sm-4" for="">Prior
+												Days For Alerts:</label>
+											<div class="col-sm-8">
+
+												<input type="number" class="form-control"
+													ng-model="tmapObj.ttrn_alert_days" size="10" />
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table id="example3"
+							ng-show="tmapObj.ttrn_frequency_for_operation != 'User_Defined' && tmapObj.ttrn_frequency_for_operation != 'Event_Based'"
+							class="table table-striped table-bordered" width="90%"
+							cellspacing="0">
+							<tr style="background: #0B6EC3; color: #fff;">
+								<th>#</th>
+								<th>Legal Due Date</th>
+								<th>Unit Head Due Date</th>
+								<th>Function Head Due Date</th>
+								<th>Approver Due Date</th>
+								<th>Owner Due Date</th>
+								<th>Audit Date</th>
+							</tr>
+							<tbody>
+								<tr>
+									<td><strong>3)</strong></td>
+									<td>
+										<div flex-gt-xs>
+											<md-datepicker name="legal_date"
+												ng-model="tmapObj.ttrn_legal_due_date"
+												ng-change="getDates();validateDates();"
+												md-placeholder="Enter date" required></md-datepicker>
+										</div>
+										<div ng-messages="configForm.legal_date.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												date. </span>
+										</div>
+										<p class="error-text">{{errMessage.lh_date}}</p>
+									</td>
+									<td>
+										<div flex-gt-xs>
+											<md-datepicker name="unit_date"
+												ng-model="tmapObj.ttrn_uh_due_date"
+												ng-change="validateDates();" md-placeholder="Enter date"
+												required></md-datepicker>
+										</div>
+										<div ng-messages="configForm.unit_date.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												date.</span>
+										</div>
+										<p class="error-text">{{errMessage.uh_date}}</p>
+									</td>
+									<td>
+										<div flex-gt-xs>
+											<md-datepicker name="function_date"
+												ng-model="tmapObj.ttrn_fh_due_date"
+												ng-change="validateDates();" md-placeholder="Enter date"
+												required></md-datepicker>
+										</div>
+										<div ng-messages="configForm.function_date.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												date.</span>
+										</div>
+										<p class="error-text">{{errMessage.fh_date}}</p>
+									</td>
+									<td>
+										<div flex-gt-xs>
+											<md-datepicker name="rw_date"
+												ng-model="tmapObj.ttrn_rw_due_date"
+												ng-change="validateDates();" md-placeholder="Enter date"
+												required></md-datepicker>
+										</div>
+										<div ng-messages="configForm.rw_date.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												date.</span>
+										</div>
+										<p class="error-text">{{errMessage.rw_date}}</p>
+									</td>
+									<td>
+										<div flex-gt-xs>
+											<md-datepicker name="pr_date"
+												ng-model="tmapObj.ttrn_pr_due_date"
+												ng-change="validateDates();" md-placeholder="Enter date"
+												required></md-datepicker>
+										</div>
+										<div ng-messages="configForm.pr_date.$error"
+											ng-if="configForm.$submitted">
+											<span class="error-text" ng-message="required">Select
+												date.</span>
+										</div>
+										<p class="error-text">{{errMessage.pr_date}}</p>
+									</td>
+									<td>
+										<!-- <input type="text" id="ttrn_audit_date" name="ttrn_audit_date"  class="form-control"  ng-model="tmapObj.ttrn_audit_date"/> -->
+										<div flex-gt-xs>
+											<md-datepicker name="ttrn_audit_date"
+												ng-model="tmapObj.ttrn_audit_date"
+												md-placeholder="Enter date"></md-datepicker>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-bordered"
+							ng-show="tmapObj.ttrn_frequency_for_operation != 'User_Defined' && tmapObj.ttrn_frequency_for_operation != 'Event_Based'"
+							width="90%" cellspacing="0">
+							<tr style="background: #0B6EC3; color: #fff;">
+								<th>Extra Alerts</th>
+								<th>Back Dates</th>
+								<th>Task Maker Checker</th>
+							</tr>
+							<tr>
+								<td><input type="checkbox" ng-model="extra_alert"
+									ng-click="checkStatus(extra_alert)" name="extraAlerts" />&nbsp;<em>(Note:
+										Check here for Extra alerts)</em></td>
+								<td><input type="radio"
+									ng-model="tmapObj.ttrn_allow_back_date_completion" value="1" />&nbsp;&nbsp;Allowed
+									<p ng-show="tmapObj.ttrn_allow_back_date_completion == 1">
+										<input type="text" min="1" style="width: 50px;"
+											ng-required="tmapObj.ttrn_allow_back_date_completion == 1"
+											placeholder="Days" name="back_date_allowed"
+											ng-model="tmapObj.ttrn_no_of_back_days_allowed" />
+									<div ng-messages="configForm.back_date_allowed.$error"
+										ng-if="tmapObj.ttrn_allow_back_date_completion == 1">
+										<span class="error-text" ng-message="required">Enter
+											days.</span>
+									</div>
+									<p class="error-text">{{errMessage.back_date}}</p>
+									</p> <br /> <input type="radio"
+									ng-model="tmapObj.ttrn_allow_back_date_completion" value="0" />&nbsp;&nbsp;
+									Not Allowed</td>
+								<td><input ng-model="tmapObj.ttrn_allow_approver_reopening"
+									value="1" type="radio">&nbsp;&nbsp; Allowed &nbsp; <input
+									ng-model="tmapObj.ttrn_allow_approver_reopening" value="0"
+									type="radio">&nbsp;&nbsp;Not Allowed</td>
+							</tr>
+						</table>
+						<table ng-show="extra_alert"
+							class="table table-striped table-bordered" width="90%"
+							cellspacing="0">
+							<tr style="background: #0B6EC3; color: #fff;">
+								<th><strong>#</strong></th>
+								<th colspan="2">First Alert</th>
+								<th colspan="2">Second Alert</th>
+								<th colspan="2">Third Alert</th>
+							</tr>
+							<tr>
+								<td><strong>4)</strong></td>
+								<td class="ExtraAlerts" colspan="2"><md-datepicker
+										ng-model="tmapObj.ttrn_first_alert"
+										md-placeholder="Enter date"></md-datepicker>
+									<p class="error-text">{{errMessage.fa_date}}</p></td>
+								<td class="ExtraAlerts" colspan="2"><md-datepicker
+										ng-model="tmapObj.ttrn_second_alert"
+										md-placeholder="Enter date"></md-datepicker>
+									<p class="error-text">{{errMessage.sa_date}}</p></td>
+								<td class="ExtraAlerts" colspan="2"><md-datepicker
+										ng-model="tmapObj.ttrn_third_alert"
+										md-placeholder="Enter date"></md-datepicker>
+									<p class="error-text">{{errMessage.ta_date}}</p></td>
+							</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-bordered" width="90%"
+							cellspacing="0">
+							<tr>
+								<td style="display: none;"><input type="text"
+									class="form-control" name="validate_dates"
+									ng-model="tmapObj.validate_dates" />
+									<div ng-messages="configForm.validate_dates.$error"
+										ng-if="configForm.$submitted">
+										<span class="error-text" ng-message="required">Check
+											Date validation.</span>
+									</div></td>
+								<td colspan="8">
+									<div class="col-md-12 litigation_buttons divSubmit">
+										<br> <input type="submit" class="btn btn-myPrimary"
+											ng-click="saveConfiguration(configForm.$valid);"
+											value="Save Configuration">
+									</div>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+
+			<!-- end of second form -->
+
+
+
+			<form autocomplete="off" name="assignTaskForm"
+				class="form-horizontal" novalidate>
+				<div class="div_style"></div>
+				<br>
+
+				<div class="table_data1">
+					<div class="container">
+						<div class="col-sm-6">
+							<div class="col-sm-4">
+								<label class="control-label" for=""> <input
+									type="checkbox" name="selectall" id="selectAll"
+									ng-model="selectedAll" ng-click="checkAll()">Select All
+								</label>
+							</div>
+							<div class="col-sm-4">
+								<label class="control-label " for="">Total Task :
+									{{taskList.length}}</label> <label class="control-label lblcount"
+									for="totaltask"></label>
+							</div>
+							<div class="col-sm-4">
+								<label class="control-label" for="">Selected Task :
+									{{tmapObj.tasks_list.length}}</label> <label
+									class="control-label lblcount" for="selectedtask"></label>
+							</div>
+						</div>
+						<table id="example" class="table table-striped table-bordered"
+							width="100%" cellspacing="0">
+							<thead>
+								<tr id="table_row">
+									<th>Client Task ID</th>
+									<th>Lexcare Task ID</th>
+									<th>Name of Legislation</th>
+									<th>Rule</th>
+									<th>Reference</th>
+									<th>Who</th>
+									<th>When</th>
+									<th>Activity</th>
+									<th>Frequency</th>
+									<th>Impact</th>
+									<th>Unit Impact</th>
+									<th>Vertical Impact</th>
+
+
+
+								</tr>
+							</thead>
+
+							<tbody id="task_table_body">
+								<tr ng-repeat="list in taskList" ng-if="taskList.length>0">
+									<td><center>
+											<input type="checkbox" value="list.task_id"
+												ng-model="list.SelectedTaskId"
+												ng-click="getCheckTaskId(list.SelectedTaskId,list.tmap_client_task_id,list.exec_id)">
+										</center>{{list.tmap_client_task_id}}</td>
+									<!-- <td>{{list.tmap_client_task_id}}</td> -->
+									<td>{{list.task_lexcare_id}}</td>
+									<td>{{list.task_legi_name}}</td>
+									<td>{{list.task_rule_name}}</td>
+									<td>{{list.task_reference}}</td>
+									<td>{{list.task_activity_who}}</td>
+									<td>{{list.task_activity_when}}</td>
+									<td>{{list.task_activity}}</td>
+									<td>{{list.task_frequency_for_operation}}</td>
+									<td>{{list.task_impact}}</td>
+									<td>{{list.task_impact_on_unit}}</td>
+									<td>{{list.task_impact_on_orga}}</td>
+
+								</tr>
+								<tr ng-if="taskList.length==0">
+									<td colspan="12"><center>No record found</center></td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	/* $(document).ready(function() {
+	 $('#ttrn_audit_date').datepicker();
+	 }); */
+</script>

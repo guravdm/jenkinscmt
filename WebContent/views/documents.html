@@ -1,0 +1,330 @@
+
+
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<!--heading text-->
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="header_button">
+						<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+						<h2 style="color: #032BEC; font-size: 24px; float: left;">Document
+							Repository</h2>
+						<!-- <a ng-click="backToPreviousState()"><img src="images/DashboardIcons/backold.png" class="backButton" width="100px;"></a> -->
+						<site-header Back="" forward="forward"></site-header>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<a ui-sref="addDocuments" class="btn btn-primary btn-outline"
+						style="float: right;">Add Documents</a>
+				</div>
+
+
+			</div>
+
+
+			<div style="clear: both"></div>
+			<!--first form-->
+			<form class="form-horizontal" role="form">
+				<div class="f_form_content">
+					<h2>Search</h2>
+
+					<div class="col-md-12">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Vertical
+									:</label>
+								<div class="col-sm-8">
+									<select
+										ng-options="o.orga_id as o.orga_name for o in originalEntity"
+										ng-model="searchObj.orga_id"
+										ng-change="getUnitList(); getLegislationList(); getExecutorEvaluatorList()"
+										class="form-control">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Unit :</label>
+								<div class="col-sm-8">
+									<select
+										ng-options="l.loca_id as l.loca_name for l in UnitList| orderBy:'loca_name'"
+										ng-model="searchObj.loca_id"
+										ng-change="getFunctionList(); getLegislationList()"
+										class="form-control">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="dept_id">Function
+									:</label>
+								<div class="col-sm-8">
+									<select
+										ng-options="d.dept_id as d.dept_name for d in FunctionList"
+										ng-model="searchObj.dept_id"
+										ng-change="getExecutorEvaluatorList(); getLegislationList(); getEventSubEvent(); getSubEvent();"
+										class="form-control">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div ng-if="showAdvanceSearch">
+						<div class="col-md-12">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">Evaluator
+										:</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="e.user_id as e.user_name for e in evaluatorList"
+											ng-model="searchObj.evaluator_id" ng-change=""
+											class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">Executor
+										:</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="e.user_id as e.user_name for e in executorList"
+											ng-model="searchObj.executor_id" ng-change=""
+											class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">Type
+										of Task :</label>
+									<div class="col-sm-8">
+										<select class="form-control"
+											ng-options="t.task_type_of_task as t.task_type_of_task for t in originalTypeOfTask"
+											ng-model="searchObj.type_of_task">
+											<option value="">--Select--</option>
+
+										</select>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Category
+									of Law :</label>
+								<div class="col-sm-8">
+									<select class="form-control" ng-options="c.task_cat_law_id as c.task_cat_law for c in originalCatLaw" ng-model="searchObj.cat_law_id" ng-change="getLegiByCatLawId();">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div> -->
+						</div>
+
+						<div class="col-md-12">
+							<!-- <div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Impact :</label>
+								<div class="col-sm-8">
+									<select class="form-control" ng-model="searchObj.impact" ng-options="i.id as i.name for i in impactList" name="impact_default">
+									<option value="">--Select--</option>
+									<option value="Severe">Severe</option>
+									<option value="Major">Major </option>
+									<option value="Moderate">Moderate </option>
+									<option value="Minor">Minor</option>
+									<option value="Low">Low</option>
+								</select>
+								</div>
+							</div>
+						</div> -->
+
+							<!-- <div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Prohibitive
+									/ Prescriptive :</label>
+								<div class="col-sm-8">
+									<select class="form-control" ng-options="p.id as p.name for p in Proh_Pres" ng-model="searchObj.proh_pres">
+										<option value="">--Select--</option>
+									    <option value="Prohibitive">Prohibitive</option>
+									    <option value="Prescriptive">Prescriptive </option>
+									</select>
+								</div>
+							</div>
+						</div> -->
+
+
+						</div>
+
+						<div class="col-md-12">
+							<!-- <div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Frequency :</label>
+								<div class="col-sm-8">
+									<select class="form-control" ng-options="f.task_frequency as f.task_frequency for f in originalFrequency" ng-model="searchObj.frequency">
+									<option value="">--Select--</option>
+									<option value="Ongoing">Ongoing</option>
+									<option value="One_Time">One Time</option>
+									<option value="Weekly">Weekly</option>
+									<option value="Fortnightly">Fortnightly</option>
+									<option value="Monthly">Monthly</option>
+									<option value="Quarterly">Quarterly</option>
+									<option value="Half_Yearly">Half Yearly</option>
+									<option value="Five_Yearly">Five Yearly</option>
+									<option value="Ten_Yearly">Ten Yearly</option>
+									<option value="Event_Based">Event based</option>
+								</select>
+								</div>
+							</div>
+						</div> -->
+
+							<!-- <div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-5" for="sel1">Active/Inactive :</label>
+								<div class="col-sm-7">
+									<select class="form-control" ng-model="searchObj.task_status">
+										<option value="">All</option>
+										<option value="Active">Active</option>
+										<option value="Inactive">Inactive</option>
+									</select>
+								</div>
+							</div>
+						</div> -->
+
+
+						</div>
+
+						<div class="col-md-12">
+							<div class="col-md-2"></div>
+							<div class="form-group">
+								<label class="control-label col-sm-1" for="sel1">Legislation
+								</label>
+								<div class="col-sm-8">
+									<ui-select ng-model="legiList.selected" theme="bootstrap"
+										style="max-width: 545px;"
+										ng-change="getalllegiRuleList();getEventSubEvent(); getSubEvent();">
+									<ui-select-match placeholder="Select legislation">{{$select.selected.task_legi_name}}
+									<button class="clear" ng-click="clearLegiList($event)">X</button>
+									</ui-select-match> <ui-select-choices
+										repeat="legiList in alllegiList | propsFilter: {task_legi_name: $select.search}">
+
+									<div
+										ng-bind-html="legiList.task_legi_name | highlight: $select.search"></div>
+									</ui-select-choices> </ui-select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="col-md-2"></div>
+							<div class="form-group">
+								<label class="control-label col-sm-1" for="sel1">Rule :</label>
+								<div class="col-sm-8">
+									<ui-select ng-model="legiRuleL.selected"
+										ng-change="getEventSubEvent();getSubEvent();"
+										theme="bootstrap" style="max-width: 545px;"> <ui-select-match
+										placeholder="Select rules">
+									<button class="clear" ng-click="clearLegiRuleL($event)">X</button>
+									{{$select.selected.task_rule_name}}</ui-select-match> <ui-select-choices
+										repeat="legiRuleL in legiRuleList | propsFilter: {task_rule_name: $select.search}">
+
+									<div
+										ng-bind-html="legiRuleL.task_rule_name | highlight: $select.search"></div>
+									</ui-select-choices> </ui-select>
+									<br /> (<strong>Note :</strong> If Rule is not available then
+									Select <strong>'NA'</strong> Option)
+								</div>
+							</div>
+						</div>
+
+						<!-- <div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Events :</label>
+								<div class="col-sm-8">
+									<select class="form-control" ng-change="getSubEvent()" ng-options="e.task_Event as e.task_Event for e in event" ng-model="searchObj.event" >
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div> -->
+						<!-- <div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">Sub-Events :</label>
+								<div class="col-sm-8">
+									<select class="form-control" id="sub_event" ng-model="searchObj.sub_event" ng-options="e.task_Sub_Event as e.task_Sub_Event for e in sub_event">
+										<option value="">--Select--</option>
+									</select>
+								</div>
+							</div>
+						</div> -->
+					</div>
+
+					<div class="col-md-12 litigation_buttons" id="searchButtons">
+						<br>
+						<center>
+							<button type="button" class="btn btn-myPrimary"
+								ng-click="searchRepository()" ng-if="showButton" id="searchTask">Search</button>
+							<button type="reset" ng-click="showAdvance()"
+								class="btn btn-myWarning" id="search">Advance Search</button>
+						</center>
+					</div>
+
+				</div>
+				<br />
+
+
+				<div class="col-sm-4">
+					<label class="control-label " for="">Total Documents
+						:{{AllTasksCount}}</label> <label class="control-label lblcount"
+						for="totaltask"></label>
+				</div>
+				<!-- <table  id="example" class="table table-striped table-bordered"
+					width="100%" cellspacing="0">
+					<thead>
+						<tr id="table_row">
+							<th>Client Task ID</th>
+							<th>Document name</th>
+						</tr>
+					</thead>
+					<tbody infinite-scroll="addMoreItems()" infinite-scroll-distance='50'>
+						<tr  ng-repeat="repo in scrollTasks" ng-if="scrollTasks.length>0" >
+							<td> <a target="_blank" ng-click="getTaskHistoryList(repo.tmap_client_task_id)"> {{repo.tmap_client_task_id}}</a><br/>
+							</td>
+							<td> <a style="cursor: pointer; color: blue;" target="_blank" ng-click="downloadDocument(repo.doc_id)">{{repo.doc_name}}</a></td>
+						</tr>
+						<tr ng-if="scrollTasks.length==0">
+							<td colspan=12><center>No record found</center></td>
+						</tr>
+					</tbody>
+				</table> -->
+				<div class="col-md-12">
+					<div style="margin-top: 15px;" class="col-md-4"
+						ng-repeat="repo in scrollTasks" ng-if="scrollTasks.length>0">
+						<center>
+							<a><img style="padding-top: 2px;" title="Click to download"
+								src='images/DocumentAttachedFlag.png' width='50px' height='50px'></a><br>
+							<span style="font-size: 13px;">
+								{{repo.tmap_client_task_id}}</span><br> <span><a
+								style="cursor: pointer; color: blue;" target="_blank"
+								ng-click="downloadDocument(repo.doc_id)"> {{repo.doc_name}}</a></span>
+						</center>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+<!-- Modal for show more information -->
+

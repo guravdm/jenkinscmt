@@ -1,0 +1,175 @@
+
+
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<!--heading text-->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="header_button">
+						<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+						<h2 style="color: #032BEC; font-size: 24px; float: left;">Document
+							Repository</h2>
+						<!-- <a ng-click="backToPreviousState()"><img src="images/DashboardIcons/backold.png" class="backButton" width="100px;"></a> -->
+						<site-header Back="" forward="forward"></site-header>
+					</div>
+				</div>
+
+				<!-- <div class="col-sm-6">
+					<a ui-sref="addDocuments" class="btn btn-primary btn-outline"
+						style="float: right;">Add Documents</a>
+				</div> -->
+
+			</div>
+			<div style="clear: both"></div>
+			<!--first form-->
+			<form ng-if="roleId >= 6" class="form-horizontal" role="form" name="documentsForm"
+				autocomplete="off">
+				<div class="f_form_content">
+					<h2>Documents</h2>
+
+					<div class="row">
+						<div class="col-sm-5 b-r">
+
+							<!-- <div class="form-group">
+								<label for="tskActivity">Task Activity:</label> 
+								
+								<select
+										ng-options="o.TASK_ID as o.TASK_ACITIVITY for o in taskActivityList"
+										ng-model="searchObj.tskActivity"
+										class="form-control">
+										<option selected="selected" value="90001">ZZ</option>
+										<option value="">--Select--</option>
+									</select>
+							</div> -->
+
+							<div class="form-group">
+								<label for="tskActivity">State:</label> <select
+									ng-options="o.STATE_ID as o.STATE_NAME for o in taskActivityList"
+									ng-model="searchObj.tskState" class="form-control">
+									<option value="">--Select--</option>
+								</select>
+							</div>
+
+
+							<div class="form-group">
+								<label for="docName">Document Name:</label> <input type="text"
+									class="form-control" id="docName" name="docName"
+									ng-model="searchObj.docName">
+							</div>
+
+							<!-- <div class="form-group">
+								<label for="docName">Attachment Document:</label> <input type="text"
+									class="form-control" id="attachFile" name="attachFile"
+									ng-model="searchObj.attachFile">
+							</div> -->
+
+
+							<div class="form-group">
+								<label for="pwd">Description:</label>
+								<textarea class="form-control" cols="5" rows="5"
+									style="resize: none;" ng-model="searchObj.docDescription"
+									id="docDescription" name="docDescription">
+								</textarea>
+							</div>
+
+							<div class="form-group">
+								<label for="pwd">Proof Of Documents:</label> <input type="file"
+									valid-file required class="form-control"
+									id="ttrn_proof_of_compliance" name="ttrn_proof_of_compliance"
+									ng-model="proofCompliance.ttrn_proof_of_compliance">
+							</div>
+
+						</div>
+						<div class="col-sm-1"></div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<!-- <label for="docName">Report From Date:</label> <input
+									type="text" class="form-control" id="fromDate" name="fromDate"
+									ng-model="searchObj.fromDate"> -->
+
+								<label for="email">Report From Date:</label> <input type="text"
+									style="border-color: black; background-color: #F5FFFA; text-align: center;"
+									class="form-control" id="fromDate" placeholder="From Date"
+									name="fromDate" ng-click="open_from()"
+									uib-datepicker-popup="{{format}}" ng-model="date_from"
+									is-open="popup_from.opened" close-text="Close"
+									alt-input-formats="altInputFormats" readonly="readonly"
+									required="true">
+								<!-- ng-change="getDates();validateDates()" -->
+							</div>
+							<div class="form-group">
+								<label for="pwd">Report To Date:</label>
+								<!-- <input type="text"
+									class="form-control" id="toDate" name="toDate"
+									ng-model="searchObj.toDate"> -->
+
+								<input type="text"
+									style="border-color: black; background-color: #F5FFFA; text-align: center;"
+									class="form-control" id="toDate" placeholder="To Date"
+									name="toDate" ng-click="open_to()"
+									uib-datepicker-popup="{{format}}" ng-model="date_to"
+									is-open="popup_to.opened" readonly="" close-text="Close"
+									alt-input-formats="altInputFormats">
+								<!-- ng-change="validateDates()" -->
+							</div>
+
+
+
+							<button type="submit" ng-click="submitPODocuments()"
+								class="btn btn-primary btn-outline btn-lg">Submit</button>
+						</div>
+
+
+					</div>
+
+
+
+				</div>
+			</form>
+
+
+			<div class="row">
+
+				<!-- <div class="col-sm-4">
+					<select class="form-control" ng-model="roleOrder">
+						<option ng-repeat="doc in docLists" value="{{doc.STATE_NAME}}">{{doc.STATE_NAME}}</option>
+					</select>
+				</div> -->
+
+				<div class="col-sm-4">
+					<label>Search</label> <input type="text" ng-model="search"
+						class="form-control" placeholder="Enter some text to search" />
+				</div>
+
+				<div class="col-sm-12">
+
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>State</th>
+								<th>Document Name</th>
+								<th>Attachment</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="doc in docLists  | filter : search ">
+							<!-- <tr ng-repeat="doc in docLists  | filter:{STATE_NAME: roleOrder}"> -->
+								<td>{{ doc.STATE_NAME }}</td>
+								<td>{{ doc.DOC_NAME }}</td>
+								<td><a style="cursor: pointer; color: blue;"
+									target="_BLANK" ng-click="downloadComplianceDocument(doc.ID)">{{
+										doc.DOC_ORIGINAL_NAME }}</a></td>
+								<td>{{ doc.DOC_DESCRIPTION }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- Modal for show more information -->
+

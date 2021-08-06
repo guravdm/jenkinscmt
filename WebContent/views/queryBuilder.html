@@ -1,0 +1,134 @@
+<!-- /WellsFargoD/WebContent/views/loginLogoutLog.html -->
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="header_button">
+							<h2 id="user_header">Query Builder</h2>
+							<!-- <a ng-click="backToPreviousState()"> <img
+								src="images/DashboardIcons/backold.png" class="backButton"
+								width="100px;"></a> -->
+							<site-header Back="" forward="forward"></site-header>
+						</div>
+					</div>
+				</div>
+
+				<br />
+				<!-- <div style="overflow-x: scroll;">
+					<div style="overflow-x: scroll;">
+						<div class="input-group"></div>
+						<input type="text" class="form-control" placeholder="Search "
+							ng-model="search">
+					</div>
+					
+				</div> -->
+
+				<div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-8" id="one">
+						<div class="panel panel-default">
+							<div class="panel-heading" id="one">Task Deletion</div>
+							<div class="panel-body" id="oneShow">
+								<form method="post" id="queryBuilder" name="queryBuilder">
+									<div class="form-group">
+										<label for="clientTasksId">Client Tasks ID's:</label>
+										<textarea id="clientTasksId" name="clientTasksId" cols="5"
+											ng-model="queryObj.clientTasksId"
+											placeholder="D01012, D10251" rows="5" class="form-control"
+											style="resize: none;"></textarea>
+									</div>
+									<button ng-click="getQueryBuilder(queryBuilder.$valid)"
+										type="submit" class="btn btn-default">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-2"></div>
+				</div>
+				<!-- row -->
+
+				<div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-8">
+						<div class="panel panel-default">
+							<div class="panel-heading" id="two">Tasks DeActivation</div>
+							<div class="panel-body" id="twoShow">
+								<form method="post" id="tasksQueryBuilder" name="tasksQueryBuilder">
+									<div class="form-group">
+										<label for="clientTasksId">Client Tasks ID's:</label>
+										<textarea id="tasksId" name="tasksId" cols="5"
+											ng-model="queryObjDeact.tasksId"
+											placeholder="D01012, D10251" rows="5" class="form-control"
+											style="resize: none;"></textarea>
+									</div>
+									<button ng-click="getTasksDeactivationQueryBuilder(tasksQueryBuilder.$valid)"
+										type="submit" class="btn btn-default">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2"></div>
+				</div>
+				<!-- row -->
+				
+				
+				<div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-8">
+						<div class="panel panel-default">
+							<div class="panel-heading" id="three">Disable Tasks</div>
+							<div class="panel-body" id="threeShow">
+								<form method="post" id="deaqueryBuilder" name="deaqueryBuilder">
+									<div class="form-group">
+										<label for="cTasksId">Client Tasks ID's:</label>
+										<textarea id="cTasksId" name="cTasksId" cols="5"
+											ng-model="queryObjDis.cTasksId"
+											placeholder="D01012, D10251" rows="5" class="form-control"
+											style="resize: none;"></textarea>
+									</div>
+									<button ng-click="getDisabletasks(queryObjDis.$valid)"
+										type="submit" class="btn btn-default">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2"></div>
+				</div>
+				<!-- row -->
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function() {
+
+		$('#oneShow').hide();
+		$('#twoShow').hide();
+		$('#threeShow').hide();
+
+		$("#one").click(function() {
+			$("#oneShow").show(1000);
+			$('#twoShow').hide();
+			$('#threeShow').hide();
+		});
+
+		$("#two").click(function() {
+			$("#oneShow").hide(1000);
+			$('#twoShow').show(1000);
+			$('#threeShow').hide();
+		});
+		
+		$("#three").click(function() {
+			$("#oneShow").hide();
+			$('#twoShow').hide(1000);
+			$('#threeShow').show(1000);
+		});
+	});
+</script>

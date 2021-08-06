@@ -1,0 +1,261 @@
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+
+		<div style="clear: both"></div>
+		<!--first form-->
+
+		<form autocomplete="off" class="form-horizontal" name="showCauseNoticeForm" role="form" id="createShowCauseNotice" novalidate>
+			<div class="col-md-10">
+				<div class="header_button">
+					<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+					<h2 style="color: #032BEC; font-size: 24px; float: left;">Show Cause Notice</h2>
+					<!-- <a ng-click="backToPreviousState()"><img
+						src="images/DashboardIcons/backold.png" class="backButton"
+						width="100px;"></a> -->
+					<site-header Back="" forward="forward"></site-header>
+				</div>
+			</div>
+
+			<!-- <div class="col-md-12">
+				<center>
+					<h2 style="color: red;">&#42; Mandatory Fields</h2>
+				</center>
+			</div> -->
+			<div style="clear: both"></div>
+
+			<div class="f_form_content">
+				<h2 ng-if="showCauseNotice.scau_id==0">Create</h2>
+				<h2 ng-if="showCauseNotice.scau_id!=0">Update</h2>
+
+				<div class="col-md-12">
+
+
+					<div class="col-md-6">
+
+
+
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Vertical :</label>
+							<div class="col-sm-7">
+								<select class="form-control" name="orga_id" ng-model="searchObj.orga_id" ng-options="e.orga_id as e.orga_name for e in entityList" ng-change="getEntityDependentArray()" required>
+									<option value="">--Select--</option>
+									 </select><i class="asterisk_input"></i>
+									 <div ng-messages="showCauseNoticeForm.orga_id.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select Vertical.</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Unit :</label>
+							<div class="col-sm-7">
+								<select class="form-control" name="loca_id" ng-model="searchObj.loca_id" ng-options="u.loca_id as u.loca_name for u in unitList | orderBy:'loca_name'" ng-change="getUnitDependentArray()" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									 <div ng-messages="showCauseNoticeForm.loca_id.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select Unit.</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Function
+								:</label>
+							<div class="col-sm-7">
+								<select class="form-control" name="dept_id" ng-model="searchObj.dept_id" ng-options="f.dept_id as f.dept_name for f in functionList" ng-change="getFunctionDependentArray()" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="showCauseNoticeForm.dept_id.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select Function.</span>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Show
+								Cause Related to :</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="scau_ralated_to" ng-model="showCauseNotice.scau_ralated_to"
+									name="scau_ralated_to"
+									placeholder="Enter Show Cause Related to" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-5">Notice Dated :</label>
+							<div class="col-sm-7">
+								<p class="input-group" style="width: 300px;">
+									<input type="text" class="form-control"  name="scau_notice_date" ng-change="validateDates()"
+										uib-datepicker-popup="{{format}}" ng-model="showCauseNotice.scau_notice_date"
+										is-open="popup_notice_date.opened" close-text="Close"
+										alt-input-formats="altInputFormats" readonly="readonly"
+										required="true" /> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="noticeDate()">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								<p class="error-text">{{errMessage.scau_notice_date}}</p>
+								</p>
+								<i class="asterisk_input"></i>
+								<!-- <div ng-messages="showCauseNoticeForm.scau_notice_date.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select Notice date.</span>
+								</div> -->
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-5 control-label">Received On :</label>
+							<div class="col-sm-7">
+								<p class="input-group" style="width: 300px;">
+									<input type="text" class="form-control"  name="scau_received_date" ng-change="validateDates()"
+										uib-datepicker-popup="{{format}}" ng-model="showCauseNotice.scau_received_date"
+										is-open="popup_received_on.opened" close-text="Close"
+										alt-input-formats="altInputFormats" readonly="readonly"
+										required="true" /> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="receivedOn()">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								<p class="error-text">{{errMessage.scau_received_date}}</p>
+								</p>
+								<i class="asterisk_input"></i>
+								<!-- <div ng-messages="showCauseNoticeForm.scau_received_date.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select received on date.</span>
+								</div> -->
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-5 control-label">Notice Reply
+								Deadline :</label>
+							<div class="col-sm-7">
+								<p class="input-group" style="width: 300px;">
+									<input type="text" class="form-control" name="scau_deadline_date" ng-change="validateDates()"
+										uib-datepicker-popup="{{format}}" ng-model="showCauseNotice.scau_deadline_date"
+										is-open="popup_reply_deadline.opened" close-text="Close"
+										alt-input-formats="altInputFormats" readonly="readonly"
+										required="true" /> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="replyDeadline()">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								<p class="error-text">{{errMessage.scau_deadline_date}}</p>
+								</p>
+								<i class="asterisk_input"></i>
+								<!-- <div ng-messages="showCauseNoticeForm.scau_deadline_date.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select notice reply deadline date.</span>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Comments
+								:</label>
+							<div class="col-sm-7">
+								<textarea rows="2" cols="40" id="scau_comments" ng-model="showCauseNotice.scau_comments"
+									name="scau_comments" placeholder="Enter Comments"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Action
+								Taken :</label>
+							<div class="col-sm-7">
+								<label class="radio-inline"><input ng-model="showCauseNotice.scau_action_taken"
+									id="scau_action_taken"  type="radio" name="scau_action_taken"
+									checked="true" value="Yes">Yes</label> <label
+									class="radio-inline"><input type="radio"  ng-model="showCauseNotice.scau_action_taken"
+									id="scau_action_taken" name="scau_action_taken" value="No">No</label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Next
+								Action Item :</label>
+							<div class="col-sm-7">
+								<input ng-model="showCauseNotice.scau_next_action_item" type="text" class="form-control"
+									id="scau_next_action_item" name="scau_next_action_item"
+									placeholder="Enter Next Action Item">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Responsible
+								Person :</label>
+							<div class="col-sm-7">
+								<select class="form-control" name="exec_id" ng-model="searchObj.executor_id" ng-options="ex.user_id as ex.user_name for ex in executorList" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="showCauseNoticeForm.exec_id.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select Responsible person.</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-sm-5" for="sel1">Reporting
+								Person :</label>
+							<div class="col-sm-7">
+								<select class="form-control" name="eval_id" ng-model="searchObj.evaluator_id" ng-options="ev.user_id as ev.user_name for ev in evaluatorList" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="showCauseNoticeForm.eval_id.$error" ng-if="showCauseNoticeForm.$submitted">
+								  <span class="error-text" ng-message="required">Select Reporting person.</span>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-sm-5 control-label">Reminder Required
+								on :</label>
+							<div class="col-sm-7">
+								<p class="input-group" style="width: 300px;">
+									<input type="text" class="form-control" ng-change="validateDates()"
+										uib-datepicker-popup="{{format}}" ng-model="showCauseNotice.scau_remainder_date" 
+										is-open="popup_reminder_required.opened" close-text="Close"
+										alt-input-formats="altInputFormats" readonly="readonly"
+										/> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="reminderRequired()">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+								<p class="error-text">{{errMessage.scau_remainder_date}}</p>
+								</p>
+							</div>
+						</div>
+
+
+
+						<div class="form-group row">
+							<label class="col-sm-5 control-label">Document:</label>
+							<div class="col-sm-7">
+								<input type="file" multiple class="btn btn-myWarning"
+									id="show_cause_doc"
+									file-model="proofCompliance.show_cause_doc"
+									name="show_cause_doc">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-md-12 litigation_buttons">
+					<br>
+					<center>
+						<button ng-if="showCauseNotice.scau_id==0" ng-click="createShowCuaseNotice(showCauseNoticeForm.$valid)" type="submit" class="btn btn-myPrimary">Create</button>
+						<button ng-if="showCauseNotice.scau_id!=0" ng-click="updateShowCauseNotice(showCauseNoticeForm.$valid)" type="submit" class="btn btn-myPrimary">Update</button>
+				</div>
+			</div>
+		</form>
+
+		<div style="clear: both"></div>
+
+	</div>
+</div>

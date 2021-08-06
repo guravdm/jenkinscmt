@@ -1,0 +1,4005 @@
+
+<style>
+
+@media (min-width: 768px){
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1  {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+
+/**
+ *  The following is not really needed in this case
+ *  Only to demonstrate the usage of @media for large screens
+ */    
+@media (min-width: 1200px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+
+/* table format css  */
+
+/*table format css   */
+.header_button_ss {
+	text-align: left !important;
+}
+
+@media screen and (max-width: 1234px) {
+	.graphClass {
+		
+	}
+}
+
+@media screen and (max-width: 991px) {
+	/* start of large tablet styles */
+	.graphClass {
+		
+	}
+}
+
+@media screen and (max-width: 767px) {
+	/* start of medium tablet styles */
+	.graphClass {
+		
+	}
+}
+
+@media screen and (max-width: 479px) { /* start of phone styles */
+	.graphClass {
+		
+	}
+}
+
+.panel-heading.center-txt {
+	color: black !important;
+	/* background: #d9d9d9 !important; */
+	/* background: ##06bd5b ! important; */
+}
+
+.box-body {
+	margin-top: 10px;
+}
+
+//
+Mixin itself
+ @mixin clearfix () { &::after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+}
+//
+Usage as a mixin
+.element { @include clearfix;
+	
+}
+
+.text-center {
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.center-txt {
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.panel-complied {
+	border-color: #000;
+}
+
+.panel-posing {
+	border-color: #000;
+}
+
+.panel-noncomplied {
+	border-color: #000;
+}
+
+.panel-delayed {
+	border-color: #000;
+}
+
+.panel-wfapp {
+	border-color: #000;
+}
+
+.panel-reopened {
+	border-color: #000;
+}
+
+.panel-delayedReported {
+	border-color: #000;
+}
+
+.panel-complied>.panel-heading {
+	color: #fff;
+	background-color: #03C523;
+	border-color: #337ab7;
+}
+
+.panel-posing>.panel-heading {
+	color: #fff;
+	/* background-color: #FFFF00; */
+	background-color: #ffff66;
+	border-color: #337ab7;
+}
+
+.panel-noncomplied>.panel-heading {
+	color: #fff;
+	/* background-color: #F53636; */
+	background-color: #ff0066;
+	border-color: #337ab7;
+}
+
+.panel-delayed>.panel-heading {
+	color: #fff;
+	/* background-color: #BFBFBF; C8CFCB */
+	background-color: #cc3399;
+	border-color: #337ab7;
+}
+
+.panel-wfapp>.panel-heading {
+	color: #fff;
+	/* background-color: #85c1e9;  85c1e9 */
+	background-color: #00ccff;
+	border-color: #337ab7;
+}
+
+.panel-reopened>.panel-heading {
+	color: #fff;
+	/* background-color: #f5b041; */
+	background-color: #f5b041;
+	border-color: #337ab7;
+}
+
+.panel-delayedReported>.panel-heading {
+	color: #fff;
+	/* background-color: #f5b041; */
+	background-color: #bfd630;
+	border-color: #337ab7;
+}
+
+.panel {
+	
+}
+
+.panel.panel-complied:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel-delayedReported:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-noncomplied:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-posing:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-delayed:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-wfapp:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-reopened:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+
+th, td {
+	font-size: 12px;
+	font-family: sans-serif;
+	font-weight: 400;
+	width: 98px;
+}
+
+td>a {
+	color: blue;
+}
+
+td>a:hover {
+	cursor: pointer;
+}
+
+thead>tr>th {
+	font-size: 14px;
+}
+
+/* div#entityLevel>canvas {
+    width: 90% !important;
+} */
+
+/*  for graph  */
+@media screen and (min-device-width: 1200px) and (max-device-width:
+	1600px) and (-webkit-min-device-pixel-ratio: 1) {
+	/* body {
+		background-color: red;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 475px;
+	}
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width:
+	1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution:
+	192dpi) {
+	/* body {
+		background-color: green;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 475px;
+	}
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media ( min-width : 1301px) and (max-width: 1550px) {
+	/* body {
+		background-color: purple;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 485px;
+	}
+}
+
+@media ( min-width : 1281px) and (max-width: 1300px) {
+	/* body {
+		background-color: purple;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 495px;
+	}
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media ( min-width : 1025px) and (max-width: 1280px) {
+	/* body {
+		background-color: yellow;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 505px;
+	}
+}
+
+.graphClassLocation {
+	width: 650px;
+	height: 2500px;
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media ( min-width : 768px) and (max-width: 1024px) {
+	/* body {
+		background-color: blue;
+	} */
+	.graphClass {
+		width: 600px;
+		height: 505px;
+	}
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media ( min-width : 768px) and (max-width: 1024px) and (orientation:
+	landscape) {
+	body {
+		background-color: violet;
+	}
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media ( min-width : 481px) and (max-width: 767px) {
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media ( min-width : 320px) and (max-width: 480px) {
+}
+
+.panel-heading.center-txt.complied {
+	background-color: #99ff66 !important; /* #03C523 */
+}
+
+.small, small {
+	font-size: 54% !important;
+}
+
+input#reopen {
+	width: 84px;
+	font-size: 12px;
+}
+
+em.ng-binding {
+	font-size: 11px !important;
+	margin-right: 5px !important;
+	margin-bottom: 1px;
+}
+
+.dashboardTable {
+	background-color: #E4E5DD;
+	font-weight: bold;
+}
+</style>
+
+<div class="page_cont_padd">
+	<div class="page_container">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="header_button_ss">
+						<h3 style="color: #032BEC; font-size: 24px;">Compliance
+							Dashboard</h3>
+						<br />
+					</div>
+				</div>
+			</div>
+
+			<!--New Dashboard code [Displaying all main Menus in a BOX like] -->
+
+			<div class="row seven-cols"  style="">
+
+				<div class="col-sm-2">
+					<div class="panel panel-complied" id="">
+						<div class="panel-heading center-txt complied">Complied</div>
+						<div class="panel-body text-center">{{ taskList[0].Complied }}</div>
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="panel panel-posing">
+						<div class="panel-heading center-txt posing"
+							style="text-align: center;">Posing</div>
+						<div class="panel-body text-center">{{ taskList[0].PosingRisk }}</div>
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="panel panel-noncomplied">
+						<div class="panel-heading center-txt nonc">Non Complied</div>
+						<div class="panel-body text-center">{{ taskList[0].NonComplied}}</div>
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="panel panel-delayed">
+						<div class="panel-heading center-txt del">Delayed</div>
+						<div class="panel-body text-center">{{ taskList[0].Delayed }}</div>
+					</div>
+				</div>
+
+				<div class="col-sm-2">
+					<div class="panel panel-delayedReported">
+						<div class="panel-heading center-txt del">Delayed Reported</div>
+						<div class="panel-body text-center">{{ taskList[0].DelayedReported }}</div>
+					</div>
+				</div>
+
+				<div class="col-sm-1" style="display: none;">
+					<div class="panel panel-wfapp">
+						<div class="panel-heading center-txt wfa">WFA</div>
+						<div class="panel-body text-center">{{ taskList[0].WaitingForApproval }}</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-sm-2">
+					<div class="panel panel-reopened">
+						<div class="panel-heading center-txt reo">Re-Opened</div>
+						<div class="panel-body text-center">{{ taskList[0].ReOpened }}</div>
+					</div>
+				</div>
+			</div>
+			<!-- [Displaying all main Menus END -->
+			<div class="clearfix"></div>
+
+
+			<div class="row">
+				<div class="col-sm-12">
+					<ul class="nav nav-tabs pull-left">
+						<li class="active"><a data-toggle="tab" id="Overall"
+							ng-click="OverallClick()">Entity</a></li>
+						<li><a data-toggle="tab" id="entity" ng-click="entityClick()">Vertical</a></li>
+						<li><a data-toggle="tab" id="unit" ng-click="unitClick()">Unit</a></li>
+						<li><a data-toggle="tab" id="function"
+							ng-click="functionClick()">Function</a></li>
+						<li><a data-toggle="tab" id="financial"
+							ng-click="financialClick()">Financial</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+							
+							
+							<div class="col-sm-12">
+									<!-- for search and table entry column -->
+									<form class="form-inline" autocomplete="off"
+										style="margin-left: 26px;">
+										<div class="form-group">
+											<label class="sr-only" for="email">From Date:</label> <input
+												type="text"
+												style="border-color: black; background-color: #F5FFFA; text-align: center;"
+												class="form-control" id="fromDate" placeholder="From Date"
+												name="fromDate" ng-change="getDates();validateDates()"
+												ng-click="open_from()" uib-datepicker-popup="{{format}}"
+												ng-model="date_from" is-open="popup_from.opened"
+												close-text="Close" alt-input-formats="altInputFormats"
+												readonly="readonly" required="true">
+										</div>
+										<div class="form-group">
+											<label class="sr-only" for="pwd">To Date:</label> <input
+												type="text"
+												style="border-color: black; background-color: #F5FFFA; text-align: center;"
+												class="form-control" id="toDate" placeholder="To Date"
+												name="toDate" ng-click="open_to()"
+												ng-change="validateDates()"
+												uib-datepicker-popup="{{format}}" ng-model="date_to"
+												is-open="popup_to.opened" readonly="" close-text="Close"
+												alt-input-formats="altInputFormats">
+										</div>
+										<button type="submit" class="btn btn-default"
+											ng-click="searchGraph();validateDates()">
+											<i class="fa fa-search"></i> Search
+										</button>
+									</form>
+									<br>
+
+									<!-- Start Overall table -->
+									<table class="table table-bordered table-hover table-striped"
+										ng-show="overAllGraphTable">
+										<thead>
+											<tr
+												style="font-weight: bold; color: white; background-color: black;">
+												<th>#</th>
+												<th>Complied</th>
+												<th>Posing</th>
+												<th>Non Complied</th>
+												<th>Delayed</th>
+												<th>Delayed Reported</th>
+												<!-- <th>WFA</th> -->
+												<th>Re-Opened</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>1</td>
+												<td><a id="CompliedClick">{{
+														complianceChartData.Complied }}</a></td>
+												<td><a id="PosingRiskClick">{{
+														complianceChartData.PosingRisk }}</a></td>
+												<td><a id="NonCompliedClick">{{
+														complianceChartData.NonComplied }}</a></td>
+												<td><a id="DelayedClick">{{
+														complianceChartData.Delayed }}</a></td>
+
+												<td><a id="DelayedReportedClick">{{
+														complianceChartData.Delayed_Reported }}</a></td>
+												<!-- <td><a id="WaitingForApprovalClick">{{
+														complianceChartData.WaitingForApproval }}</a></td> -->
+												<td><a id="ReOpenedClick">{{complianceChartData.ReOpened}}</a></td>
+
+											</tr>
+										</tbody>
+									</table>
+									<!-- End Overall table -->
+
+									<!-- Start Entity Table-->
+									<table class="table table-bordered table-hover table-striped"
+										ng-show="IsVisibleEntityGraph" style="margin-left: 12px;">
+										<!-- ng-repeat="x in EntityChartData" -->
+										<tr
+											style="font-weight: bold; color: white; background-color: black;">
+											<th>#</th>
+											<th>Vertical</th>
+											<th>Complied</th>
+											<th>Posing</th>
+											<th>Non Complied</th>
+											<th>Delayed</th>
+											<th>Delayed Reported</th>
+											<!-- <th>WFA</th> -->
+											<th>Re-Opened</th>
+										</tr>
+										<tr
+											ng-repeat="data in EntityChartData.Entity | filter:search track by $index">
+											<td>{{ $index+1 }}</td>
+											<td>{{EntityChartData.Entity[$index]}}</td>
+											<td><a
+												ng-click="entityDrilledDown(EntityChartData.Entity[$index], 'Complied')"
+												title="Complied">{{EntityChartData.Complied[$index]}}</a></td>
+											<td><a
+												ng-click="entityDrilledDown(EntityChartData.Entity[$index], 'PosingRisk')"
+												title="Posing">{{EntityChartData.PosingRisk[$index]}}</a><img
+												ng-show="loading2" src="images/ajax-loader.gif"></td>
+											<td><a
+												ng-click="entityDrilledDown(EntityChartData.Entity[$index], 'NonComplied')"
+												title="Non Complied">{{EntityChartData.NonComplied[$index]}}</a></td>
+
+											<td><a
+												ng-click="entityDrilledDown(EntityChartData.Entity[$index], 'Delayed')"
+												title="Delayed">{{EntityChartData.Delayed[$index]}}</a></td>
+											<td><a
+												ng-click="entityDrilledDown(EntityChartData.Entity[$index], 'Delayed-Reported')"
+												title="Delayed-Reported">{{entityGraph.Delayed_Reported[$index]}}</a></td>
+
+											<!-- <td><a
+												ng-click="entityDrilledDown(EntityChartData.Entity[$index], 'Waiting For Approval')"
+												title="Waiting For Approval">{{EntityChartData.WaitingForApproval[$index]}}</a><img
+												ng-show="loading" src="images/ajax-loader.gif"></td> -->
+											<td><a
+												ng-click="entityDrilledDown(EntityChartData.Entity[$index], 'Re-Opened')"
+												title="Re-Opened">{{EntityChartData.ReOpened[$index]}}</a><img
+												ng-show="loading2" src="images/ajax-loader.gif"></td>
+										</tr>
+									</table>
+									<!-- End Entity Table -->
+
+									<!-- Start Unit Table -->
+									<div class="tableFixHead">
+									<table
+										class="table table-bordered table-hover table-striped fixed_header"
+										ng-show="IsVisibleLocationBarChart">
+										<thead>
+											<tr>
+												<!-- style="font-size: 12px;" -->
+												<th>Unit</th>
+												<th>Complied</th>
+												<th>Posing</th>
+												<th>Non Complied</th>
+												<th>Delayed</th>
+												<th>Delayed Reported</th>
+												<!-- <th>WFA</th> -->
+												<th>Re-Opened</th>
+											</tr>
+										</thead>
+										<tbody >
+											<tr
+												ng-repeat="data in unitChartData.Unit | filter:search track by $index">
+												<td><span id="unitChartUnitName"
+													ng-click="unitChartUnitName(unitChartData.Unit[$index])">{{
+														unitChartData.Unit[$index] }}</span></td>
+												<td><a title="Complied" id="unitChartComplied"
+													ng-click="unitChartComplied(unitChartData.Unit[$index], 'Complied')">{{
+														unitChartData.Complied[$index] }}</a></td>
+												<td><a id="unitChartPosingRisk"
+													ng-click="unitChartPosingRisk(unitChartData.Unit[$index], 'PosingRisk')">{{
+														unitChartData.PosingRisk[$index] }}</a></td>
+												<td><a id="unitChartNonComplied"
+													ng-click="unitChartNonComplied(unitChartData.Unit[$index], 'NonComplied')">{{
+														unitChartData.NonComplied[$index] }}</a></td>
+												<td><a id="unitChartDelayed"
+													ng-click="unitChartDelayed(unitChartData.Unit[$index], 'Delayed')">{{
+														unitChartData.Delayed[$index] }}</a></td>
+												<td><a id="unitChartDelayedReported"
+													ng-click="unitChartDelayedReported(unitChartData.Unit[$index], 'Delayed-Reported')">{{unitChartData.Delayed_Reported[$index]
+														}}</a></td>
+												<!-- <td><a id="unitChartWaitingForApproval"
+													ng-click="unitChartWaitingForApproval(unitChartData.Unit[$index], 'Waiting For Approval')">{{unitChartData.WaitingForApproval[$index]
+														}}</a></td> -->
+												<td><a id="unitChartReOpened"
+													ng-click="unitChartReOpened(unitChartData.Unit[$index], 'Re-Opened')">{{
+														unitChartData.ReOpened[$index] }}</a></td>
+											</tr>
+										</tbody>
+									</table>
+									</div>
+									<!-- End Unit Table -->
+
+									<!-- Start Function Table -->
+									<div class="tableFixHead">
+									<table
+										class="table table-bordered table-hover table-striped fixed_header"
+										ng-show="IsVisibleDepartmentBarChart">
+										<br>
+										<thead>
+											<tr>
+												<th>Function Name</th>
+												<th>Complied</th>
+												<th>Posing</th>
+												<th>Non Complied</th>
+												<th>Delayed</th>
+												<th>Delayed Reported</th>
+												<!-- <th>WFA</th> -->
+												<th>Re-Opened</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr
+												ng-repeat="data in functionChartData.Function | filter:search track by $index">
+
+												<td>{{ functionChartData.Function[$index] }}</td>
+												<td><a
+													ng-click="functionDrilledDown(functionChartData.Function[$index], 'Complied')"
+													title="Complied">{{functionChartData.Complied[$index]}}</a></td>
+												<td><a
+													ng-click="functionDrilledDown(functionChartData.Function[$index], 'PosingRisk')"
+													title="Posing">{{functionChartData.PosingRisk[$index]}}</a></td>
+												<td><a
+													ng-click="functionDrilledDown(functionChartData.Function[$index], 'NonComplied')"
+													title="Non Complied">{{functionChartData.NonComplied[$index]}}</a></td>
+
+												<td><a
+													ng-click="functionDrilledDown(functionChartData.Function[$index], 'Delayed')"
+													title="Delayed">{{functionChartData.Delayed[$index]}}</a></td>
+												<td><a
+													ng-click="functionDrilledDown(functionChartData.Function[$index], 'Delayed-Reported')"
+													title="Delayed-Reported">{{functionChartData.Delayed_Reported[$index]}}</a><img
+													ng-show="loading" src="images/ajax-loader.gif"></td>
+
+												<!-- <td><a
+													ng-click="functionDrilledDown(functionChartData.Function[$index], 'Waiting For Approval')"
+													title="Waiting For Approval">{{functionChartData.WaitingForApproval[$index]}}</a><img
+													ng-show="loading" src="images/ajax-loader.gif"></td> -->
+												<td><a
+													ng-click="functionDrilledDown(functionChartData.Function[$index], 'Re-Opened')"
+													title="Re-Opened">{{functionChartData.ReOpened[$index]}}</a><img
+													ng-show="loading5" src="images/ajax-loader.gif"></td>
+											</tr>
+										</tbody>
+									</table>
+									</div>
+								</div>
+
+								<div class="col-sm-12">
+									<!-- for graph display column -->
+									<div>
+										<div id="pieLoader">
+											<img src="./images/Loader/graphLoader.gif" width="150px"
+												height="150px" />
+										</div>
+
+										<!-- Overall Pie Chart  -->
+										<div >
+											<div class="row">
+												<div class="col-sm-4">
+													<button type="button" style="margin-top: -15px;"
+														class="btn btn-info btn-xs" id="getChartId"
+														ng-click="exportOverAllGraphChart()">Export To
+														Image</button>
+												</div>
+											</div>
+											<br />
+											<!-- class="graphClass" -->
+											<div style="height: 450px; width: 560px; margin-top: -22px;"
+												id="overallChart"></div>
+										</div>
+
+										<!-- Entity Bar Chart  -->
+										<div ng-show="IsVisibleEntityGraph">
+											<div class="row">
+												<div class="col-sm-6">
+													<button type="button" style="margin-top: 5px;"
+														class="btn btn-info btn-xs"
+														ng-click="exportEntityLevelGraphChart()">Export
+														To Image</button>
+												</div>
+											</div>
+											<br />
+											<div id="entityLevel" class="graphClass"></div>
+										</div>
+									</div>
+
+
+									<!-- Unit Bar Chart  -->
+
+									<div ng-show="IsVisibleLocationBarChart">
+										<div class="row">
+											<div id="locLoader">
+												<img src="./images/Loader/graphLoader.gif" width="150px"
+													height="150px" />
+											</div>
+											<div class="col-sm-4">
+												<button type="button" style="margin-top: 28px;"
+													class="btn btn-info btn-xs"
+													ng-click="exportLocationBarChart()">Export to
+													image</button>
+											</div>
+										</div>
+										<br />
+										<div id="LocationBarChart" class="graphClass"></div>
+									</div>
+
+
+									<!-- Department Bar Chart  -->
+
+									<div ng-show="IsVisibleDepartmentBarChart">
+										<div class="row">
+											<div id="deptLoader">
+												<img src="./images/Loader/graphLoader.gif" width="150px"
+													height="150px" />
+											</div>
+											<div class="col-sm-4">
+												<label>Vertical :</label> <select class="form-control"
+													ng-options="e.orga_id as e.orga_name for e in entityListt"
+													ng-change="getUnits();searchFuntionLevelGraph()"
+													ng-model="dashboardObj.FunlevelEntity">
+													<option value="">-- Select --</option>
+												</select>
+											</div>
+											<div class="col-sm-4">
+												<label>Unit :</label> <select class="form-control"
+													ng-options="u.loca_id as u.loca_name for u in UnitListDD"
+													ng-model="dashboardObj.FunlevelUnit"
+													ng-change="getUnits();searchFuntionLevelGraph()">
+													<option value="">-- Select --</option>
+												</select>
+											</div>
+											<div class="col-sm-4">
+												<div class="myDiv">
+													<button type="button" style="margin-top: 28px;"
+														class="btn btn-info btn-xs"
+														ng-click="exportDepartmentBarChart()">Export to
+														image</button>
+												</div>
+											</div>
+										</div>
+										<br />
+										<div id="DepartmentBarChart" class="graphClass"></div>
+									</div>
+
+
+									<!-- Financial Chart Graph Div -->
+
+
+									<div ng-show="IsVisibleFinanceChart">
+										<div class="row">
+											<div id="financeLoader">
+												<img src="./images/Loader/graphLoader.gif" width="150px"
+													height="150px" />
+											</div>
+											<div class="col-sm-4">
+												<label>Year :</label><select class="form-control"
+													ng-options="y.year as y.year_id for y in YearList"
+													ng-change="getFincialGraphByMonth()"
+													ng-model="dashboardObj.fyear">
+													<option value="">-- Select --</option>
+												</select>
+											</div>
+											<div class="col-sm-4">
+												<label>Quarter :</label><select class="form-control"
+													ng-options="m.month_id as m.month for m in QuarterList"
+													ng-change="getFincialGraphByMonth()"
+													ng-model="dashboardObj.fmonth">
+													<option value=0>-- Select --</option>
+												</select>
+											</div>
+											<div class="col-sm-4">
+												<div class="myDiv">
+													<button type="button" style="margin-top: 28px;"
+														class="btn btn-info btn-xs"
+														ng-click="exportFinancialBarChart()">Export to
+														image</button>
+												</div>
+											</div>
+										</div>
+										<br />
+										<div id="financeLevel" class="graphClass"></div>
+									</div>
+
+									<!-- End Graph Div -->
+
+								</div>
+								<!-- End col-sm-7 div -->
+
+
+								
+								
+								
+								
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		$(window).height(); // returns height of browser viewport
+		$(document).height(); // returns height of HTML document (same as pageHeight in screenshot)
+		$(window).width(); // returns width of browser viewport
+		$(document).width(); // returns width of HTML document (same as pageWidth in screenshot)
+	</script>
+
+
+	<!-- All Modal Code Start -->
+	<div id="drilledModal" class="modal fade" role="dialog">
+		<div class="modal-dialog"
+			style="width: 1280px; overflow-y: scroll; max-height: 85%; margin-top: 50px; margin-bottom: 50px;">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						ng-click="$close()">&times;</button>
+					<h3 class="modal-title">{{obj.status}} Activities</h3>
+					<button class="btn btn-myWarning toggle" id="ExportTask"
+						name="ExportTask" ng-click="toggle()" data-toggle="exportTable"
+						style="float: right;">Export Data</button>
+					<button class="btn btn-success btn-add" id="importTask"
+						name="ImportTask" ng-click="importTaskToComplete()"
+						ng-if="objStatus=='NonComplied' || objStatus=='PosingRisk'">Import
+						Task</button>
+					<div class="col-md-6"
+						style="float: right; margin-top: -50px; margin-right: 87px; clear: both;">
+						<div class="panel-body col-md-12" id="exportTable"
+							style="float: right;">
+							<div class="row">
+								<div class="col-md-12" style="float: right;">
+									<div class="list-group border-bottom">
+										<div ng-hide="ExportTask">
+											<a class="list-group-item col-md-5"
+												ng-if="obj.reportList.length>0"
+												ng-click="ExportExcels_Maintask()"><img
+												src='images/reportIcons/xls.png' width="24" />Export Task
+												(XLS) </a> <a ng-click="generateMaintask_Pdf()"
+												ng-if="obj.reportList.length>0"
+												class="list-group-item col-md-5"><img
+												src='images/reportIcons/pdf.png' width="24" />Export Task
+												(PDF) </a> <a class="list-group-item col-md-5"
+												ng-if="obj.reportSubTaskList.length>0"
+												ng-click="ExportExcels_Subtask()"><img
+												src='images/reportIcons/xls.png' width="24" />Export Sub
+												Task (XLS) </a> <a ng-click="generateSubtask_Pdf()"
+												ng-if="obj.reportSubTaskList.length>0"
+												class="list-group-item col-md-5"><img
+												src='images/reportIcons/pdf.png' width="24" />Export Sub
+												Task (PDF) </a>
+
+											<!-- <a ng-click=""  ng-model="ExportData"class="list-group-item col-md-2"  >
+													downloadPranit </a> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<form autocomplete="off" name="taskDetailsForm" role="form"
+					class="form-horizontal" novalidate>
+					<div class="modal-body-drilled"
+						style="width: 1250px; overflow-x: auto;">
+						<div style="clear: both"></div>
+
+						<div ng-cloak>
+							<md-content> <md-tabs md-dynamic-height
+								md-border-bottom> <md-tab
+								ng-if="obj.reportList.length>0"
+								label="Main Tasks ({{obj.reportList.length}})"> <br>
+							<!-- <h4>Total Tasks({{obj.reportList.length}})</h4> --> <!-- <div class="col-md-12 litigation_buttons"
+								ng-show="showOnMultipleSelection">
+								<center>
+									<input type="button" class="btn btn-myPrimary"
+										value="Approve Task" name="approveTask" id="multipleapprove"
+										ng-click="approveALLTask()" />
+
+								</center>
+							</div> --> <br />
+							<div class="col-sm-9">
+								<div class="col-sm-3">
+									<input type="text" ng-model="search"
+										placeholder="Client task id.." />
+								</div>
+
+								<!-- <div class="col-sm-3">
+									<label class="control-label" for=""
+										ng-if="status == 'watingforapproval'">Selected Task :
+										{{dashboardObj.tasks_list.length}}</label> <label
+										class="control-label lblcount" for="selectedtask"
+										ng-if="status == 'watingforapproval'"></label>
+								</div> -->
+							</div>
+							<div style="overflow-x: scroll; width: 100%;">
+								<table style="table-layout: fixed;" id="example"
+									class="table table-striped table-bordered" width="100%"
+									cellspacing="0">
+									<thead>
+										<tr style="background: rgb(63, 81, 181); color: #fff;">
+
+											<th>Client Task ID</th>
+											<th>Vertical</th>
+											<th>Unit</th>
+											<th>Function</th>
+											<th>Legislation</th>
+											<th>Rule</th>
+											<th>Reference</th>
+											<th>Who</th>
+											<th>When</th>
+											<th>Activity</th>
+											<th>Impact</th>
+											<th>Implication</th>
+											<th>Owner</th>
+											<th>Approver</th>
+											<th>Function Head</th>
+											<th>Legal Due Date</th>
+											<th>Ttrn ID</th>
+											<th>Comments</th>
+											<th ng-if="objStatus == 'NonComplied'">Reason For
+												Non-Compliance</th>
+											<th style="word-wrap: break-word;">Event_Not_Occured
+												(Yes / No)</th>
+										</tr>
+									</thead>
+									<tbody id="SubtaskReport">
+										<tr ng-repeat="list in obj.reportList | filter : search"
+											"ng-if="obj.reportList.length>0">
+
+											<td>
+												<!-- <center>
+												<input type="checkbox" name="clientTaskId" class="taskId"
+													ng-model="list.selectedId"
+													ng-if="list.status=='watingforapproval' && getUserRoleId > 1"
+													ng-change="getCheckTaskId(list)" />
+											</center> --> <a target="_blank"
+												ng-click="getTaskHistoryList(list.ttrn_client_task_id) && getTaskDetails(list.ttrn_client_task_id)">
+													{{list.ttrn_client_task_id}}</a> <!-- <center>
+												<input type="button" class="btn btn-success"
+													value="RepoenTask" name="reopenTask" id="reopen"
+													data-toggle="modal" data-target="#reOpenTask"
+													ng-if="list.status=='watingforapproval' && getUserRoleId > 1"
+													ng-click="reopenTask(list)" />
+											</center> -->
+											</td>
+											<td>{{list.orga_name}}</td>
+											<td>{{list.loca_name}}</td>
+											<td>{{list.dept_name}}</td>
+											<td>{{list.task_legi_name}}</td>
+											<td>{{list.task_rule_name}}</td>
+											<td>{{list.task_reference}}</td>
+											<td>{{list.task_who}}</td>
+											<td>{{list.task_when}}</td>
+											<td>{{list.task_activity}}</td>
+											<td>{{list.tsk_impact}}</td>
+											<td>{{list.task_implication}}</td>
+											<td>{{list.task_executor}}</td>
+											<td>{{list.task_evaluator}}</td>
+											<td>{{list.task_fun_head}}</td>
+											<td>{{list.ttrn_legal_due_date}}</td>
+											<td>{{list.ttrn_id}}</td>
+											<td>{{list.comments}}</td>
+											<td ng-if="status == 'NonComplied'">{{list.reasonForNonCompliance}}</td>
+											<td style="width: 100px;">{{ }}</td>
+										</tr>
+										<tr ng-if="obj.reportList.length==0">
+											<td colspan="11">No record found</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							</md-tab> <md-tab ng-if="obj.reportSubTaskList.length>0"
+								label="Sub Tasks ({{obj.reportSubTaskList.length}})">
+
+
+							<div style="overflow-x: scroll; width: 100%;">
+								<table style="table-layout: fixed;" id="example1"
+									class="table table-striped table-bordered" width="100%"
+									cellspacing="0">
+
+									<thead>
+										<tr style="background: rgb(63, 81, 181); color: #fff;">
+											<th style="width: 100px;">Client Task ID</th>
+											<th style="width: 100px;">Vertical</th>
+											<th style="width: 100px;">Unit</th>
+											<th style="width: 100px;">Function</th>
+											<th style="width: 100px;">Legislation</th>
+											<th style="width: 100px;">Rule</th>
+											<th style="width: 100px;">Reference</th>
+											<th style="width: 100px;">Who</th>
+											<th style="width: 100px;">When</th>
+											<th style="width: 100px;">Activity</th>
+											<th style="width: 100px;">Owner</th>
+											<th style="width: 100px;">Name Of Contractor.</th>
+											<th style="width: 100px;">Compliance Title</th>
+											<th style="width: 100px;">Frequency</th>
+											<th style="width: 100px;">Legal Due Date</th>
+										</tr>
+									</thead>
+									<tbody id="SubtaskReport">
+										<tr ng-repeat="list in obj.reportSubTaskList"
+											ng-if="obj.reportSubTaskList.length>0">
+
+											<td style="word-wrap: break-word;"><a target="_blank"
+												ng-click="getSubTaskHistoryList(list.task_sub_id,list.ttrn_client_task_id) && getTaskDetails(list.ttrn_client_task_id)">
+													{{list.task_sub_id}}</a></td>
+											<td>{{list.orga_name}}</td>
+											<td>{{list.loca_name}}</td>
+											<td>{{list.dept_name}}</td>
+											<td>{{list.task_legi_name}}</td>
+											<td>{{list.task_rule_name}}</td>
+											<td>{{list.task_reference}}</td>
+											<td>{{list.task_who}}</td>
+											<td>{{list.task_when}}</td>
+											<td>{{list.task_activity}}</td>
+											<td>{{list.task_executor}}</td>
+											<td>{{list.equipment_number}}</td>
+											<td>{{list.equipment_type}}</td>
+											<td>{{list.sub_frequency}}</td>
+											<td>{{list.ttrn_legal_due_date}}</td>
+										</tr>
+										<tr ng-if="obj.reportSubTaskList.length==0">
+											<td colspan="11">No record found</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							</md-tab> </md-tabs> </md-content>
+						</div>
+					</div>
+			</div>
+		</div>
+
+		</form>
+	</div>
+</div>
+</div>
+
+
+<div id="changeTask" class="modal fade" role="dialog">
+	<div class="modal-dialog"
+		style="width: 1200px; overflow-y: scroll; max-height: 85%; margin-top: 50px; margin-bottom: 50px;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Task Details</h4>
+			</div>
+			<form autocomplete="off" name="taskDetailsForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body-drilled"
+					style="width: 1185px; overflow-x: auto;">
+					<div style="clear: both"></div>
+
+					<div ng-cloak>
+						<md-content> <md-tabs md-dynamic-height
+							md-border-bottom> <md-tab label="Task Details">
+						<div class="f_form_content">
+							<h2>Organogram Information</h2>
+
+							<div class="col-md-12 light">
+								<div class="col-md-2">
+									<label>Unit Task ID :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].unit_task_id}}</span>
+								</div>
+							</div>
+
+							<div class="col-md-12 dark">
+								<div class="col-md-2">
+									<label>Vertical :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].entity}}</span>
+								</div>
+							</div>
+
+							<div class="col-md-12 light">
+								<div class="col-md-2">
+									<label>Unit :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].unit}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-2 ">
+									<label>Function :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].function}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-2 ">
+									<label>Owner :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].executor}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-2 ">
+									<label>Approver :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].evaluator}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-2 ">
+									<label>Function Head :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].function_head}}</span>
+								</div>
+							</div>
+
+						</div>
+
+						<div style="clear: both;"></div>
+
+						<div class="f_form_content">
+							<h2>Task Details</h2>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Legislation :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].legislation}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Rule :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].rule}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Reference :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].reference}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Who :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].who}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>When :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].when}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Compliance Activity :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].activity}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Procedure :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].procedure}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>More Information :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].more_information}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Prohibitive / Prescriptive :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].prescriptive}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Frequency :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].frequency}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Form No. :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].form_no}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Due date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].due_date}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Specific due date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].specific_due_date}}</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Type of Task :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].type_of_task}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Responsibility :</label>
+									</div>
+									<div class="col-md-10">
+										<span>NA</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Corporate Level or Unit Level :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].level}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Exemption Criteria :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].excemption_criteria}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Events :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].event}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Sub Event :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].sub_event}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Implications :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].implications}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Imprisonment Duration :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].imprisonment}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Imprisonment Applies to :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].imprisonment_applies_to}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Fine amount :</label>
+									</div>
+									<div class="col-md-10">
+										<span> <strong> <i class="fa fa-inr"></i>
+												{{task_details.task_details[0].fine_amount}}
+										</strong>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Subsequent Amount per Day :</label>
+									</div>
+									<div class="col-md-10">
+										<span> <strong><i class="fa fa-inr"></i>
+												{{task_details.task_details[0].fine_amount_per_day}}</strong>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Impact :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].impact}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Impact on Unit :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].impact_on_unit}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Impact on organization :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].impact_on_entity}}</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Interlinkage :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].interlinkage}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Linked Task ID :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].linked_task_id}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Weblink :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].weblink}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-2">
+									<label>Lexcare Task ID :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].lexcare_task_id}}</span>
+								</div>
+							</div>
+						</div>
+
+						</md-tab> <md-tab label="Task History">
+						<div class="col-md-12"
+							style="overflow-x: scroll; margin-top: 20px; width: 96%;">
+							<table class="table table-bordered" id="tbltask">
+								<thead>
+									<tr style="background: #0B6EC3; color: #fff;">
+										<!-- <th>Function</th> -->
+										<th>Owner</th>
+										<th>Owner Date</th>
+										<th>Approver Date</th>
+										<th>Function Head Date</th>
+										<th>Unit Head Date</th>
+										<th>Legal Date</th>
+										<th class="editDatesOfHistorypage"
+											ng-if="editDate.role==6 || editDate.role==7">Edit Dates</th>
+										<th>Completed By</th>
+										<th>Completed On</th>
+										<th>Comments</th>
+										<th>Task Status</th>
+										<th>Legal Task Status</th>
+										<th>Document</th>
+										<th>Update History</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="history in task_history "
+										class="{{history.ttrn_legal_task_style}}"
+										ng-if="task_history.length>0">
+										<!-- style="background-color: #F53636; font-weight: bold;"  -->
+
+										<td>{{history.ttrn_performer_name}}</td>
+										<td>{{history.ttrn_pr_due_date}}</td>
+										<td>{{history.ttrn_rw_due_date}}</td>
+										<td>{{history.ttrn_fh_due_date}}</td>
+										<td>{{history.ttrn_uh_due_date}}</td>
+										<td>{{history.ttrn_legal_due_date}}</td>
+										<td ng-if="editDate.role==6 || editDate.role==7"><span
+											ng-if="history.ttrn_task_status!='Completed' && history.ttrn_task_status!='Event_Not_Occured'"><img
+												title="Edit Configuration"
+												style="cursor: pointer; cursor: hand;"
+												src="images/taskActivationImg/config.png"
+												ng-click="editDates(history)" width="40px" height="40px" /></span></td>
+										<td>{{history.ttrn_task_completed_by}}</td>
+										<td>{{history.ttrn_completed_date}}</td>
+										<td>{{history.ttrn_performer_comments}}</td>
+										<td>{{history.ttrn_task_status}}</td>
+										<td>{{history.ttrn_legal_task_status}}</td>
+										<td>
+											<p ng-repeat="doc in history.document_list">
+												<a
+													ng-click="downloadProof(doc.udoc_id,history.client_task_id)">
+													{{doc.udoc_original_file_name}} </a> <a
+													style="cursor: pointer;"
+													ng-click="deleteTaskDocument(doc.udoc_id,history.client_task_id,$event,$index)">
+													<i class='glyphicon glyphicon-remove-circle uploadClose'
+													title='Delete Document'></i>
+												</a>
+											</p>
+										</td>
+										<td>
+											<!-- start of td auditConditionTwo  --> <!-- {{ history.auditConditionTwo }} -->
+											<div ng-if="history.auditConditionTwo == 'Yes' ">
+												<a
+													ng-if="history.ttrn_task_status=='Active' && history.ttrn_allow_completion=='yes' || history.ttrn_task_status=='Re_Opened' && history.ttrn_allow_completion=='yes'"
+													ng-click="CompleteTaskPage(history.ttrn_id,history.ttrn_document,history.ttrn_performer_comments,0,history.ttrn_legal_task_status,history.ttrn_reason_for_non_compliance,history.task_frequency,history.ttrn_legal_due_date,history.client_task_id)"
+													class="btn btn-success">Complete Task</a> <a
+													ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1 && currentuser==task_details.task_details[0].evaluator || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser!=task_details.task_details[0].executor || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser==task_details.task_details[0].executor && currentuser==task_details.task_details[0].function_head || history.ttrn_task_status=='Partially_Completed' && editDate.role>3"
+													ng-click="approveTask(history.ttrn_id,history.client_task_id)"
+													class="btn btn-success">Approve Task</a> <a
+													style="margin-top: 10px;"
+													ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1 && currentuser==task_details.task_details[0].evaluator || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser!=task_details.task_details[0].executor || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser==task_details.task_details[0].executor && currentuser==task_details.task_details[0].function_head || history.ttrn_task_status=='Partially_Completed' && editDate.role>3"
+													ng-click="reopenTask(history)" class="btn btn-success"
+													data-toggle="modal" data-target="#reOpenTask">Re-Open
+													Task</a> <a style="margin-top: 10px;"
+													ng-if="history.ttrn_task_status=='Completed' || history.ttrn_task_status=='Partially_Completed'"
+													ng-click="CompleteTaskPage(history.ttrn_id,0,history.ttrn_performer_comments,history.ttrn_completed_date,history.ttrn_legal_task_status,history.ttrn_reason_for_non_compliance,history.task_frequency,history.ttrn_legal_due_date,history.client_task_id)"
+													class="btn btn-success">Update Task</a> <a
+													style="margin-top: 10px;"
+													ng-if="history.ttrn_legal_task_status=='Non Complied' || legalDueDate < currentDate"
+													ng-click="reasonForNonCompliance(history)"
+													class="btn btn-danger" data-toggle="modal"
+													data-target="#resonForNonCompliance">&nbsp;Reason For
+													Non-Compliance</a> <a style="margin-top: 10px;"
+													ng-if="editDate.role == 6 || editDate.role == 7"
+													ng-click="deleteTask(history.ttrn_id,history.client_task_id,$event,$index)"
+													class="btn btn-danger"><i class='fa fa-trash'></i>&nbsp;Delete
+													Task</a>
+											</div> <!-- end of td -->
+
+											<div ng-if="history.auditConditionTwo == 'No' ">
+												
+												<!-- <div ng-if="editDate.role > 0 && (editDate.role != 6 || editDate.role != 7 || editDate.role != 12)"> -->
+												<div ng-if="(editDate.role > 0 && editDate.role <= 5 || editDate.role >= 8 && editDate.role <= 11 || editDate.role >= 13) || editDate.role != 6 && editDate.role != 7 && editDate.role != 12 ">
+													Date is crossed! You cannot update tasks.
+												</div>
+
+												<div ng-if="editDate.role == 6 || editDate.role == 7 || editDate.role == 12 ">
+													Do you want to re-open tasks? <a style="margin-top: 10px;"
+														ng-if="editDate.role>1 && currentuser==task_details.task_details[0].evaluator || editDate.role==3 && currentuser!=task_details.task_details[0].executor || editDate.role==3 && currentuser==task_details.task_details[0].executor && currentuser==task_details.task_details[0].function_head || editDate.role>3"
+														ng-click="reopenTask(history)" class="btn btn-success"
+														data-toggle="modal" data-target="#reOpenTask">Re-Open
+														Task</a>
+												</div>
+
+
+											</div>
+
+										</td>
+										
+										<!-- End of TD -->
+									</tr>
+									<tr ng-if="task_history.length==0">
+										<td colspan="14" style="text-align: center;">Task is not
+											configured.</td>
+									</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						</md-tab> <!-- <md-tab ng-if="subTaskHistory.length>0" label="Sub Tasks">
+						<div style="overflow-x: scroll; margin-top: 20px; width: 100%;"
+							class="col-md-12">
+							<table class="table table-bordered" style="width: 100%;">
+								<thead>
+									<tr style="background: #0B6EC3; color: #fff;">
+										<th>Function</th>
+										<th>Sub Task ID</th>
+										<th>Name Of Contractor</th>
+										<th>Compliance Activity</th>
+										<th>Unit</th>
+										<th>Compliance Title</th>
+										<th>Frequency</th>
+										<th>Executor Date</th>
+										<th>Evaluator Date</th>
+										<th>Function Head Date</th>
+										<th>Unit Head Date</th>
+										<th>Entity Head Date</th>
+										<th>Examination Date</th>
+										<th class="editDatesOfHistorypage"
+											ng-if="editDate.role==6 || editDate.role==7">Edit Dates</th>
+										<th>Sub Task Status</th>
+										<th>Legal Sub Task Status</th>
+										<th>Documents</th>
+										<th>Action Taken</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr ng-repeat="history in subTaskHistory"
+										class='{{history.ttrn_legal_task_style}}'
+										ng-if="subTaskHistory.length>0">
+										style="background-color: #F53636; font-weight: bold;" 
+
+										<td>{{history.ttrn_sub_id}}</td>
+										<td>{{history.ttrn_sub_equip_number}}</td>
+										<td>{{history.ttrn_sub_equip_desc}}</td>
+										<td>{{history.ttrn_sub_equip_loca}}</td>
+										<td>{{history.ttrn_sub_equip_type}}</td>
+										<td>{{history.ttrn_sub_equip_frequency}}</td>
+										<td>{{history.ttrn_pr_due_date}}</td>
+										<td>{{history.ttrn_rw_due_date}}</td>
+										<td>{{history.ttrn_fh_due_date}}</td>
+										<td>{{history.ttrn_uh_due_date}}</td>
+										<td>{{history.ttrn_legal_due_date}}</td>
+										<td>{{history.ttrn_next_examination_date}}</td>
+										<td ng-if="editDate.role==6 || editDate.role==7"><span
+											ng-if="history.ttrn_task_status!='Completed'"><img
+												title="Edit Configuration"
+												style="cursor: pointer; cursor: hand;"
+												src="images/taskActivationImg/config.png"
+												ng-click="editSubTaskDates(history)" width="40px"
+												height="40px" /></span></td>
+										<td>{{history.ttrn_task_status}}</td>
+										<td>{{history.ttrn_legal_task_status}}</td>
+										<td>
+											<p ng-repeat="doc in history.document_list">
+												<a style="cursor: pointer;"
+													ng-click="downloadSubtaskDocument(doc.udoc_id)">
+													{{doc.udoc_original_file_name}} </a> <a
+													style="cursor: pointer;"
+													ng-click="deleteSubTaskDocument(doc.udoc_id,history.client_task_id,$event,$index)">
+													<i class='glyphicon glyphicon-remove-circle uploadClose'
+													title='Delete Document'></i>
+												</a>
+											</p>
+										</td>
+										<td><a
+											ng-if="history.ttrn_task_status=='Active' || history.ttrn_task_status=='Re_Opened'"
+											ng-click="subTaskComplete(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#SubTaskCompletion">Complete
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Completed' || history.ttrn_task_status=='Partially_Completed' || history.ttrn_task_status=='Delayed Reported'"
+											ng-click="subTaskComplete(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#SubTaskCompletion">Update
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1 "
+											ng-click="approveSubTask(history)" class="btn btn-success">Approve
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1"
+											ng-click="reopenSubTask(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#reOpenSubTask">Re-Open
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="editDate.role == 6 || editDate.role == 7"
+											ng-click="deleteSubTask(history.ttrn_sub_task_id,history.client_task_id,$event,$index)"
+											class="btn btn-danger"><i class='fa fa-trash'></i>&nbsp;Delete
+												Task</a></td>
+									</tr>
+									<tr ng-if="subTaskHistory.length==0">
+										<td colspan="14" style="text-align: center;">Task is not
+											configured.</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+						</md-tab> <md-tab label="Task Details" ng-click="">
+					</div>
+					</md-tab> --> </md-tabs> </md-content>
+					</div>
+				</div>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+</div>
+
+<div id="completeTask" class="modal fade" role="dialog">
+	<div class="modal-dialog" style="width: 800px;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Complete Task</h4>
+			</div>
+
+			<div id="taskCompletionLoader" class="modal fade" role="dialog"
+				style="margin-left: 70px; margin-top: 200px;">
+				<img src="./images/Loader/taskCompletionLoaderG.gif" width="90px"
+					height="90px" />
+
+				<!-- <h6>Please Wait....</h6> -->
+			</div>
+			<form autocomplete="off" name="taskCompletionForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body-drilled"
+					style="width: 782px; overflow-x: auto;">
+					<div class="f_form_content">
+						<h2>Task Completion</h2>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label for="inputPassword3" class="control-label col-sm-3"
+										for="sel1">Form :</label>
+									<div class="col-sm-4">
+										<p class="input-group" style="width: 281px;">
+											<span>{{ task_details.task_details[0].form_no }}</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr />
+
+						<div class="col-md-2"></div>
+						<div class="col-md-10">
+
+							<div id="restOfTheControls">
+								<div class="col-md-12" ng-if="frequency=='Event_Based'">
+									<div class="form-group row">
+										<label for="inputPassword3" class="col-sm-3 control-label">Event
+											Not Occurred :</label>
+										<div class="col-sm-2">
+											<input type="checkbox" ng-model="eventNotOccured"
+												ng-click="eventCheked(eventNotOccured)"
+												name="eventNotOccured" id="eventNotOccured"
+												style="margin-top: 12px;">
+											<!-- {{eventNotOccured}}{{showEventNotOccured}} -->
+										</div>
+									</div>
+								</div>
+								
+								<div ng-show="showEventNotOccured">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="inputPassword3" class="control-label col-sm-3"
+												for="sel1">Completion Date :</label>
+											<div class="col-sm-4">
+
+												<p class="input-group" style="width: 281px;">
+													<input type="text" class="form-control"
+														ng-change="getDates()" uib-datepicker-popup="{{format}}"
+														ng-model="taskCompletion.ttrn_completed_date"
+														is-open="popup_legal.opened" close-text="Close"
+														alt-input-formats="altInputFormats" readonly="readonly"
+														required="true" /> <span class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_legal()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+
+
+											</div>
+
+										</div>
+									</div>
+
+									<div class="col-md-12" ng-if="frquency!='Event_Based'">
+										<div class="form-group row">
+											<label for="inputPassword3" class="col-sm-3 control-label">Remarks:</label>
+											<div class="col-sm-8">
+												<textarea rows="4" class="form-control"
+													ng-model="taskCompletion.ttrn_performer_comments"
+													name="comments" placeholder="Remarks" required></textarea>
+												<div ng-messages="taskCompletionForm.comments.$error"
+													ng-if="taskCompletionForm.$submitted">
+													<span class="error-text" ng-message="required">Please
+														enter remark.</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="col-md-12 "
+										ng-if="frquency=='Event_Based' && showEventNotOccured==true">
+										<div class="form-group row">
+											<label for="inputPassword3" class="col-sm-3 control-label">Remarks:</label>
+											<div class="col-sm-8">
+												<textarea rows="4" class="form-control"
+													ng-model="taskCompletion.ttrn_performer_comments"
+													name="comments" placeholder="Remarks" required></textarea>
+												<div ng-messages="taskCompletionForm.comments.$error"
+													ng-if="taskCompletionForm.$submitted">
+													<span class="error-text" ng-message="required">Please
+														enter remark.</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12"
+										ng-if="status=='Delayed' || status=='Non Complied' && status!='Complied'">
+										<div class="form-group row">
+											<label for="inputPassword3" class="col-sm-3 control-label">Reason
+												For Non-Compliance:</label>
+											<div class="col-sm-8">
+												<textarea rows="4" class="form-control"
+													ng-model="taskCompletion.ttrn_reason_for_non_compliance"
+													name="reason" placeholder="Remarks" required></textarea>
+												<div ng-messages="taskCompletionForm.reason.$error"
+													ng-if="taskCompletionForm.$submitted">
+													<span class="error-text" ng-message="required">Please
+														enter reason for non-compliance.</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="col-md-6"></div>
+
+									<div id="filesContainer">
+										<div class='col-md-12'>
+											<div id="div0" class="form-group row">
+												<span class="glyphicons glyphicons-remove-sign"></span> <label
+													class="col-md-3 form-control-label">Upload Proof of
+													Compliance:</label>
+												<div class="col-md-3"
+													ng-if="task.document==1 && showEventNotOccured == true">
+													<input type="file" multiple class="btn btn-myWarning"
+														id="ttrn_proof_of_compliance" valid-file
+														ng-model="proofCompliance.ttrn_proof_of_compliance"
+														name="ttrn_proof_of_compliance" required><br />
+													<div
+														ng-messages="taskCompletionForm.ttrn_proof_of_compliance.$error"
+														ng-if="taskCompletionForm.$submitted">
+														<span class="error-text" ng-message="required">Document
+															is mandatory.</span>
+													</div>
+												</div>
+
+												<div class="col-md-3" ng-if="task.document==0">
+													<input type="file" multiple class="btn btn-myWarning"
+														id="ttrn_proof_of_compliance"
+														file-model="proofCompliance.ttrn_proof_of_compliance"
+														name="ttrn_proof_of_compliance">
+												</div>
+
+											</div>
+
+										</div>
+
+										<br>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="col-md-2"></div>
+						<div class="col-md-12 litigation_buttons">
+							<br>
+
+							<center>
+								<!-- <input ng-if="task.document==1" type="submit" ng-click="saveCompletion(taskCompletionForm.$valid)" class="btn btn-myPrimary" value="Submit" /> -->
+								<input
+									ng-if="status=='Posing Risk' || status=='Non Complied' || status=='Pending' || status=='Re_Opened' "
+									type="submit"
+									ng-click="saveCompletion(taskCompletionForm.$valid)"
+									class="btn btn-myPrimary" value="Submit" /> <input
+									ng-if=" status=='Complied' || status=='Delayed' || status=='Delayed Reported'|| status=='Wating for Approval'"
+									type="submit"
+									ng-click="saveCompletion(taskCompletionForm.$valid)"
+									class="btn btn-myPrimary" value="Update" />
+								<button type="button" class="btn btn-myPrimary1"
+									data-dismiss="modal">Cancel</button>
+							</center>
+
+
+						</div>
+					</div>
+
+					<!-- Multiple task completion -->
+					<div style="clear: both"></div>
+					<div class="f_form_content" ng-if="multipleTasks.length > 0 ">
+						<h2>Multiple Task Completion</h2>
+						<div class="row">
+							<div class="col-md-12"
+								style="overflow-x: scroll; margin-top: 10px;">
+								<label class="control-label" for=""> <input
+									type="checkbox" name="selectall" id="selectAll"
+									ng-model="selectedAll" ng-change="checkAllMultipleCompletion()">
+									&nbsp;&nbsp;Select All&nbsp;&nbsp;&nbsp;&nbsp;
+								</label> <label class="control-label " for="">Selected Task :</label> <label
+									class="control-label lblcount" for="totaltask">{{task_ttrn_ids.length}}</label>
+								<label class="control-label " for=""> &nbsp;&nbsp; Total
+									Task :</label> <label class="control-label lblcount" for="totaltask">
+									{{multipleTasks.length}}</label>
+								<table id="example" class="table table-striped table-bordered">
+									<thead>
+										<tr style="background: #0B6EC3; color: #fff;">
+											<th>Client Task Id</th>
+											<th>Vertical</th>
+											<th>Unit</th>
+											<th>Function</th>
+											<th>Legislation</th>
+											<th>Rule</th>
+											<th>Reference</th>
+											<th>Who</th>
+											<th>When</th>
+											<th>Activity</th>
+											<th>Status</th>
+											<th>Owner Date</th>
+											<th>Legal Date</th>
+											<th>Frequency</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat=" i in multipleTasks">
+											<td><center>{{i.client_task_id}}</center>
+												<center>
+													<input type="checkbox" value="i.ttrn_id"
+														ng-model="i.SelectedTaskId"
+														ng-click="getCheckTaskIdMultipleCompletion(i.SelectedTaskId,i.ttrn_id)">
+												</center></td>
+											<td>{{i.orga_name}}</td>
+											<td>{{i.loca_name}}</td>
+											<td>{{i.dept_name}}</td>
+											<td>{{i.legi_name}}</td>
+											<td>{{i.rule_name}}</td>
+											<td>{{i.ref}}</td>
+											<td>{{i.who}}</td>
+											<td>{{i.when}}</td>
+											<td>{{i.activity}}</td>
+											<td>{{i.status}}</td>
+											<td>{{i.pr_date}}</td>
+											<td>{{i.legal_date}}</td>
+											<th>{{i.frequency_for_operation}}</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!--  Multiple task completion end -->
+
+				</div>
+		</div>
+		</form>
+	</div>
+</div>
+
+<div id="resonForNonCompliance" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Reason For Non-Compliance</h4>
+			</div>
+			<form autocomplete="off" name="ReasonForNonComplianceForm"
+				role="form" class="form-horizontal" novalidate>
+				
+				<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label for="inputPassword3" class="control-label col-sm-3"
+										for="sel1">Form :</label>
+									<div class="col-sm-4">
+										<p class="input-group" style="width: 281px;">
+											<span>{{ task_details.task_details[0].form_no }}</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+				<div class="modal-body">
+					<div class="form-group">
+						<label class="control-label col-sm-5" for="email">Reason
+							for Non-Compliance:</label>
+						<div class="col-sm-6">
+							<textarea rows="3" class="form-control"
+								ng-model="nonComplianceReason.ttrn_reason_for_non_compliance"
+								name="nonCompliaceReason" placeholder="Enter Reason" required></textarea>
+							<div
+								ng-messages="ReasonForNonComplianceForm.nonCompliaceReason.$error"
+								ng-if="ReasonForNonComplianceForm.$submitted">
+								<span class="error-text" ng-message="required">Please
+									enter reason for Non-Compliance.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success"
+						ng-click="sendReasonForNonCompliance(ReasonForNonComplianceForm.$valid)">Submit</button>
+					<!-- <button type="button" class="btn btn-danger" id="reset" name="reset">Clear</button> -->
+					<input class="btn btn-danger" type="reset" id="reset" name="reset"
+						value="Clear" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="reOpenTask" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Re-Open Task Comments</h4>
+			</div>
+			<form autocomplete="off" name="ReopenForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body">
+				
+				<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label for="inputPassword3" class="control-label col-sm-3"
+										for="sel1">Form :</label>
+									<div class="col-sm-4">
+										<p class="input-group" style="width: 281px;">
+											<span>{{ task_details.task_details[0].form_no }}</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-5" for="email">Reason
+							for Re-Opening:</label>
+						<div class="col-sm-6">
+							<textarea rows="3" class="form-control"
+								ng-model="reOpen.reopen_comment" name="comment"
+								placeholder="Enter Reason" required></textarea>
+							<div ng-messages="ReopenForm.comment.$error"
+								ng-if="ReopenForm.$submitted">
+								<span class="error-text" ng-message="required">Please
+									enter reason for Re-Opening.</span>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success"
+						ng-click="sendReOpenTask()">Re-Open Task</button>
+					<!-- <button type="button" class="btn btn-danger" id="reset" name="reset">Clear</button> -->
+					<input class="btn btn-danger" type="reset" id="reset" name="reset"
+						value="Clear" />
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<!-- Edit dates  -->
+<div id="editConfiguration" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 117%">
+			<form autocomplete="off" name="configForm" class="form-horizontal"
+				novalidate>
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal"
+						class="bootbox-close-button close" type="button">×</button>
+					<h4 class="modal-title">Edit Dates</h4>
+				</div>
+				<div class="modal-body">
+					<div class="bootbox-body">
+						<style>
+#legalDateConfig {
+	z-index: 1151 !important;
+}
+
+table tr td {
+	text-align: center;
+	padding: 5px;
+}
+
+table tr th {
+	text-align: center;
+}
+
+table tr td input {
+	text-align: center;
+}
+
+table tr td select option {
+	text-align: center;
+}
+</style>
+						<div class="row">
+							<div class="col-md-12">
+								<table width="100%">
+									<tbody>
+										<tr>
+											<th>#</th>
+											<th>Old Dates</th>
+											<th>New Dates</th>
+										</tr>
+										<tr>
+											<td><label>Buffer days</label></td>
+											<td>
+												<!-- <input type="text" class="form-control" readonly="readonly" value="NtmapObj.ttrn_prior_days_buffer"/> -->
+											</td>
+											<td><input type="number" ng-change="getDates()"
+												name="buffer_days" class="form-control"
+												ng-model="tmapObj.ttrn_prior_days_buffer" required />
+												<div ng-messages="configForm.buffer_days.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Enter
+														buffer days. </span>
+												</div></td>
+										</tr>
+										<tr>
+											<td><label>Legal due date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_legal_date}}" readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														ng-change="getDates()" uib-datepicker-popup="{{format}}"
+														ng-model="lega_date" is-open="popup_legal.opened"
+														close-text="Close" alt-input-formats="altInputFormats"
+														readonly="readonly" required="true" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_legal()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.lega_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date. </span>
+												</div>
+												<p class="error-text">{{errMessage.lh_date}}</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label>Unit head date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_unit_date}}" readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="unit_date"
+														is-open="popup_unit.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_unit()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.unit_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.uh_date}}</p>
+
+											</td>
+										</tr>
+										<tr>
+											<td><label>Function date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_function_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="func_date"
+														is-open="popup_func.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_func()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.func_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.fh_date}}</p>
+
+											</td>
+										</tr>
+										<tr>
+											<td><label>Approver date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_evaluator_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="eval_date"
+														is-open="popup_eval.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_eval()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.rw_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.rw_date}}</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label>Owner date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_executor_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="exec_date"
+														is-open="popup_exec.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_exec()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.pr_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.pr_date}}</p>
+
+											</td>
+
+										</tr>
+										<tr>
+											<td style="Display: none;"><input type="text"
+												class="form-control" name="validate_dates"
+												ng-model="tmapObj.validate_dates" />
+												<div ng-messages="configForm.validate_dates.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Check
+														Date validation.</span>
+												</div></td>
+
+											<td style="text-align: center;"><input type="submit"
+												ng-click="updateDates(configForm.$valid);"
+												value="Update Dates" name="config" class="btn btn-success"></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- SUB TASK -->
+
+<div id="SubTaskCompletion" class="modal fade" role="dialog"
+	style="z-index: 1800;">
+	<div class="modal-dialog" style="width: 800px;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Complete Sub Task</h4>
+			</div>
+
+			<div id="subTaskCompletionLoader" class="modal fade" role="dialog"
+				style="margin-left: 70px; margin-top: 200px;">
+				<img src="./images/Loader/taskCompletionLoaderG.gif" width="90px"
+					height="90px" />
+
+				<!-- <h6>Please Wait....</h6> -->
+			</div>
+			<form autocomplete="off" name="SubTaskCompletionForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body-drilled"
+					style="width: 782px; overflow-x: auto;">
+					<div class="f_form_content">
+						<h2>Complete Sub Task</h2>
+						<div class="col-md-2"></div>
+						<div class="col-md-10">
+
+							<div id="restOfTheControls">
+
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="control-label col-sm-5">Completed Date :</label>
+										<div class="col-sm-7">
+											<p class="input-group" style="width: 300px;">
+												<input type="text" class="form-control"
+													name="scau_notice_date" uib-datepicker-popup="{{format}}"
+													ng-model="subTaskCompletion.ttrn_completed_date"
+													is-open="popup_completed_date.opened" close-text="Close"
+													alt-input-formats="altInputFormats" readonly="readonly"
+													required="true" /> <span class="input-group-btn">
+													<button type="button" class="btn btn-default"
+														ng-click="subtaskcompetedDate()">
+														<i class="glyphicon glyphicon-calendar"></i>
+													</button>
+												</span>
+											<p class="error-text">{{errMessage.completed_date}}</p>
+											</p>
+
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="form-group row">
+										<label class="control-label col-sm-5" for="email">Comments
+											:</label>
+										<div class="col-sm-6">
+											<textarea rows="4" class="form-control"
+												ng-model="subTaskCompletion.ttrn_performer_comments"
+												name="comment" placeholder="Enter Comments" required></textarea>
+											<div ng-messages="SubTaskCompletionForm.comment.$error"
+												ng-if="SubTaskCompletionForm.$submitted">
+												<span class="error-text" ng-message="required">Please
+													enter comments.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="col-md-12 ">
+									<div class="form-group row"
+										ng-if="ttrn_task_status=='Non Complied'">
+										<label class="control-label col-sm-5" for="email">Reason
+											for Non-Compliance :</label>
+										<div class="col-sm-6">
+											<textarea rows="3" class="form-control"
+												ng-model="subTaskCompletion.ttrn_reason_for_non_compliance"
+												name="ttrn_reason_for_non_compliance"
+												placeholder="Enter Reason" required></textarea>
+											<div
+												ng-messages="SubTaskCompletionForm.ttrn_reason_for_non_compliance.$error"
+												ng-if="SubTaskCompletionForm.$submitted">
+												<span class="error-text" ng-message="required">Please
+													enter reason for non-compliance.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6"></div>
+
+								<div id="filesContainer">
+									<div class='col-md-12'>
+										<div id="div0" class="form-group row">
+											<span class="glyphicons glyphicons-remove-sign"></span> <label
+												class="col-md-5 form-control-label">Upload Proof of
+												Compliance :</label>
+											<div class="col-sm-6" ng-if="ttrn_document==1">
+												<input type="file" multiple class="btn btn-myWarning"
+													id="ttrn_proof_of_compliance" valid-file
+													ng-model="proofCompliance.ttrn_proof_of_compliance"
+													name="ttrn_proof_of_compliance" required><br />
+												<div
+													ng-messages="SubTaskCompletionForm.ttrn_proof_of_compliance.$error"
+													ng-if="SubTaskCompletionForm.$submitted">
+													<span class="error-text" ng-message="required">Document
+														is mandatory.</span>
+												</div>
+											</div>
+
+											<div class="col-md-3" ng-if="ttrn_document==0">
+												<input type="file" multiple class="btn btn-myWarning"
+													id="ttrn_proof_of_compliance"
+													file-model="proofCompliance.ttrn_proof_of_compliance"
+													name="ttrn_proof_of_compliance"><br />
+											</div>
+
+										</div>
+
+									</div>
+
+									<br>
+								</div>
+
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-2"></div>
+					<div class="col-md-12 litigation_buttons">
+						<br>
+
+						<center>
+							<!-- <input ng-if="task.document==1" type="submit" ng-click="saveCompletion(taskCompletionForm.$valid)" class="btn btn-myPrimary" value="Submit" /> -->
+							<input type="submit"
+								ng-click="saveSubTaskCompletion(SubTaskCompletionForm.$valid)"
+								class="btn btn-myPrimary" value="Complete SubTask" />
+							<button type="button" class="btn btn-myPrimary1"
+								data-dismiss="modal">Cancel</button>
+						</center>
+
+
+					</div>
+				</div>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+
+
+<!-- Reopen Subtask  -->
+<div id="reOpenSubTask" class="modal fade" role="dialog"
+	style="z-index: 1800;">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Re-Open Task Comments</h4>
+			</div>
+			<form autocomplete="off" name="ReopenForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<label class="control-label col-sm-5" for="email">Reason
+							for Re-Opening:</label>
+						<div class="col-sm-6">
+							<textarea rows="3" class="form-control"
+								ng-model="reOpen.reopen_task_comment" name="comment"
+								placeholder="Enter Reason" required></textarea>
+							<div ng-messages="ReopenForm.comment.$error"
+								ng-if="ReopenForm.$submitted">
+								<span class="error-text" ng-message="required">Please
+									enter reason for Re-Opening.</span>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success"
+						ng-click="sendReOpenSubTask(ReopenForm.$valid)">Re-Open
+						Task</button>
+					<!-- <button type="button" class="btn btn-danger" id="reset" name="reset">Clear</button> -->
+					<input class="btn btn-danger" type="reset" id="reset" name="reset"
+						value="Clear" />
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<!-- Edit Sub Task Dates  -->
+
+<div id="editSubTaskConfiguration" class="modal fade" role="dialog"
+	style="z-index: 1800;">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 117%">
+			<form autocomplete="off" name="configForm" class="form-horizontal"
+				novalidate>
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal"
+						class="bootbox-close-button close" type="button">×</button>
+					<h4 class="modal-title">Edit Dates</h4>
+				</div>
+				<div class="modal-body">
+					<div class="bootbox-body">
+						<style>
+#legalDateConfig {
+	z-index: 1151 !important;
+}
+
+table tr td {
+	text-align: center;
+	padding: 5px;
+}
+
+table tr th {
+	text-align: center;
+}
+
+table tr td input {
+	text-align: center;
+}
+
+table tr td select option {
+	text-align: center;
+}
+</style>
+						<div class="row">
+							<div class="col-md-12">
+								<table width="100%">
+									<tbody>
+										<tr>
+											<th>#</th>
+											<th>Old Dates</th>
+											<th>New Dates</th>
+										</tr>
+										<tr>
+											<td><label>Buffer days</label></td>
+											<td>
+												<!-- <input type="text" class="form-control" readonly="readonly" value="NtmapObj.ttrn_prior_days_buffer"/> -->
+											</td>
+											<td><input type="number" ng-change="getDates()"
+												name="buffer_days" class="form-control"
+												ng-model="tmapObj.ttrn_prior_days_buffer" required />
+												<div ng-messages="configForm.buffer_days.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Enter
+														buffer days. </span>
+												</div></td>
+										</tr>
+										<tr>
+											<td><label>Legal due date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_legal_date}}" readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														ng-change="getDates()" uib-datepicker-popup="{{format}}"
+														ng-model="lega_date" is-open="popup_legal.opened"
+														close-text="Close" alt-input-formats="altInputFormats"
+														readonly="readonly" required="true" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_legal()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.lega_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date. </span>
+												</div>
+												<p class="error-text">{{errMessage.lh_date}}</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label>Unit head date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_unit_date}}" readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="unit_date"
+														is-open="popup_unit.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_unit()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.unit_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.uh_date}}</p>
+
+											</td>
+										</tr>
+										<tr>
+											<td><label>Function date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_function_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="func_date"
+														is-open="popup_func.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_func()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.func_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.fh_date}}</p>
+
+											</td>
+										</tr>
+										<tr>
+											<td><label>Approver date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_evaluator_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="eval_date"
+														is-open="popup_eval.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_eval()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.rw_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.rw_date}}</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label>Owner date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_executor_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="exec_date"
+														is-open="popup_exec.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_exec()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.pr_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.pr_date}}</p>
+
+											</td>
+
+										</tr>
+										<tr>
+											<td style="Display: none;"><input type="text"
+												class="form-control" name="validate_dates"
+												ng-model="tmapObj.validate_dates" />
+												<div ng-messages="configForm.validate_dates.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Check
+														Date validation.</span>
+												</div></td>
+
+											<td style="text-align: center;"><input type="submit"
+												ng-click="updateSubTaskDates(configForm.$valid);"
+												value="Update Dates" name="config" class="btn btn-success"></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="subTaskList" class="modal fade" role="dialog">
+	<div class="modal-dialog"
+		style="width: 1280px; overflow-y: scroll; max-height: 85%; margin-top: 50px; margin-bottom: 50px;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Sub Task Details</h4>
+			</div>
+			<form autocomplete="off" name="subtaskDetailsForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body-drilled"
+					style="width: 1250px; overflow-x: auto;">
+					<div style="clear: both"></div>
+
+					<div ng-cloak>
+						<md-content> <md-tabs md-dynamic-height
+							md-border-bottom> <md-tab
+							ng-if="subTaskHistory.length>0" label="Sub Tasks">
+						<div style="overflow-x: scroll; margin-top: 20px; width: 100%;"
+							class="col-md-12">
+							<table class="table table-bordered" style="width: 100%;">
+								<thead>
+									<tr style="background: #0B6EC3; color: #fff;">
+										<!-- <th>Function</th> -->
+										<th>Sub Task ID</th>
+										<th>Name Of Contractor</th>
+										<th>Compliance Activity</th>
+										<th>Unit</th>
+										<th>Compliance Title</th>
+										<th>Frequency</th>
+										<th>Owner Date</th>
+										<th>Approver Date</th>
+										<th>Function Head Date</th>
+										<th>Unit Head Date</th>
+										<th>Vertical Head Date</th>
+										<!-- <th>Examination Date</th> -->
+										<th class="editDatesOfHistorypage"
+											ng-if="editDate.role==6 || editDate.role==7">Edit Dates</th>
+										<th>Sub Task Status</th>
+										<th>Legal Sub Task Status</th>
+										<th>Documents</th>
+										<th>Action Taken</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr ng-repeat="history in subTaskHistory"
+										class='{{history.ttrn_legal_task_style}}'
+										ng-if="subTaskHistory.length>0">
+										<!-- style="background-color: #F53636; font-weight: bold;"  -->
+
+										<td>{{history.ttrn_sub_id}}</td>
+										<td>{{history.ttrn_sub_equip_number}}</td>
+										<td>{{history.ttrn_sub_equip_desc}}</td>
+										<td>{{history.ttrn_sub_equip_loca}}</td>
+										<td>{{history.ttrn_sub_equip_type}}</td>
+										<td>{{history.ttrn_sub_equip_frequency}}</td>
+										<td>{{history.ttrn_pr_due_date}}</td>
+										<td>{{history.ttrn_rw_due_date}}</td>
+										<td>{{history.ttrn_fh_due_date}}</td>
+										<td>{{history.ttrn_uh_due_date}}</td>
+										<td>{{history.ttrn_legal_due_date}}</td>
+										<!-- <td>{{history.ttrn_next_examination_date}}</td> -->
+										<td ng-if="editDate.role==6 || editDate.role==7"><span
+											ng-if="history.ttrn_task_status!='Completed'"><img
+												title="Edit Configuration"
+												style="cursor: pointer; cursor: hand;"
+												src="images/taskActivationImg/config.png"
+												ng-click="editSubTaskDates(history)" width="40px"
+												height="40px" /></span></td>
+										<td>{{history.ttrn_task_status}}</td>
+										<td>{{history.ttrn_legal_task_status}}</td>
+										<td>
+											<p ng-repeat="doc in history.document_list">
+												<a style="cursor: pointer;"
+													ng-click="downloadSubtaskDocument(doc.udoc_id)">
+													{{doc.udoc_original_file_name}} </a> <a
+													style="cursor: pointer;"
+													ng-click="deleteSubTaskDocument(doc.udoc_id,history.client_task_id,$event,$index)">
+													<i class='glyphicon glyphicon-remove-circle uploadClose'
+													title='Delete Document'></i>
+												</a>
+											</p>
+										</td>
+										<td><a
+											ng-if="history.ttrn_task_status=='Active' || history.ttrn_task_status=='Re_Opened'"
+											ng-click="subTaskComplete(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#SubTaskCompletion">Complete
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Completed' || history.ttrn_task_status=='Partially_Completed' || history.ttrn_task_status=='Delayed Reported'"
+											ng-click="subTaskComplete(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#SubTaskCompletion">Update
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1 "
+											ng-click="approveSubTask(history)" class="btn btn-success">Approve
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1"
+											ng-click="reopenSubTask(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#reOpenSubTask">Re-Open
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="editDate.role == 6 || editDate.role == 7"
+											ng-click="deleteSubTask(history.ttrn_sub_task_id,history.client_task_id,$event,$index)"
+											class="btn btn-danger"><i class='fa fa-trash'></i>&nbsp;Delete
+												Task</a></td>
+
+									</tr>
+									<tr ng-if="subTaskHistory.length==0">
+										<td colspan="14" style="text-align: center;">Task is not
+											configured.</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+						<!-- </md-tab> <md-tab label="Task Details" ng-click=""> --> </md-tab> </md-tabs> </md-content>
+
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+<!-- SUB TASK -->
+
+<div id="SubTaskCompletion" class="modal fade" role="dialog"
+	style="z-index: 1800;">
+	<div class="modal-dialog" style="width: 800px;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Complete Sub Task</h4>
+			</div>
+
+			<div id="subTaskCompletionLoader" class="modal fade" role="dialog"
+				style="margin-left: 70px; margin-top: 200px;">
+				<img src="./images/Loader/taskCompletionLoaderG.gif" width="90px"
+					height="90px" />
+
+				<!-- <h6>Please Wait....</h6> -->
+			</div>
+			<form autocomplete="off" name="SubTaskCompletionForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body-drilled"
+					style="width: 782px; overflow-x: auto;">
+					<div class="f_form_content">
+						<h2>Complete Sub Task</h2>
+						<div class="col-md-2"></div>
+						<div class="col-md-10">
+
+							<div id="restOfTheControls">
+
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="control-label col-sm-5">Completed Date :</label>
+										<div class="col-sm-7">
+											<p class="input-group" style="width: 300px;">
+												<input type="text" class="form-control"
+													name="scau_notice_date" uib-datepicker-popup="{{format}}"
+													ng-model="subTaskCompletion.ttrn_completed_date"
+													is-open="popup_completed_date.opened" close-text="Close"
+													alt-input-formats="altInputFormats" readonly="readonly"
+													required="true" /> <span class="input-group-btn">
+													<button type="button" class="btn btn-default"
+														ng-click="subtaskcompetedDate()">
+														<i class="glyphicon glyphicon-calendar"></i>
+													</button>
+												</span>
+											<p class="error-text">{{errMessage.completed_date}}</p>
+											</p>
+
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="form-group row">
+										<label class="control-label col-sm-5" for="email">Comments
+											:</label>
+										<div class="col-sm-6">
+											<textarea rows="4" class="form-control"
+												ng-model="subTaskCompletion.ttrn_performer_comments"
+												name="comment" placeholder="Enter Comments" required></textarea>
+											<div ng-messages="SubTaskCompletionForm.comment.$error"
+												ng-if="SubTaskCompletionForm.$submitted">
+												<span class="error-text" ng-message="required">Please
+													enter comments.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="col-md-12 ">
+									<div class="form-group row"
+										ng-if="ttrn_task_status=='Non Complied'">
+										<label class="control-label col-sm-5" for="email">Reason
+											for Non-Compliance :</label>
+										<div class="col-sm-6">
+											<textarea rows="3" class="form-control"
+												ng-model="subTaskCompletion.ttrn_reason_for_non_compliance"
+												name="ttrn_reason_for_non_compliance"
+												placeholder="Enter Reason" required></textarea>
+											<div
+												ng-messages="SubTaskCompletionForm.ttrn_reason_for_non_compliance.$error"
+												ng-if="SubTaskCompletionForm.$submitted">
+												<span class="error-text" ng-message="required">Please
+													enter reason for non-compliance.</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6"></div>
+
+								<div id="filesContainer">
+									<div class='col-md-12'>
+										<div id="div0" class="form-group row">
+											<span class="glyphicons glyphicons-remove-sign"></span> <label
+												class="col-md-5 form-control-label">Upload Proof of
+												Compliance :</label>
+											<div class="col-sm-6" ng-if="ttrn_document==1">
+												<input type="file" multiple class="btn btn-myWarning"
+													id="ttrn_proof_of_compliance" valid-file
+													ng-model="proofCompliance.ttrn_proof_of_compliance"
+													name="ttrn_proof_of_compliance" required><br />
+												<div
+													ng-messages="SubTaskCompletionForm.ttrn_proof_of_compliance.$error"
+													ng-if="SubTaskCompletionForm.$submitted">
+													<span class="error-text" ng-message="required">Document
+														is mandatory.</span>
+												</div>
+											</div>
+
+											<div class="col-md-3" ng-if="ttrn_document==0">
+												<input type="file" multiple class="btn btn-myWarning"
+													id="ttrn_proof_of_compliance"
+													file-model="proofCompliance.ttrn_proof_of_compliance"
+													name="ttrn_proof_of_compliance"><br />
+											</div>
+
+										</div>
+
+									</div>
+
+									<br>
+								</div>
+
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-2"></div>
+					<div class="col-md-12 litigation_buttons">
+						<br>
+
+						<center>
+							<!-- <input ng-if="task.document==1" type="submit" ng-click="saveCompletion(taskCompletionForm.$valid)" class="btn btn-myPrimary" value="Submit" /> -->
+							<input type="submit"
+								ng-click="saveSubTaskCompletion(SubTaskCompletionForm.$valid)"
+								class="btn btn-myPrimary" value="Complete SubTask" />
+							<button type="button" class="btn btn-myPrimary1"
+								data-dismiss="modal">Cancel</button>
+						</center>
+
+
+					</div>
+				</div>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+
+
+<!-- Reopen Subtask  -->
+<div id="reOpenSubTask" class="modal fade" role="dialog"
+	style="z-index: 1800;">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Re-Open Task Comments</h4>
+			</div>
+			<form autocomplete="off" name="ReopenForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<label class="control-label col-sm-5" for="email">Reason
+							for Re-Opening:</label>
+						<div class="col-sm-6">
+							<textarea rows="3" class="form-control"
+								ng-model="reOpen.reopen_task_comment" name="comment"
+								placeholder="Enter Reason" required></textarea>
+							<div ng-messages="ReopenForm.comment.$error"
+								ng-if="ReopenForm.$submitted">
+								<span class="error-text" ng-message="required">Please
+									enter reason for Re-Opening.</span>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success"
+						ng-click="sendReOpenSubTask(ReopenForm.$valid)">Re-Open
+						Task</button>
+					<!-- <button type="button" class="btn btn-danger" id="reset" name="reset">Clear</button> -->
+					<input class="btn btn-danger" type="reset" id="reset" name="reset"
+						value="Clear" />
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+<!-- Edit Sub Task Dates  -->
+
+<div id="editSubTaskConfiguration" class="modal fade" role="dialog"
+	style="z-index: 1800;">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width: 117%">
+			<form autocomplete="off" name="configForm" class="form-horizontal"
+				novalidate>
+				<div class="modal-header">
+					<button aria-hidden="true" data-dismiss="modal"
+						class="bootbox-close-button close" type="button">×</button>
+					<h4 class="modal-title">Edit Dates</h4>
+				</div>
+				<div class="modal-body">
+					<div class="bootbox-body">
+						<style>
+#legalDateConfig {
+	z-index: 1151 !important;
+}
+
+table tr td {
+	text-align: center;
+	padding: 5px;
+}
+
+table tr th {
+	text-align: center;
+}
+
+table tr td input {
+	text-align: center;
+}
+
+table tr td select option {
+	text-align: center;
+}
+</style>
+						<div class="row">
+							<div class="col-md-12">
+								<table width="100%">
+									<tbody>
+										<tr>
+											<th>#</th>
+											<th>Old Dates</th>
+											<th>New Dates</th>
+										</tr>
+										<tr>
+											<td><label>Buffer days</label></td>
+											<td>
+												<!-- <input type="text" class="form-control" readonly="readonly" value="NtmapObj.ttrn_prior_days_buffer"/> -->
+											</td>
+											<td><input type="number" ng-change="getDates()"
+												name="buffer_days" class="form-control"
+												ng-model="tmapObj.ttrn_prior_days_buffer" required />
+												<div ng-messages="configForm.buffer_days.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Enter
+														buffer days. </span>
+												</div></td>
+										</tr>
+										<tr>
+											<td><label>Legal due date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_legal_date}}" readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														ng-change="getDates()" uib-datepicker-popup="{{format}}"
+														ng-model="lega_date" is-open="popup_legal.opened"
+														close-text="Close" alt-input-formats="altInputFormats"
+														readonly="readonly" required="true" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_legal()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.lega_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date. </span>
+												</div>
+												<p class="error-text">{{errMessage.lh_date}}</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label>Unit head date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_unit_date}}" readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="unit_date"
+														is-open="popup_unit.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_unit()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.unit_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.uh_date}}</p>
+
+											</td>
+										</tr>
+										<tr>
+											<td><label>Function date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_function_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="func_date"
+														is-open="popup_func.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_func()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.func_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.fh_date}}</p>
+
+											</td>
+										</tr>
+										<tr>
+											<td><label>Approver date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_evaluator_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="eval_date"
+														is-open="popup_eval.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_eval()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.rw_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.rw_date}}</p>
+											</td>
+										</tr>
+										<tr>
+											<td><label>Owner date</label></td>
+											<td>
+												<div class="form-group">
+													<div class="col-sm-12">
+														<input type="text" class="form-control"
+															value="{{NtmapObj.ttrn_executor_date}}"
+															readonly="readonly">
+													</div>
+												</div>
+
+											</td>
+											<td>
+												<p class="input-group" style="width: 172px;">
+													<input type="text" class="form-control"
+														uib-datepicker-popup="{{format}}" ng-model="exec_date"
+														is-open="popup_exec.opened" readonly="" close-text="Close"
+														alt-input-formats="altInputFormats" /> <span
+														class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															ng-click="open_exec()">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</button>
+													</span>
+												</p>
+												<div ng-messages="configForm.pr_date.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Select
+														date.</span>
+												</div>
+												<p class="error-text">{{errMessage.pr_date}}</p>
+
+											</td>
+
+										</tr>
+										<tr>
+											<td style="Display: none;"><input type="text"
+												class="form-control" name="validate_dates"
+												ng-model="tmapObj.validate_dates" />
+												<div ng-messages="configForm.validate_dates.$error"
+													ng-if="configForm.$submitted">
+													<span class="error-text" ng-message="required">Check
+														Date validation.</span>
+												</div></td> ng-click="updateSubTaskDates(configForm.$valid);"
+											value="Update Dates" name="config" class="btn btn-success">
+											</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<div id="subTaskList" class="modal fade" role="dialog">
+	<div class="modal-dialog"
+		style="width: 1100px; overflow-y: scroll; max-height: 85%; margin-top: 50px; margin-bottom: 50px;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Task Details</h4>
+			</div>
+			<form autocomplete="off" name="taskDetailsForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body-drilled"
+					style="width: 1185px; overflow-x: auto;">
+					<div style="clear: both"></div>
+
+					<div ng-cloak>
+						<md-content> <md-tabs md-dynamic-height
+							md-border-bottom> <md-tab label="Task Details">
+						<div class="f_form_content">
+							<h2>Organogram Information</h2>
+
+							<div class="col-md-12 light">
+								<div class="col-md-2">
+									<label>Unit Task ID :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].unit_task_id}}</span>
+								</div>
+							</div>
+
+							<div class="col-md-12 dark">
+								<div class="col-md-2">
+									<label>Vertical :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].entity}}</span>
+								</div>
+							</div>
+
+							<div class="col-md-12 light">
+								<div class="col-md-2">
+									<label>Unit :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].unit}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-2 ">
+									<label>Function :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].function}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-2 ">
+									<label>Owner :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].executor}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-2 ">
+									<label>Approver :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].evaluator}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-2 ">
+									<label>Function Head :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].function_head}}</span>
+								</div>
+							</div>
+
+						</div>
+
+						<div style="clear: both;"></div>
+
+						<div class="f_form_content">
+							<h2>Task Details</h2>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Legislation :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].legislation}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Rule :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].rule}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Reference :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].reference}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Who :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].who}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>When :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].when}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Compliance Activity :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].activity}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Procedure :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].procedure}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>More Information :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].more_information}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Prohibitive / Prescriptive :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].prescriptive}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Frequency :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].frequency}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Form No. :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].form_no}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Due date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].due_date}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Specific due date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].specific_due_date}}</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Type of Task :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].type_of_task}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Responsibility :</label>
+									</div>
+									<div class="col-md-10">
+										<span>NA</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Corporate Level or Unit Level :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].level}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Exemption Criteria :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].excemption_criteria}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Events :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].event}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Sub Event :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].sub_event}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Implications :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].implications}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Imprisonment Duration :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].imprisonment}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Imprisonment Applies to :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].imprisonment_applies_to}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Fine amount :</label>
+									</div>
+									<div class="col-md-10">
+										<span> <strong> <i class="fa fa-inr"></i>
+												{{task_details.task_details[0].fine_amount}}
+										</strong>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Subsequent Amount per Day :</label>
+									</div>
+									<div class="col-md-10">
+										<span> <strong><i class="fa fa-inr"></i>
+												{{task_details.task_details[0].fine_amount_per_day}}</strong>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Impact :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].impact}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Impact on Unit :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].impact_on_unit}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Impact on organization :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].impact_on_entity}}</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Interlinkage :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].interlinkage}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Linked Task ID :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].linked_task_id}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Weblink :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{task_details.task_details[0].weblink}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-2">
+									<label>Lexcare Task ID :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{task_details.task_details[0].lexcare_task_id}}</span>
+								</div>
+							</div>
+						</div>
+
+						</md-tab> <md-tab ng-if="subTaskHistory.length>0" label="Sub Task History">
+						<div style="overflow-x: scroll; margin-top: 20px; width: 100%;"
+							class="col-md-12">
+							<table class="table table-bordered" style="width: 100%;">
+								<thead>
+									<tr style="background: #0B6EC3; color: #fff;">
+										<!-- <th>Function</th> -->
+										<th>Sub Task ID</th>
+										<th>Name Of Contractor</th>
+										<th>Compliance Activity</th>
+										<th>Unit</th>
+										<th>Compliance Title</th>
+										<th>Frequency</th>
+										<th>Owner Date</th>
+										<th>Approver Date</th>
+										<th>Function Head Date</th>
+										<th>Unit Head Date</th>
+										<th>Vertical Head Date</th>
+										<!-- <th>Examination Date</th> -->
+										<th class="editDatesOfHistorypage"
+											ng-if="editDate.role==6 || editDate.role==7">Edit Dates</th>
+										<th>Sub Task Status</th>
+										<th>Legal Sub Task Status</th>
+										<th>Documents</th>
+										<th>Action Taken</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr ng-repeat="history in subTaskHistory"
+										class='{{history.ttrn_legal_task_style}}'
+										ng-if="subTaskHistory.length>0">
+										<!-- style="background-color: #F53636; font-weight: bold;"  -->
+
+										<td>{{history.ttrn_sub_id}}</td>
+										<td>{{history.ttrn_sub_equip_number}}</td>
+										<td>{{history.ttrn_sub_equip_desc}}</td>
+										<td>{{history.ttrn_sub_equip_loca}}</td>
+										<td>{{history.ttrn_sub_equip_type}}</td>
+										<td>{{history.ttrn_sub_equip_frequency}}</td>
+										<td>{{history.ttrn_pr_due_date}}</td>
+										<td>{{history.ttrn_rw_due_date}}</td>
+										<td>{{history.ttrn_fh_due_date}}</td>
+										<td>{{history.ttrn_uh_due_date}}</td>
+										<td>{{history.ttrn_legal_due_date}}</td>
+										<!-- <td>{{history.ttrn_next_examination_date}}</td> -->
+										<td ng-if="editDate.role==6 || editDate.role==7"><span
+											ng-if="history.ttrn_task_status!='Completed'"><img
+												title="Edit Configuration"
+												style="cursor: pointer; cursor: hand;"
+												src="images/taskActivationImg/config.png"
+												ng-click="editSubTaskDates(history)" width="40px"
+												height="40px" /></span></td>
+										<td>{{history.ttrn_task_status}}</td>
+										<td>{{history.ttrn_legal_task_status}}</td>
+										<td>
+											<p ng-repeat="doc in history.document_list">
+												<a style="cursor: pointer;"
+													ng-click="downloadSubtaskDocument(doc.udoc_id)">
+													{{doc.udoc_original_file_name}} </a> <a
+													style="cursor: pointer;"
+													ng-click="deleteSubTaskDocument(doc.udoc_id,history.client_task_id,$event,$index)">
+													<i class='glyphicon glyphicon-remove-circle uploadClose'
+													title='Delete Document'></i>
+												</a>
+											</p>
+										</td>
+										<td><a
+											ng-if="history.ttrn_task_status=='Active' || history.ttrn_task_status=='Re_Opened'"
+											ng-click="subTaskComplete(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#SubTaskCompletion">Complete
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Completed' || history.ttrn_task_status=='Partially_Completed' || history.ttrn_task_status=='Delayed Reported'"
+											ng-click="subTaskComplete(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#SubTaskCompletion">Update
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1 && currentuser==task_details.task_details[0].evaluator || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser!=task_details.task_details[0].executor || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser==task_details.task_details[0].executor && currentuser==task_details.task_details[0].function_head || history.ttrn_task_status=='Partially_Completed' && editDate.role>3"
+											ng-click="approveSubTask(history)" class="btn btn-success">Approve
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="history.ttrn_task_status=='Partially_Completed' && editDate.role>1 && currentuser==task_details.task_details[0].evaluator || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser!=task_details.task_details[0].executor || history.ttrn_task_status=='Partially_Completed' && editDate.role==3 && currentuser==task_details.task_details[0].executor && currentuser==task_details.task_details[0].function_head || history.ttrn_task_status=='Partially_Completed' && editDate.role>3"
+											ng-click="reopenSubTask(history)" class="btn btn-success"
+											data-toggle="modal" data-target="#reOpenSubTask">Re-Open
+												Task</a> <a style="margin-top: 10px;"
+											ng-if="editDate.role == 6 || editDate.role == 7"
+											ng-click="deleteSubTask(history.ttrn_sub_task_id,history.client_task_id,$event,$index)"
+											class="btn btn-danger"><i class='fa fa-trash'></i>&nbsp;Delete
+												Task</a></td>
+
+									</tr>
+									<tr ng-if="subTaskHistory.length==0">
+										<td colspan="14" style="text-align: center;">Task is not
+											configured.</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+						</md-tab> </md-tabs> </md-content>
+					</div>
+				</div>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+</div>
+
+
+<div id="importTaskToComplete" class="modal fade" role="dialog">
+	<div class="modal-dialog" style="width: 800px;">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Import Task</h4>
+			</div>
+
+			<div id="taskCompletionLoader" class="modal fade" role="dialog"
+				style="margin-left: 70px; margin-top: 200px;">
+				<img src="./images/Loader/taskCompletionLoaderG.gif" width="90px"
+					height="90px" />
+
+				<!-- <h6>Please Wait....</h6> -->
+			</div>
+			<form autocomplete="off" name="importTaskCompletionForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body-drilled"
+					style="width: 782px; overflow-x: auto;">
+					<div class="f_form_content">
+						<div class="row">
+							<form name="importTaskForm" role="upload">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="control-label col-sm-3" for="sel1">Browse
+											patch file <em>(&nbsp;*.CSV &nbsp;)</em> :
+										</label>
+										<div class="col-sm-4 litigation_buttons">
+											<input type="file" class="btn btn-myWarning" id="task_list"
+												file-model="taskObj.task_list" name="task_list"
+												accept=".csv"><br />
+											<div ng-messages="importTaskForm.task_list.$error"
+												ng-if="importTaskForm.$submitted">
+												<span class="error-text" ng-message="required">Select
+													file.</span>
+											</div>
+											<input type="submit" class="btn btn-myPrimary"
+												ng-click="uploadFile(importTaskForm.$valid)" value="Upload" />
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>

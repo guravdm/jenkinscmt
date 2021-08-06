@@ -1,0 +1,310 @@
+<style>
+.fixed-header {
+  top: 74px;
+  position: fixed;
+  width: 100%; 
+  /* display: table; */
+  z-index: 99;
+}
+
+.tbody-offset {
+  &:before {
+    content: " ";
+    display: block;
+  }
+  td{
+ word-wrap: break-word;
+  }
+  
+ /* @media only screen and (max-width: 1366px){
+ .table {
+  background-color: black;
+  display: none;
+  
+}
+ }  */
+</style>
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="header_button">
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">{{obj.status}} Status</h2>
+				
+					<site-header Back="" forward="forward"></site-header>
+			</div>
+			<button class="btn btn-myWarning toggle" id="ExportTask"
+		name="ExportTask" ng-click="toggle()" data-toggle="exportTable"
+		style="float: right;margin-top: -30px">Export Data</button>
+	<div class="col-md-6" style="float:right;margin-top:-50px;margin-right: 87px;clear: both;">						
+						<div class="panel-body col-md-12" id="exportTable" style="float:right;">
+							<div class="row" >
+								<div class="col-md-12" style="float:right;">
+									<div class="list-group border-bottom">
+											<div ng-hide="ExportTask">
+											<a  class="list-group-item col-md-5"
+												ng-click="ExportExcels_Maintask()"><img
+												src='images/reportIcons/xls.png' width="24" />Export Task (XLS)</a>
+											
+											<a ng-click ="generateMaintask_Pdf()"
+												class="list-group-item col-md-5" ><img
+												src='images/reportIcons/pdf.png' width="24" />Export Task (PDF)</a>
+											
+											<a class="btn btn-success btn-add" ng-click="importTaskToComplete()">Import Task</a>
+											
+											</div>
+											
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+		</div>
+		<div style="clear: both"></div>
+		<div style="width: 1250px;overflow-x: auto;">
+					<h4>Total Tasks ({{obj.reportList.length}})</h4>
+					<table style="table-layout: fixed;" id="example" class="table table-striped table-bordered" 
+					width="100%" cellspacing="0" data-anchor >
+										<thead>
+											<tr style="background: #0B6EC3; color: #fff;">
+												<th>Client Task ID</th>
+												<!-- <th>Entity</th> -->
+												<th>Unit</th>
+												<th>Function</th> 
+												<th>Legislation</th>
+												<th>Rule</th>
+												<th>Reference</th>
+												<th>Who</th>
+												<th>When</th>
+												<th>Activity</th>
+												<!-- <th>Procedure</th> -->
+												<th>Executor</th>
+												<!-- <th>Impact</th>-->
+												<th>Frequency</th> 
+												<th>Legal Due Date</th>
+												<th ng-if="obj.status=='Complied' || obj.status=='Waiting For Approval' || obj.status=='Delayed' || obj.status == 'Delayed-Reported'">Comments</th>
+												<!-- <th>Executor Date</th>
+												<th>Status</th>
+												<th>Comment</th>
+												<th>Reason for Non-Complied</th> -->
+											</tr>
+										</thead>
+										<tbody id="SubtaskReport">
+								 <tr ng-repeat="list in obj.reportList" ng-if="obj.reportList.length>0">
+							 
+								<td style="word-wrap: break-word;"><a style="cursor: pointer; color: blue;" target="_blank"
+					ng-click="getTaskHistoryList(list.ttrn_client_task_id)">
+						{{list.ttrn_client_task_id}}</a><br>
+						<center>
+						<img ng-if="list.document_attached == 1" style="padding-top: 2px;" title ="Task have attachement" src='images/DocumentAttachedFlag.png' width='40px' height='40px' >
+						<a style="margin-top: 10px;"
+					class="btn btn-info"
+					ng-if="list.status == 'watingforapproval' && getUserRoleId > 1"
+					ng-click="approveTask(list.ttrn_id,$index)">Approve</a> <a
+					style="margin-top: 10px;" ng-click="reopenTask(list)"
+					ng-if="list.status == 'watingforapproval' && getUserRoleId > 1"
+					class="btn btn-warning" data-toggle="modal"
+					data-target="#reOpenTask">Re-Open </a>
+						</center>
+						 </td>
+							    <!-- <td>{{list.orga_name}}</td> -->
+								<td>{{list.loca_name}}</td>
+								<td>{{list.dept_name}}</td> 
+								<td>{{list.task_legi_name}}</td>
+								<td>{{list.task_rule_name}}</td>
+								<td>{{list.task_reference}}</td>
+								<td>{{list.task_who}}</td>
+								<td>{{list.task_when}}</td>
+								<td style="word-wrap: break-word;">{{list.task_activity}}</td>
+								<td>{{list.task_executor}}</td>
+							<!-- 	<td>{{list.rep_impact}}</td> -->
+								<td>{{list.ttrn_frequency_for_operation}}</td> 
+								<td>{{list.ttrn_legal_due_date}}</td>
+								<td style="word-wrap: break-word;" ng-if="obj.status=='Complied' || obj.status=='Waiting For Approval' || obj.status=='Delayed' || obj.status == 'Delayed-Reported'">{{list.comments}}
+								<b ng-if="list.document_attached == 1">Document: </b><p ng-repeat="doc in list.document_list">
+							             <a style="cursor: pointer; color: blue;" ng-click="downloadProof(doc.udoc_id)"> {{doc.udoc_original_file_name}} </a>
+							         </p>
+								
+								</td>
+								<!--   <td>{{list.rep_completed_date}}</td>
+								<td>{{list.rep_submitted_date}}</td>
+								<td>{{list.rep_status}}</td>
+								<td>{{list.rep_performer_comments}}</td>
+								<td>{{list.rep_reason_for_non_compliance}}</td> -->
+							
+							</tr>
+							<tr ng-if="obj.reportList.length==0"><td colspan="11">No record found</td></tr>
+							</tbody>
+				</table>
+			</div>	 
+
+		
+	</div>
+	</div>
+<!-- Modal for show more information -->
+<div id="more_info" class="modal fade" role="dialog">
+<div class="modal-dialog">
+	<div class="modal-content" style="width: 117%">
+	<form autocomplete="off" name="configForm" class="form-horizontal" novalidate>
+		<div class="modal-header">
+			<button aria-hidden="true" data-dismiss="modal"
+				class="bootbox-close-button close" type="button">×</button>
+			<h4 class="modal-title">
+				More Information
+			</h4>
+		</div>
+		<div class="modal-body">
+			<div class="bootbox-body">
+				<style>
+#legalDateConfig {
+	z-index: 1151 !important;
+}
+
+table tr td {
+	text-align: center;
+	padding: 5px;
+}
+
+table tr th {
+	text-align: center;
+}
+
+table tr td input {
+	text-align: center;
+}
+
+table tr td select option {
+	text-align: center;
+}
+</style>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12 light">
+								<div class="col-md-3">
+									<label>Unit Task ID :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.client_task_id}}</span>
+								</div>
+							</div>
+							
+							<div class="col-md-12 dark">
+								<div class="col-md-3">
+									<label>Entity :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.enti_name}}</span>
+								</div>
+							</div>
+							
+							<div class="col-md-12 light">
+								<div class="col-md-3">
+									<label>Unit :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.unit_name}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-3">
+									<label>Function :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.fun_name}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-3">
+									<label>Executor :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.per_name}}</span>
+								</div>
+							</div>
+							<!-- <div class="col-md-12 dark">
+								<div class="col-md-3">
+									<label>Evaluator :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.rev_name}}</span>
+								</div>
+							</div> 
+							 <div class="col-md-12 light">
+								<div class="col-md-3">
+									<label>Function Head :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.fh_name}}</span>
+								</div>
+							</div> -->
+							
+							<div class="col-md-12 dark">
+								<div class="col-md-3">
+									<label>Current Status :</label>
+								</div>
+								<div class="col-md-9">	
+									<span>{{moreinformation.ttrn_status}}</span>
+								</div>
+							</div>
+							
+							<div class="col-md-12 light">
+								<div class="col-md-3">
+									<label>User Comments :</label>
+								</div>
+								<div class="col-md-9">
+									<span>{{moreinformation.comments}}</span>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	</div>
+</div>
+</div>
+<div id="reOpenTask" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Re-Open Task Comments</h4>
+			</div>
+			<form autocomplete="off" name="ReopenForm" role="form"
+				class="form-horizontal" novalidate>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<label class="control-label col-sm-5" for="email">Reason
+							for Re-Opening:</label>
+						<div class="col-sm-6">
+							<textarea rows="3" class="form-control"
+								ng-model="reOpen.reopen_comment" name="comment"
+								placeholder="Enter Reason" required></textarea>
+							<div ng-messages="ReopenForm.comment.$error"
+								ng-if="ReopenForm.$submitted">
+								<span class="error-text" ng-message="required">Please
+									enter reason for Re-Opening.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success"
+						ng-click="sendReOpenTask(ReopenForm.$valid,$index)">Re-Open
+						Task</button>
+					<input class="btn btn-danger" type="reset" id="reset" name="reset"
+						value="Clear" />
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+
+
+

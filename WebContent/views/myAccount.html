@@ -1,0 +1,133 @@
+
+<style>
+.form-group {
+	padding: 10px;
+}
+
+.control-label {
+	text-align: left;
+}
+</style>
+
+<div class="container">
+<div class="page_cont_padd">
+	<div class="page_container">
+		<div class="col-md-12">
+			<div class="header_button">
+				<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Account</h2>
+				<!-- <a ng-click="backToPreviousState()"><img src="images/DashboardIcons/backold.png" class="backButton" width="100px;"></a> -->
+				<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<br>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="f_form_content">
+					<div class="col-md-8">
+						<div class="col-md-12">
+							<h2>Personal Info.</h2>
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1"> Full
+									Name :</label>
+								<div class="col-sm-8"><span>{{userDetails.user_full_name}}</span></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">
+									Username :</label>
+								<div class="col-sm-8"><span>{{userDetails.user_username}}</span></div>
+							</div>
+						</div>
+						<!-- <div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1"> Role :</label>
+								<div class="col-sm-8"><span>{{userDetails.user_role_id}}</span></div>
+							</div>
+						</div> -->
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">
+									Employee Id :</label>
+								<div class="col-sm-8"><span>{{userDetails.user_employee_id}}</span></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1"> Mobile
+									No :</label>
+								<div class="col-sm-8"><span>{{userDetails.user_mobile}}</span></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1"> E-Mail
+									:</label>
+								<div class="col-sm-8"><span>{{userDetails.user_email}}</span></div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4" for="sel1">
+									Change Password :</label>
+								<div class="col-sm-8">
+									<span><a ui-sref="ChangePassword" style="text-decoration: none;">
+									<input type="button" class="btn btn-warning" name="chngpwd" value="Change Password" /></a></span>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-md-12">
+							<div class="f_form_content">
+								<h2>Organisational Profile.</h2>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">
+										Designation :</label>
+									<div class="col-sm-8"><span>{{userDetails.user_designation_id}}</span></div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">
+										Entity :</label>
+									<div class="col-sm-8"><span>{{userDetails.user_organization_id}}</span></div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">
+										Unit :</label>
+									<div class="col-sm-8"><span>{{userDetails.user_location_id}}</span></div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">
+										Function :</label>
+									<div class="col-sm-8"><span>{{userDetails.user_department_id}}</span></div>
+								</div>
+							</div>
+						</div> -->
+					</div>
+						
+						<!-- <div class="col-md-3" style="text-align: left;">
+							<div class="f_form_content">
+								<div class="col-md-12" >
+									<h2>Profile Pic.</h2>
+									<div ng-if="userDetails.user_profile_pic==''">
+									<img width="200px" height="175px" src="images/defaultUser.png">
+									</div>
+									<div ng-if="userDetails.user_profile_pic!=''">
+									<img width="200px" height="175px" src="{{userDetails.user_profile_pic}}">
+									</div>
+								</div>
+							</div>
+							<form name="uplodpicForm" role="uploadPic">
+							<div class="col-md-12">
+								<input style="margin-left: -34px;" class="btn btn-danger" id="file" type="file" name="profile_pic"  file-model="userDetails.profilePic"/>
+								<br/>
+								<input style="margin-left: 80px;" type="submit" class="btn btn-warning" ng-click="updateUserPic(uplodpicForm.$valid)" value="Upload" />
+							</div>
+							</form>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</div>

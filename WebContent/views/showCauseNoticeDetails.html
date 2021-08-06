@@ -1,0 +1,209 @@
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="header_button">
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Show-Cause Notice 
+					Details</h2>	
+				<!-- <a ng-click="backToPreviousState()"><img
+					src="images/DashboardIcons/backold.png" class="backButton"
+					width="100px;"></a> -->
+				<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+
+		<!-- Tab Menu -->
+
+		<div class="showCause_tabs">
+			<ul id="myTab" class="nav nav-tabs mynav-tabs">
+			<!-- <li class="active"><a href="#history" data-toggle="tab">History</a></li>
+			<li><a href="#details" data-toggle="tab">Details</a></li>	 -->
+			
+			<div class="col-md-2" style="float:right; padding-bottom: 15px;"  id="statusBtn" >
+				<a ui-sref="showCauseNoticeAction" class="btn btn-primary">Add Status</a>
+				</div>
+				
+			</ul>
+			<!-- Tab Menu End-->
+			
+			<!-- Show cause notice details-->
+			 <div ng-cloak>
+			<md-content> 
+			       <md-tabs md-dynamic-height md-border-bottom>
+			              <md-tab label="History"> 
+			                   <div class="col-md-12"
+						style="margin-top: 20px; width: 96%;">
+						<table class="table table-bordered" id="tbltask">
+							<thead>
+								<tr style="background: #0B6EC3; color: #fff;">
+									<!-- <th>Function</th> -->
+									<th>Comments</th>
+									<th>Action Taken</th>
+									<th>Next Action Item</th>
+									<th>Due Date</th>
+									<th>Remainder Date</th>
+									<th>Status</th>
+									<th>Documents</th>
+								</tr>
+							</thead>
+							<tbody>
+							 <tr ng-repeat="history in showCauseNoticeActionHistory">
+							<td>{{history.tscn_comment}}</td>
+							<td>{{history.tscn_action_taken}}</td>
+							<td>{{history.tscn_next_action_item}}</td>
+							<td>{{history.tscn_next_due_date}}</td>
+							<td>{{history.tscn_reminder_date}}</td>
+							<td>{{history.tscn_status}}</td>
+							<td><p ng-repeat="doc in history.doc_list">
+							<a ng-click="downloadProof(doc.doc_id)">{{doc.doc_name}}</a></p></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>		  
+			              </md-tab>
+			              <md-tab label="Details" ng-click="getTaskDetails();"> 
+			                    <div class="f_form_content">
+							<h2>Organogram Information</h2>
+
+							<div class="col-md-12 dark">
+								<div class="col-md-2">
+									<label>Vertical :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{ShowCauseNoticeDetails.orga_name}}</span>
+								</div>
+							</div>
+							
+							<div class="col-md-12 light">
+								<div class="col-md-2">
+									<label>Unit :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{ShowCauseNoticeDetails.loca_name}}</span>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-2 ">
+									<label>Function :</label>
+								</div>
+								<div class="col-md-10">
+									<span>{{ShowCauseNoticeDetails.dept_name}}</span>
+								</div>
+							</div>
+							
+						</div>
+						
+						<div style="clear: both;"></div>
+						<div class="f_form_content">
+							<h2>Notice Details</h2>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Show Cause Related to :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.related_to}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Notice Date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.orga_name}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Received Date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.notice_date}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Deadline Date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.deadline_date}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Action Taken :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.action_taken}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Responsible Person :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.responsible_user_name}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Reporting Person :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.reporting_user_name}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Remainder Date :</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.reminder_date}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 dark">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Comments:</label>
+									</div>
+									<div class="col-md-10">
+										<span>{{ShowCauseNoticeDetails.comments}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 light">
+								<div class="col-md-12">
+									<div class="col-md-2">
+										<label>Documents  :</label>
+									</div>
+									<div class="col-md-10">
+										<span><p ng-repeat="doc in ShowCauseNoticeDetails.doc_list">
+										<a ng-click="downloadProof(doc.doc_id)">{{doc.doc_name}}</a></p></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			              </md-tab>  
+			        </md-tabs> 
+			</md-content>
+		</div>
+	  </div>
+</div>

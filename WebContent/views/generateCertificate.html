@@ -1,0 +1,186 @@
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="header_button">
+				<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Certificate
+				</h2>
+				<!-- <a href="./dashboard"><img
+					src="images/DashboardIcons/backold.png" class="backButton"
+					width="100px;"></a> -->
+				<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<!--first form-->
+		<form onsubmit="return validateForm();"
+			action="./complianceCertificates" method="post"
+			cssClass="form-horizontal">
+
+			<div class="f_form_content">
+				<h2>Generate Certificate</h2>
+
+				<div class="col-md-12" style="margin-top: 2%">
+					<!-- <div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Entity :</label>
+							<div class="col-sm-8">
+								<select class="form-control" id="orga_id">
+									<option value="0">--Select--</option>
+									
+								</select>
+							</div>
+						</div>
+					</div> -->
+					<!-- <div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Unit :</label>
+							<div class="col-sm-8">
+								<select class="form-control" id="loca_id">
+									<option value="0">--Select--</option>
+								</select>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- <div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="dept_id">Function
+								:</label>
+							<div class="col-sm-8">
+								<select class="form-control" id="dept_id">
+									<option value="0">--Select--</option>
+								</select>
+							</div>
+						</div>
+					</div> -->
+					<div class="col-md-2"></div>
+					<div class="col-md-4">
+						<!-- <div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Quarter :</label>
+							<div class="col-sm-8">
+								<select class="form-control" ng-model ="certificate.querter" id="for_month" name="for_month">
+									<option value="">---Select---</option>
+									<option value="1">January - March</option>
+									<option value="2">April - June</option>
+									<option value="3">July - September</option>
+									<option value="4">October - December</option>
+								</select>
+							</div>
+						</div> -->
+						<label>From :</label>
+						<p class="input-group" style="width: 220px;">
+							<input type="text" class="form-control"
+								ng-change="getDates();validateDates()"
+								uib-datepicker-popup="{{format}}" ng-model="date_from"
+								is-open="popup_from.opened" close-text="Close"
+								alt-input-formats="altInputFormats" readonly="readonly"
+								required="true" /> <span class="input-group-btn">
+								<button type="button" class="btn btn-default"
+									ng-click="open_from()">
+									<i class="glyphicon glyphicon-calendar"></i>
+								</button>
+							</span>
+						<p class="error-text">{{errMessage.date_from}}</p>
+					</div>
+
+					<div class="col-md-4">
+						<!-- <div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Year :</label>
+							<div class="col-sm-8">
+								<select class="form-control" ng-model ="certificate.year" id="for_year" name="for_year">
+									<option value="">---Select---</option>
+									<option value="2017">2017</option>
+									<option value="2018">2018</option>
+									<option value="2019">2019</option>
+									<option value="2020">2020</option>
+									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+									<option value="2024">2024</option>
+									<option value="2025">2025</option>
+
+								</select>
+							</div>
+						</div> -->
+
+						<label>To :</label>
+						<p class="input-group" style="width: 220px;">
+							<input type="text" class="form-control"
+								ng-change="validateDates()" uib-datepicker-popup="{{format}}"
+								ng-model="date_to" is-open="popup_to.opened" readonly=""
+								close-text="Close" alt-input-formats="altInputFormats" /> <span
+								class="input-group-btn">
+								<button type="button" class="btn btn-default"
+									ng-click="open_to()">
+									<i class="glyphicon glyphicon-calendar"></i>
+								</button>
+							</span>
+						<p class="error-text">{{errMessage.date_to}}</p>
+					</div>
+					<div class="col-md-2"></div>
+
+					<div class="col-md-12 litigation_buttons" id="searchButtons">
+						<br>
+						<center>
+							<button type="button" class="btn btn-myPrimary"
+								ng-click="gernerateCertificate();validateDates()"
+								id="searchGenerateCertificate">Generate</button>
+						</center>
+					</div>
+
+				</div>
+		</form>
+	</div>
+	<div style="clear: both"></div>
+
+	<p>
+		<em>Note : Click on the certificate to download the same.</em>
+	</p>
+
+	<form class="form-horizontal" role="form">
+		<div class="f_form_content">
+
+			<h2>Certificate List</h2>
+			<div style="overflow-x: scroll;">
+
+				<!--	<div class="input-group"></div>
+			<input type="text" class="form-control" placeholder="Search "
+					ng-model="search">
+			</div>-->
+				<table id="example" class="table table-striped table-bordered"
+					width="100%" cellspacing="0">
+
+					<thead>
+						<tr style="background: #0B6EC3; color: #fff;">
+
+							<th>ID</th>
+							<th>Generated By</th>
+							<th>Generated Date</th>
+							<th>From</th>
+							<th>TO</th>
+							<th>Certificate</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="list in certificatelistArray"
+							ng-if="certificatelistArray.length>0">
+							<td>{{$index+1}}</td>
+							<td>{{list.fname}}</td>
+							<td>{{list.created_at }}</td>
+							<td>{{list.from }}</td>
+							<td>{{list.to }}</td>
+							<td><a style="color: blue;" target="_blank" href=""
+								ng-click="downloadDocument(list.orig_file_name)">{{list.orig_file_name}}</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</form>
+
+	<div style="clear: both"></div>
+
+</div>

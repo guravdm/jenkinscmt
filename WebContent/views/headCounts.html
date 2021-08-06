@@ -1,0 +1,90 @@
+<style>
+th.ths {
+	width: 33%;
+}
+</style>
+
+<div>
+	<div class="page_cont_padd">
+		<div class="page_container">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="header_button">
+							<h2 id="user_header">User Head Counts</h2>
+							<!-- <a ng-click="backToPreviousState()"> <img
+								src="images/DashboardIcons/backold.png" class="backButton"
+								width="100px;"></a> -->
+							<site-header Back="" forward="forward"></site-header>
+						</div>
+					</div>
+				</div>
+
+				<!-- row end -->
+
+				<br />
+
+				<div class="row">
+					<div class="col-sm-12">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th class="ths">Location</th>
+									<th>Male</th>
+									<th>Female</th>
+									<th>Not Assigned</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in headCountList">
+									<td>{{$index+1}}</td>
+									<td>{{ item.Location }}</td>
+									<td>{{ item.Male }}</td>
+									<td>{{ item.Female }}</td>
+									<td>{{ item.NotAssigned }}</td>
+									<td>{{ item.Total }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function() {
+
+		$('#oneShow').hide();
+		$('#twoShow').hide();
+		$('#threeShow').hide();
+
+		$("#one").click(function() {
+			$("#oneShow").show(1000);
+			$('#twoShow').hide();
+			$('#threeShow').hide();
+		});
+
+		$("#two").click(function() {
+			$("#oneShow").hide(1000);
+			$('#twoShow').show(1000);
+			$('#threeShow').hide();
+		});
+
+		$("#three").click(function() {
+			$("#oneShow").hide();
+			$('#twoShow').hide(1000);
+			$('#threeShow').show(1000);
+		});
+	});
+</script>

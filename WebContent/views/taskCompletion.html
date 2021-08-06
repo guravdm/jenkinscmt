@@ -1,0 +1,220 @@
+
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+			<div class="header_button">
+				<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Summary</button>-->
+				<h2 style="color: #032BEC; font-size: 24px; float: left;">Complete
+					Task</h2>
+				 <!-- <a ng-click="getTaskHistoryList(task.task_id)"	><img
+					src="images/DashboardIcons/backold.png" class="backButton"
+					width="100px;"></a>  -->
+					<site-header Back="" forward="forward"></site-header>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<!--first form-->
+		<form class="form-horizontal" name="taskCompletionForm" novalidate>
+			<div class="f_form_content">
+				<h2>Task Completion</h2>
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
+
+					
+					<!-- <c:choose>
+						<c:when test="${isOriginalFrequencyEventBased }">
+							<div class="col-md-12">
+								<div class="form-group row">
+									<label for="inputPassword3" class="col-sm-3 control-label">Event
+										Not Occurred :</label>
+									<div class="col-sm-2">
+										<input type="checkbox" name="eventNotOccured"
+											id="eventNotOccured" style="margin-top: 12px;">
+									</div>
+								</div>
+							</div>
+						</c:when>
+						
+					</c:choose> -->
+                    
+                    <div id="restOfTheControls">
+                    <div class="col-md-12" ng-if="frequency=='Event_Based'">
+								<div class="form-group row">
+									<label for="inputPassword3" class="col-sm-3 control-label">Event
+										Not Occurred :</label>
+									<div class="col-sm-2">
+										<input type="checkbox" ng-model="eventNotOccured" ng-click="eventCheked(eventNotOccured)" name="eventNotOccured" 
+											id="eventNotOccured" style="margin-top: 12px;"><!-- {{eventNotOccured}}{{showEventNotOccured}} -->
+									</div>
+								</div>
+					</div>
+					<div ng-show="showEventNotOccured">
+					<div class="col-md-12" >
+						<div class="form-group">
+							<label for="inputPassword3" class="control-label col-sm-3"
+								for="sel1">Completion Date :</label>
+							<div class="col-sm-6">
+								<div flex-gt-xs>
+											<md-datepicker ng-model="taskCompletion.ttrn_completed_date"
+												md-placeholder="Enter date" md-max-date="maxDate"></md-datepicker>
+								</div>
+							</div>
+							<!-- <div class="col-sm-7">
+								<p class="input-group" style="width: 300px;">
+									<input type="text" class="form-control"  name="scau_notice_date" 
+										uib-datepicker-popup="{{format}}" ng-model="taskCompletion.ttrn_completed_date"
+										is-open="popup_completed_date.opened" close-text="Close"
+										alt-input-formats="altInputFormats" readonly="readonly"
+										required="true" max-date="maxDate" /> <span class="input-group-btn">
+										<button type="button" class="btn btn-default"
+											ng-click="subtaskcompetedDate()">
+											<i class="glyphicon glyphicon-calendar"></i>
+										</button>
+									</span>
+									<p class="error-text">{{errMessage.completed_date}}</p>
+								</p>
+								
+							</div> -->
+						</div>
+					</div>
+
+					<div class="col-md-12" ng-if="frquency!='Event_Based'">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-sm-3 control-label">Remarks:</label>
+							<div class="col-sm-4">
+								<textarea rows="4"  class="form-control" ng-model="taskCompletion.ttrn_performer_comments" name="comments" placeholder="Remarks" required></textarea>
+								<div ng-messages="taskCompletionForm.comments.$error" ng-if="taskCompletionForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter remark.</span>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="col-md-12 "ng-if="frquency=='Event_Based' && showEventNotOccured==true">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-sm-3 control-label">Remarks:</label>
+							<div class="col-sm-4">
+								<textarea rows="4"  class="form-control" ng-model="taskCompletion.ttrn_performer_comments" name="comments" placeholder="Remarks" required></textarea>
+								<div ng-messages="taskCompletionForm.comments.$error" ng-if="taskCompletionForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter remark.</span>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-12" ng-if="status=='Delayed' || status=='Non Complied' && status!='Complied'">
+						<div class="form-group row">
+							<label for="inputPassword3" class="col-sm-3 control-label">Reason For Non-Compliance:</label>
+							<div class="col-sm-4">
+								<textarea rows="4"  class="form-control" ng-model="taskCompletion.ttrn_reason_for_non_compliance" name="reason" placeholder="Remarks" required></textarea>
+								<div ng-messages="taskCompletionForm.reason.$error" ng-if="taskCompletionForm.$submitted">
+								  <span class="error-text" ng-message="required">Please enter reason for non-compliance.</span>
+							</div>
+							</div>
+						</div>
+					</div>
+
+					
+					<div class="col-md-6"></div>
+					 <!-- <div class="col-md-6 litigation_buttons">
+						<a onclick="addFileInput();"><button type="button"
+								class="btn btnTaskCompDoc">Document</button></a>
+					</div> -->
+
+
+					 <div id="filesContainer">
+								<div class='col-md-12'>
+									<div id="div0" class="form-group row">
+										<span class="glyphicons glyphicons-remove-sign"></span> <label
+											class="col-md-3 form-control-label">Upload Proof of
+											Compliance :</label>
+										<div class="col-md-3" ng-if="task.document==1 && showEventNotOccured == true">
+											<input type="file" multiple class="btn btn-myWarning" id="ttrn_proof_of_compliance"  valid-file ng-model ="proofCompliance.ttrn_proof_of_compliance" name="ttrn_proof_of_compliance" required><br />
+											<div ng-messages="taskCompletionForm.ttrn_proof_of_compliance.$error" ng-if="taskCompletionForm.$submitted" >
+										 	 <span class="error-text" ng-message="required">Document is mandatory.</span>
+											</div>
+										</div>
+										
+										<div class="col-md-3" ng-if="task.document==0">
+											<input type="file" multiple class="btn btn-myWarning" id="ttrn_proof_of_compliance"  file-model="proofCompliance.ttrn_proof_of_compliance" name="ttrn_proof_of_compliance" ><br />
+										</div>
+
+									</div>
+
+								</div>
+
+								<br>
+					</div> 
+
+                  </div>
+
+		</div>
+
+				</div>
+
+				<div class="col-md-2"></div>
+				<div class="col-md-12 litigation_buttons">
+					<br>
+
+					<center>
+						<!-- <input ng-if="task.document==1" type="submit" ng-click="saveCompletion(taskCompletionForm.$valid)" class="btn btn-myPrimary" value="Submit" /> -->
+						<input ng-if="status=='Posing Risk' || status=='Non Complied' || status=='Pending' || status=='Re_Opened' " type="submit" ng-click="saveCompletion(taskCompletionForm.$valid)" class="btn btn-myPrimary" value="Submit" />
+						<input ng-if=" status=='Complied' || status=='Delayed' || status=='Wating for Approval' || status == 'Delayed Reported'" type="submit" ng-click="saveCompletion(taskCompletionForm.$valid)" class="btn btn-myPrimary" value="Update" />
+					</center>
+
+
+				</div>
+			</div>
+		</form>
+
+		<div style="clear: both"></div>
+		<div class="f_form_content" ng-if="multipleLength > 0">
+			<h2>Multiple Task Completion</h2>
+			<div class="row">
+				<div class="col-md-12" style="overflow-x: scroll; margin-top: 10px;">
+				<label class="control-label " for="">Selected Task :</label>
+			    <label class="control-label lblcount" for="totaltask">{{task_ttrn_ids.length}}</label>	
+			    <label class="control-label " for=""> &nbsp;&nbsp; Total Task :</label>
+			    <label class="control-label lblcount" for="totaltask">  {{multipleTasks.length}}</label>
+					<table id="example" class="table table-striped table-bordered">
+						<thead>
+						<tr style="background: #0B6EC3; color: #fff;">
+							<th>Client Task Id</th>
+							<th>Entity</th>
+							<th>Unit</th>
+							<th>Function</th>
+							<th>Legislation</th>
+							<th>Rule</th>
+							<th>Reference</th>
+							<th>Who</th>
+							<th>When</th>
+							<th>Activity</th>
+							<th>Status</th>
+							<!-- <th>Frequency</th> -->
+						</tr></thead>
+						<tbody>
+							<tr ng-repeat=" i in multipleTasks">
+							<td>{{i.client_task_id}}
+							 <center><input type="checkbox" value="i.ttrn_id" ng-model="i.SelectedTaskId" ng-click="getCheckTaskId(i.SelectedTaskId,i.ttrn_id)" ></center>
+							</td>
+							<td>{{i.orga_name}}</td>
+							<td>{{i.loca_name}}</td>
+							<td>{{i.dept_name}}</td>
+							<td>{{i.legi_name}}</td>
+							<td>{{i.rule_name}}</td>
+							<td>{{i.ref}}</td>
+							<td>{{i.who}}</td>
+							<td>{{i.when}}</td>
+							<td>{{i.activity}}</td>
+							<td>{{i.status}}</td>
+							</tr>					
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

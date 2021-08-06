@@ -1,0 +1,619 @@
+
+<style>
+/* table format css  */
+.footer {
+	/* bottom: 0; */
+	width: 100% !important;
+	position: absolute !important;
+	height: $height-footer !important;
+	background-color: #000 !important;
+}
+
+.fixed_header {
+	width: 100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.fixed_header tbody {
+	display: block;
+	/*  width: 100%; */
+	overflow: auto;
+	height: 600px;
+}
+
+.fixed_header thead tr {
+	display: block;
+}
+
+.fixed_header thead {
+	background: black;
+	color: #fff;
+}
+
+.fixed_header th, .fixed_header td {
+	/* padding: 5px; */
+	/* text-align: left; */
+	width: 250px;
+}
+/*table format css   */
+.header_button_ss {
+	text-align: left !important;
+}
+
+@media screen and (max-width: 1234px) {
+	.graphClass {
+		
+	}
+}
+
+@media screen and (max-width: 991px) {
+	/* start of large tablet styles */
+	.graphClass {
+		
+	}
+}
+
+@media screen and (max-width: 767px) {
+	/* start of medium tablet styles */
+	.graphClass {
+		
+	}
+}
+
+@media screen and (max-width: 479px) { /* start of phone styles */
+	.graphClass {
+		
+	}
+}
+
+.panel-heading.center-txt {
+	color: black !important;
+	/* background: #d9d9d9 !important; */
+	/* background: ##06bd5b ! important; */
+}
+
+.box-body {
+	margin-top: 10px;
+}
+
+//
+Mixin itself
+ @mixin clearfix () { &::after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+}
+//
+Usage as a mixin
+.element { @include clearfix;
+	
+}
+
+.text-center {
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.center-txt {
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.panel-complied {
+	border-color: #000;
+}
+
+.panel-posing {
+	border-color: #000;
+}
+
+.panel-noncomplied {
+	border-color: #000;
+}
+
+.panel-delayed {
+	border-color: #000;
+}
+
+.panel-wfapp {
+	border-color: #000;
+}
+
+.panel-reopened {
+	border-color: #000;
+}
+
+.panel-delayedReported {
+	border-color: #000;
+}
+
+.panel-complied>.panel-heading {
+	color: #fff;
+	background-color: #03C523;
+	border-color: #337ab7;
+}
+
+.panel-posing>.panel-heading {
+	color: #fff;
+	/* background-color: #FFFF00; */
+	background-color: #FBFB35;
+	border-color: #337ab7;
+}
+
+.panel-noncomplied>.panel-heading {
+	color: #fff;
+	/* background-color: #FF0000; */
+	background-color: #F53636;
+	border-color: #337ab7;
+}
+
+.panel-delayed>.panel-heading {
+	color: #fff;
+	/* background-color: #BFBFBF; */
+	background-color: #C8CFCB;
+	border-color: #337ab7;
+}
+
+.panel-wfapp>.panel-heading {
+	color: #fff;
+	/* background-color: #85c1e9; */
+	background-color: #85c1e9;
+	border-color: #337ab7;
+}
+
+.panel-reopened>.panel-heading {
+	color: #fff;
+	/* background-color: #f5b041; */
+	background-color: #f5b041;
+	border-color: #337ab7;
+}
+
+.panel-delayedReported>.panel-heading {
+	color: #fff;
+	/* background-color: #f5b041; */
+	background-color: #bfd630;
+	border-color: #337ab7;
+}
+
+.panel {
+	
+}
+
+.panel.panel-complied:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel-delayedReported:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-noncomplied:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-posing:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-delayed:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-wfapp:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+.panel.panel-reopened:hover {
+	cursor: pointer;
+	background-color: #D3D3D3;
+	transition: background-color 0.5s ease;
+	cursor: pointer;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+
+th, td {
+	font-size: 12px;
+	font-family: sans-serif;
+	font-weight: 400;
+	width: 98px;
+}
+
+td>a {
+	color: blue;
+}
+
+td>a:hover {
+	cursor: pointer;
+}
+
+thead>tr>th {
+	font-size: 14px;
+}
+
+/* div#entityLevel>canvas {
+    width: 90% !important;
+} */
+
+/*  for graph  */
+@media screen and (min-device-width: 1200px) and (max-device-width:
+	1600px) and (-webkit-min-device-pixel-ratio: 1) {
+	/* body {
+		background-color: red;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 475px;
+	}
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width:
+	1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution:
+	192dpi) {
+	/* body {
+		background-color: green;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 475px;
+	}
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media ( min-width : 1301px) and (max-width: 1550px) {
+	/* body {
+		background-color: purple;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 485px;
+	}
+}
+
+@media ( min-width : 1281px) and (max-width: 1300px) {
+	/* body {
+		background-color: purple;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 495px;
+	}
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media ( min-width : 1025px) and (max-width: 1280px) {
+	/* body {
+		background-color: yellow;
+	} */
+	.graphClass {
+		width: 650px;
+		height: 505px;
+	}
+}
+
+.graphClassLocation {
+	width: 650px;
+	height: 2500px;
+}
+
+/* table { // this somehow makes it work for td
+	table-layout:fixed;
+	width: 100%;
+} */
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media ( min-width : 768px) and (max-width: 1024px) {
+	/* body {
+		background-color: blue;
+	} */
+	.graphClass {
+		width: 600px;
+		height: 505px;
+	}
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media ( min-width : 768px) and (max-width: 1024px) and (orientation:
+	landscape) {
+	body {
+		background-color: violet;
+	}
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media ( min-width : 481px) and (max-width: 767px) {
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media ( min-width : 320px) and (max-width: 480px) {
+}
+
+.panel-heading.center-txt.complied {
+	background-color: #03C523 !important;
+}
+
+.small, small {
+	font-size: 54% !important;
+}
+
+input#reopen {
+	width: 84px;
+	font-size: 12px;
+}
+
+em.ng-binding {
+	font-size: 11px !important;
+	margin-right: 5px !important;
+	margin-bottom: 1px;
+}
+
+.dashboardTable {
+	background-color: #E4E5DD;
+	font-weight: bold;
+}
+
+.scroll {
+	/* margin: 4px, 4px;
+	padding: 4px; */
+	width: auto;
+	overflow: auto;
+	white-space: nowrap;
+}
+</style>
+
+<div class="page_cont_padd">
+	<div class="page_container">
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<form class="form-horizontal" role="form">
+						<div class="f_form_content">
+							<h2>Final Audit Search</h2>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">Entity
+										:</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="o.orga_id as o.orga_name for o in entityList"
+											ng-model="searchObjFinalPostAudit.orga_id"
+											ng-change="getUnitListByEntity(searchObjFinalPostAudit.orga_id)"
+											class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1">Unit :</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="l.loca_id as l.loca_name for l in unitList | orderBy:'loca_name'"
+											ng-model="searchObjFinalPostAudit.loca_id"
+											ng-change="getFunctionListByUnit(searchObjFinalPostAudit.loca_id,searchObjFinalPostAudit.orga_id);"
+											class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="dept_id">Function
+										:</label>
+									<div class="col-sm-8">
+										<select
+											ng-options="d.dept_id as d.dept_name for d in functionList"
+											ng-model="searchObjFinalPostAudit.dept_id"
+											ng-change="getComplianceRepository();getLegislationListByUnit()"
+											class="form-control">
+											<option value="">--Select--</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1"> From
+										Date :</label>
+									<div class="col-sm-8">
+
+										<input type="text"
+											style="border-color: black; background-color: #F5FFFA; text-align: center;"
+											class="form-control" id="fromDate" placeholder="From Date"
+											name="fromDate" ng-change="getDates();"
+											ng-click="open_from()" uib-datepicker-popup="{{format}}"
+											value="0" ng-model="searchObjFinalPostAudit.date_from"
+											is-open="popup_from.opened" close-text="Close"
+											alt-input-formats="altInputFormats" readonly="readonly"
+											required="true">
+
+
+										<!-- <input type="text" name="fromDate" id="fromDate"
+											ng-model="searchObjFinalPostAudit.fromDate" class="form-control" /> -->
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="sel1"> To
+										Date :</label>
+									<div class="col-sm-8">
+										<input type="text"
+											style="border-color: black; background-color: #F5FFFA; text-align: center;"
+											class="form-control" id="toDate" placeholder="To Date"
+											value="0" name="toDate" ng-click="open_to()"
+											uib-datepicker-popup="{{format}}"
+											ng-model="searchObjFinalPostAudit.date_to"
+											is-open="popup_to.opened" readonly="" close-text="Close"
+											alt-input-formats="altInputFormats">
+										<!-- <input type="text" name="fromDate" id="toDate"
+											ng-model="searchObjFinalPostAudit.toDate" class="form-control" /> -->
+									</div>
+								</div>
+							</div>
+
+							<button type="button" ng-click="finalComplianceAuditReport()"
+								class="btn btn-myWarning" id="search">Search</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- end row -->
+
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="header_button_ss">
+						<h3 style="color: #032BEC; font-size: 24px;">Final Post Audit
+							Report</h3>
+						<br />
+					</div>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					<a ng-click="generateMaintask_Pdf()"
+						ng-if="reportList.length>0" class="list-group-item col-md-5"><img
+						src='images/reportIcons/pdf.png' width="24" />Export Task (PDF) </a>
+				</div>
+				<a class="list-group-item col-md-5"
+												ng-if="reportList.length>0"
+												ng-click="ExportExcels_Maintask()"><img
+												src='images/reportIcons/xls.png' width="24" />Export Task
+												(XLS) </a> 
+			</div>
+
+
+			<div class="row">
+				<div class="col-sm-12">
+					<table id="example"
+						class="table table-responsive  table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Vertical</th>
+								<th scope="col">Unit</th>
+								<th scope="col">Function</th>
+								<th scope="col">VUF ID</th>
+								<th scope="col">Complied</th>
+								<th scope="col">NonComplied</th>
+								<th scope="col">Complied (%)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								ng-repeat="data in reportList | filter:search track by $index">
+								<td>{{ $index+1 }}</td>
+								<td>{{ data.orga_name }}</td>
+								<td>{{ data.loca_name }}</td>
+								<td>{{ data.dept_name }}</td>
+								<td>{{ data.Verti_Unit_Function }}</td>
+								<td>{{ data.Complied }}</td>
+								<td>{{ data.NonComplied }}</td>
+								<td>{{ data.percentage }} &nbsp;%</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+<script>
+	$(window).height(); // returns height of browser viewport
+	$(document).height(); // returns height of HTML document (same as pageHeight in screenshot)
+	$(window).width(); // returns width of browser viewport
+	$(document).width(); // returns width of HTML document (same as pageWidth in screenshot)
+</script>
+
+

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html ng-app="CMTApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mahindra Logistics</title>
+<!--  <base href="/"> -->
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+   <!-- toaster css -->
+  <link rel="stylesheet" href="css/toaster.min.css">
+  
+  <link rel="stylesheet" href="tablecss/customtablecss.css" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/font-awesome.css">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/style.css">	 	
+ 
+ <!--Angularjs select search css -->
+  <link href="plugins/angular-ui-select/select.css" rel="stylesheet" /> 
+  
+ 	 <!-- JQ chart css -->
+	<link rel="stylesheet" type="text/css" href="plugins/jqcharts/css/jquery.jqChart.css" />
+    <link rel="stylesheet" type="text/css" href="plugins/jqcharts/css/jquery.jqRangeSlider.css" />
+    <link rel="stylesheet" type="text/css" href="plugins/jqcharts/css/jquery-ui-1.10.4.css" />
+    
+    <!--angular material css -->
+ 	<link rel="stylesheet" href="css/angular-material.min.css">
+ 	
+<style>
+body{
+	background: #e9edf9 !important;
+}
+</style>
+   
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini"  id="addBackground">
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper" ng-controller="routeCtrl" ng-cloak>
+<!--Added spinner -->
+		<spinner  name="html5spinner" class=" ">
+          <div class="overlay"></div>
+          <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+          </div>
+          <div class="please-wait ng-scope">Please Wait...</div>
+        </spinner>
+ <!-- Content Wrapper. Contains page content -->
+  <div  ng-include="'views/partial/header.html'"  ng-show="!state.includes('login')"></div> 
+
+  <div class="content-wrapper" ui-view="">
+    <!-- Content Header (Page header) -->
+
+    <!-- Main content -->
+    <!-- /.content -->
+  </div>
+  
+<div ng-include="'views/partial/footer.html'" ng-show="!state.includes('login')"></div>
+ </div>	
+
+	<!-- jQuery UI 1.11.4 -->
+	<!-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> -->
+	<!--JQcharts  -->
+    <script src="plugins/jqcharts/jquery-1.11.1.min.js" type="text/javascript"></script>
+ 
+    <script src="plugins/jqcharts/jquery.mousewheel.js" type="text/javascript"></script>
+    <script src="plugins/jqcharts/jquery.jqChart.min.js" type="text/javascript"></script>
+    <script src="plugins/jqcharts/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
+    <!--[if IE]><script lang="javascript" type="text/javascript" src="plugins/jqcharts/excanvas.js"></script><![endif]-->
+	<!-- jQuery 2.2.3 -->
+ 	<!-- <script src="plugins/jQuery/jquery-2.2.3.min.js"></script> -->
+ 	
+ 	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js" type="text/javascript"></script> -->
+ 	
+ 	
+ 	<!-- use these files for generating file in pdf form -->
+ 	<script src="plugins/tableExport/tableExport.js" type="text/javascript"></script>
+ 	<script src="plugins/tableExport/jquery.base64.js" type="text/javascript"></script>
+ 	<script src="plugins/tableExport/base64.js" type="text/javascript"></script>
+ 	<script src="plugins/tableExport/sprintf.js" type="text/javascript"></script>
+ 	<script src="plugins/tableExport/jspdf.min.js" type="text/javascript"></script>
+ <!-- 	<script src="plugins/tableExport/jspdf.debug.js" type="text/javascript"></script> -->
+ 	<script src="plugins/tableExport/html2pdf.js" type="text/javascript"></script> 
+ 	<script src="plugins/tableExport/plugins/cell.js" type="text/javascript"></script> 
+ 	<script src="plugins/tableExport/jspdf.plugin.autotable.js" type="text/javascript"></script>
+ 	
+ 	<!-- use these files for generating CSV file  -->
+ 	<script src="plugins/tableExport/jquery.table2excel.js" type="text/javascript"></script>
+ 	<script src="plugins/tableExport/table2csv.js" type="text/javascript"></script> 
+ 	
+
+
+	<!-- Angular js liberaries -->
+	<script type="text/javascript" src="js/liberary/angular/angular.js"></script>
+	<script type="text/javascript" src="js/liberary/angular/angular-ui-router.min.js"></script>
+	<!-- <script type="text/javascript" src="js/liberary/angular/lodash-3.9.3.min.js"></script> -->
+	<script type="text/javascript" src="js/liberary/angular/angular-touch.min.js"></script>
+	<script type="text/javascript" src="js/liberary/angular/angular-animate.min.js"></script> 
+	<script type="text/javascript" src="js/liberary/angular/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="js/liberary/angular/angular-messages.min.js"></script>
+   	<script type="text/javascript" src="js/liberary/angular/angular-sanitize.min.js"></script>
+	
+	<script type="text/javascript" src="js/liberary/angular/angular-idle.min.js" ></script>
+
+	<script type="text/javascript" src="plugins/angular-ui-select/select.js"></script>
+	<script type="text/javascript" src="js/liberary/angular/toaster.min.js"></script>
+	<script type="text/javascript" src="js/liberary/angular/dirPagination.js"></script> 
+	<script type="text/javascript" src="js/liberary/angular/calendar.js"></script>
+	<script type="text/javascript" src="js/liberary/angular/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script type="text/javascript" src="js/liberary/bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="plugins/spinner/angular-spinners.js"></script>
+	
+    <!-- Angular work files -->
+	<script type="text/javascript" src="js/app/app.js"></script>
+	<script type="text/javascript" src="js/app/common/storage.js"></script>
+    <script type="text/javascript" src="js/app/common/http-content-type-service.js"></script>
+	<script type="text/javascript" src="js/app/common/rest-url-mappings-service.js"></script>
+	<script type="text/javascript" src="js/app/common/rest-factory.js"></script>
+	<script type="text/javascript" src="js/app/common/api-call-factory.js"></script>
+	<script type="text/javascript" src="js/app/common/data-factory.js"></script>
+	
+	<!-- Multi Select Library -->
+	  <script type="text/javascript" src="plugins/multiselect/angular-loader.min.js"></script>
+	   <script type="text/javascript" src="plugins/multiselect/angular-resource.min.js"></script>
+	    <script type="text/javascript" src="plugins/multiselect/angular-ui-ieshiv.min.js"></script>
+	     <script type="text/javascript" src="plugins/multiselect/angular-ui.min.js"></script>
+	      <script type="text/javascript" src="plugins/multiselect/multiselect.js"></script>
+	
+	 <!-- CMT Controller files files -->
+	 
+	 <script type="text/javascript" src="js/app/controller/AnalyticalDashboardController.js"></script>
+	 
+	 
+	 <script type="text/javascript" src="js/app/controller/FinalAuditReportController.js"></script>
+	 
+	<script type="text/javascript" src="js/app/controller/loginController.js"></script>
+	<script type="text/javascript" src="js/app/controller/departmentController.js"></script>
+    <script type="text/javascript" src="js/app/controller/departmentListController.js"></script>
+    <script type="text/javascript" src="js/app/controller/entityController.js"></script>
+    <script type="text/javascript" src="js/app/controller/entityListController.js"></script>
+    <script type="text/javascript" src="js/app/controller/entityMappingListController.js"></script>
+    <script type="text/javascript" src="js/app/controller/entityMappingController.js"></script>
+    <script type="text/javascript" src="js/app/controller/usersListController.js"></script>
+    <script type="text/javascript" src="js/app/controller/userController.js"></script>
+    <script type="text/javascript" src="js/app/controller/userAccessController.js"></script>
+    <script type="text/javascript" src="js/app/controller/updateLegalController.js"></script>
+    <script type="text/javascript" src="js/app/controller/importedTasksListController.js"></script>
+    <script type="text/javascript" src="js/app/controller/locationController.js"></script>
+    <script type="text/javascript" src="js/app/controller/locationListController.js"></script>
+    <script type="text/javascript" src="js/app/controller/designationController.js"></script>
+    <script type="text/javascript" src="js/app/controller/designationListController.js"></script>
+	<script type="text/javascript" src="js/app/controller/cmpRepositoryController.js"></script>
+    <script type="text/javascript" src="js/app/controller/assignTasksController.js"></script>
+    <script type="text/javascript" src="js/app/controller/taskConfigurationController.js"></script>
+    <script type="text/javascript" src="js/app/controller/complianceCalendarController.js"></script>
+    <script type="text/javascript" src="js/app/controller/activateTasksListController.js"></script>
+    <script type="text/javascript" src="js/app/controller/enableDisableController.js"></script>
+    <script type="text/javascript" src="js/app/controller/dashboardController.js"></script>
+    <script type="text/javascript" src="js/app/controller/changeComplianceOwnerController.js"></script>
+    <script type="text/javascript" src="js/app/controller/myAccountController.js"></script>
+     <script type="text/javascript" src="js/app/controller/changePasswordController.js"></script>
+     <script type="text/javascript" src="js/app/controller/generateReportsController.js"></script>
+    <script type="text/javascript" src="js/app/controller/taskController.js"></script>
+     <script type="text/javascript" src="js/app/controller/drilledReportController.js"></script> 
+      <script type="text/javascript" src="js/app/controller/techSupportController.js"></script>
+      <script type="text/javascript" src="js/app/controller/defaultTaskConfigurationController.js"></script>
+      <script type="text/javascript" src="js/app/controller/defaultTaskConfigurationRepositoryController.js"></script>
+      <script type="text/javascript" src="js/app/controller/mappingListController.js"></script>
+       <script type="text/javascript" src="js/app/controller/listShowCauseNoticeController.js"></script>
+       <script type="text/javascript" src="js/app/controller/createShowCauseNoticeController.js"></script>
+       <script type="text/javascript" src="js/app/controller/showCauseNoticeDetailsController.js"></script>
+       <script type="text/javascript" src="js/app/controller/exportDataController.js"></script>
+       
+         <script type="text/javascript" src="js/app/controller/importSubTasksController.js"></script>
+         <script type="text/javascript" src="js/app/controller/importedSubTasksController.js"></script>
+         <script type="text/javascript" src="js/app/controller/importSubTasksForIDController.js"></script>
+         <script type="text/javascript" src="js/app/controller/subTaskConfigurationController.js"></script>
+         <script type="text/javascript" src="js/app/controller/subTaskActivationController.js"></script>
+         <script type="text/javascript" src="js/app/controller/documentsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/commonEmailController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/importUserController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/importEntityController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/importLocationController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/importDepartmentController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/importEntityMappingController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/importAssignTaskController.js"></script>
+
+		<!-- find this js files and add later -->
+     	<!-- <script type="text/javascript" src="js/app/controller/generateMonthlyCertificateController.js"></script> -->
+     	<!-- <script type="text/javascript" src="js/app/controller/generateQuarterlyCertificateController.js"></script> -->
+     	<script type="text/javascript" src="js/app/controller/newdashboardController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/generateCertificateController.js"></script>
+     	
+     	<script type="text/javascript" src="js/app/controller/copyTasksController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/addDocumentsController.js"></script>
+     	
+     	<script type="text/javascript" src="js/app/controller/executorListsController.js"></script>
+
+     	<!-- Logs Controller -->
+     	<script type="text/javascript" src="js/app/controller/userCredentialsemailLog.js"></script>
+     	<script type="text/javascript" src="js/app/controller/commonLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/loginLogsLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/taskAssignLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/tasktaskConfigLogsLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/changeComplianceOwnerLogsLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/emailLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/reportsLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/complianceReportLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/activateDeactivateLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/reactivationLogsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/queryBuilderController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/auditDashboardController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/auditTasksController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/headCountsController.js"></script>
+     	<script type="text/javascript" src="js/app/controller/postAuditReportController.js"></script>
+     	
+     	<script type="text/javascript" src="js/app/controller/progressReportController.js"></script>
+     	
+     	
+     		
+     <script src="js/liberary/angular/moment.min.js"></script>
+     <script src="js/liberary/angular/angular-aria.min.js"></script>
+    <!--  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script> 
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script> -->
+      <!-- Angular Material Library -->
+     
+     <script src="js/liberary/angular/angular-material.min.js"></script>
+     <script src="js/liberary/scroll/ng-infinite-scroll.min.js"></script>
+     <!--  <script src="js/liberary/angular/angular-datepicker.js"></script>
+      <link rel="stylesheet" href="css/angular-datepicker.css"> -->
+    
+   <!--    <script data-require="ui-bootstrap@0.13.0" data-semver="0.13.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" /> -->
+     <!-- For tabs -->
+     <!-- <script src="js/liberary/angular/ui-bootstrap-tpls-0.11.2.js"></script> -->
+     <script src="plugins/FixedTableHeader/fixedHeader.js" type="text/javascript"></script>
+     
+     <script type="text/ng-template" id="warning-dialog.html">
+  <div class="modal-header">
+   <h3>Warning!</h3>
+  </div>
+  <div idle-countdown="countdown" ng-init="countdown=60" class="modal-body">
+   <uib-progressbar max="60" value="60" animate="false" class="progress-striped">You'll be logged out in {{minutes}}:{{seconds}} second(s).</uib-progressbar>
+  </div>
+
+</script>
+<script type="text/ng-template" id="timedout-dialog.html">
+  <div class="modal-header">
+   <h3>You've Timed Out!</h3>
+  </div>
+  <div class="modal-body">
+   <p>
+      You were idle too long.
+   </p>
+ </div>
+</script>
+     
+</body>
+</html>

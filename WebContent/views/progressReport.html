@@ -1,0 +1,168 @@
+<style>
+</style>
+
+<div class="page_cont_padd">
+	<div class="page_container">
+
+
+		<div class="row">
+			<div class="col-sm-8">
+				<form class="form-inline" autocomplete="off"
+					style="margin-left: 26px;">
+					<div class="form-group">
+						<label class="sr-only" for="email">From Date:</label> <input
+							type="text"
+							style="border-color: black; background-color: #F5FFFA; text-align: center;"
+							class="form-control" id="fromDate" placeholder="From Date"
+							name="fromDate" ng-change="getDates();validateDates()"
+							ng-click="open_from()" uib-datepicker-popup="{{format}}"
+							ng-model="date_from" is-open="popup_from.opened"
+							close-text="Close" alt-input-formats="altInputFormats"
+							readonly="readonly" required="true">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="pwd">To Date:</label> <input
+							type="text"
+							style="border-color: black; background-color: #F5FFFA; text-align: center;"
+							class="form-control" id="toDate" placeholder="To Date"
+							name="toDate" ng-click="open_to()" ng-change="validateDates()"
+							uib-datepicker-popup="{{format}}" ng-model="date_to"
+							is-open="popup_to.opened" readonly="" close-text="Close"
+							alt-input-formats="altInputFormats">
+					</div>
+					<button type="submit" class="btn btn-default"
+						ng-click="progressReport();validateDates()">
+						<i class="fa fa-search"></i> Search
+					</button>
+				</form>
+			</div>
+
+			<div class="col-sm-4">
+				<a class="list-group-item col-md-5"
+					ng-click="ExportExcels_Maintask()"><img
+					src='images/reportIcons/xls.png' width="24" />Export Task (XLS) </a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				
+				<div id="tblLoader">
+					<img src="./images/Loader/graphLoader.gif" width="150px"
+						height="150px" />
+				</div>
+				
+				<table id="example" class="table table-bordered"
+					style="word-break: break-all !important; table-layout: fixed !important;">
+					<thead>
+						<tr>
+							<td
+								style="text-align: center; background-color: green; color: white;"
+								colspan="9">Progress</td>
+						</tr>
+						<tr>
+							<th>#</th>
+							<th>Vertical</th>
+							<th>Unit Name</th>
+							<th>Function</th>
+							<th>Executor</th>
+							<th>Email</th>
+							<th>Mobile No</th>
+							<!-- <th>No of evidence Uploaded</th> -->
+							<th>Doc Uploaded</th>
+							<th>Doc Pending</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in dataSource track by $index">
+							<td>{{ $index+1 }}</td>
+							<td>{{ item.vertical }}</td>
+							<td>{{ item.unitName }}</td>
+							<td>{{ item.function }}</td>
+							<td>{{ item.executor }}</td>
+							<td>{{ item.email }}</td>
+							<td>{{ item.mobNo }}</td>
+							<!-- <td>{{ item.docUploaded }} / {{ item.docPending }}</td> -->
+							<td>{{ item.docUploaded }}</td>
+							<td>{{ item.docPending }}</td>
+						</tr>
+					</tbody>
+					<!-- <tfoot>
+						<tr>
+							<th>#</th>
+							<th>Vertical</th>
+							<th>Unit Name</th>
+							<th>Function</th>
+							<th>Executor</th>
+							<th>Email</th>
+							<th>Mobile No</th>
+							<th>No of evidence Uploaded</th>
+							<th>Doc Uploaded</th>
+							<th>Doc Pending</th>
+						</tr>
+					</tfoot> -->
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+
+	<br /> <br /> <br />
+
+	<div class="row" style="display: none">
+		<div class="col-sm-12">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Panel Heading</div>
+				<div class="panel-body">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<td
+									style="text-align: center; background-color: green; color: white;"
+									colspan="6">List of Unit for Addition
+									/Deletion/Modification Unit Name Location</td>
+							</tr>
+							<tr>
+								<th>#</th>
+								<th>Unit ID</th>
+								<th>Unit Name</th>
+								<th>Location</th>
+								<th>Type(CO/LL/BA)</th>
+								<th>Executor</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Doe</td>
+								<td>john@example.com</td>
+								<td>John</td>
+								<td>Doe</td>
+								<td>john@example.com</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th>#</th>
+								<th>Unit ID</th>
+								<th>Unit Name</th>
+								<th>Location</th>
+								<th>Type(CO/LL/BA)</th>
+								<th>Executor</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				<div class="panel-footer">Panel Footer</div>
+			</div>
+
+
+
+		</div>
+	</div>
+
+
+</div>
+</div>

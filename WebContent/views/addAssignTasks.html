@@ -1,0 +1,334 @@
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+ -->
+<div>
+<div class="page_cont_padd">
+	<div class="page_container">
+		<!--heading text-->
+
+		<div class="col-md-12">
+				<div class="col-md-8">
+					<div class="header_button">
+						<!--<button type="button" class="btn btn-primary" id="wdt_re">Litigation Calender</button>-->
+						<h2 id="user_header">Assign Compliance</h2>
+						<!-- <a ng-click="backToPreviousState()"><img
+							src="images/DashboardIcons/backold.png" class="backButton"
+							width="100px;"></a> -->
+						<site-header Back="" forward="forward"></site-header>
+
+					</div>
+				</div>
+				<div class="col-md-4">
+					 <a class="btn btn-primary btn-add" ng-click="importAssignTask()" style="margin-left: 200px">Import Assign Task
+						</a> 
+				</div>
+			</div>
+		<div class="div_style"></div>
+		<!--first form-->
+
+
+		<form autocomplete="off" name="taskSearchForm" class="form-horizontal" novalidate>
+			<div class="col-md-12">
+				<center>
+					<h2 style="color: red;">&#42; Mandatory Fields</h2>
+				</center>
+			</div>
+			<div class="f_form_content">
+				<h2>Search</h2>
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Country:</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="country_id" ng-model="searchObj.country_id" ng-options="c.country_id as c.country_name for c in countriesList" ng-change="getList()" required>
+									<option value="">--Select--</option>
+								</select><i class="asterisk_input"></i>
+									<div ng-messages="taskSearchForm.country_id.$error" ng-if="taskSearchForm.$submitted">
+										  <span class="error-text" ng-message="required">Select Country.</span>
+									</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Choose :</label>
+							<div class="col-md-6">
+								<label class="radio-inline"> <input type="radio"
+									id="state" name="state" value="states"  ng-model="searchObj.ChooseSOrC" ng-change="getList()">States
+								</label> <label class="radio-inline"> <input type="radio" id="central" name="state" value="central" ng-model="searchObj.ChooseSOrC" ng-change="getList();">Central
+								</label>
+							</div>
+						</div>
+						<div class="form-group" id="stateBody" ng-if="searchObj.ChooseSOrC =='states'">
+							<label class="control-label col-sm-4" for="sel1">State :</label>
+							<div class="col-sm-8">
+							<select class="form-control" name="state_id" ng-model="searchObj.state_id" ng-options="s.state_id as s.state_name for s in stateList" ng-change="getCategoryOfLawList();getalllegiList()">
+									<option value="">--Select--</option>
+							</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Category of Law :</label>
+							<div class="col-sm-8">
+								<select class="form-control" name="cat_id" ng-model="searchObj.cat_id" ng-options="c.cat_law_id as c.cat_law_name for c in categoryOfLawList" ng-change= "getalllegiList()">
+									<option value="">--Select--</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">Legislation
+								:</label>
+							<div class="col-sm-9">
+								<ui-select ng-model="legiList.selected" theme="bootstrap"  style="max-width: 545px;" ng-change="getalllegiRuleList()">
+							    <ui-select-match   placeholder="Select legislation">
+							    {{$select.selected.legi_name}}
+							    <button class="clear" ng-click="clearLegiList($event)">X</button>
+							    </ui-select-match>
+							    <ui-select-choices repeat="legiList in alllegiList | propsFilter: {legi_name: $select.search}">
+							      <div ng-bind-html="legiList.legi_name | highlight: $select.search"></div>
+							    <!--   {{legiList.legi_name}} -->
+							    </ui-select-choices>
+							  </ui-select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">Rules :</label>
+							<div class="col-sm-9">
+								<ui-select ng-model="legiRuleL.selected" theme="bootstrap"  style="max-width: 545px;" remove-selected="false">
+							    <ui-select-match  placeholder="Select rules">
+							    <button class="clear" ng-click="clearLegiRuleL($event)">X</button>
+							    {{$select.selected.rule_name}}
+							     
+							    </ui-select-match>
+							    <ui-select-choices repeat="legiRuleL in legiRuleList | propsFilter: {rule_name: $select.search}">
+							     
+							      <div ng-bind-html="legiRuleL.rule_name | highlight: $select.search"></div>
+							      <!-- ////{{legiRuleL.rule_name}} -->
+							    </ui-select-choices>
+							  </ui-select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">Vertical :</label>
+							<div class="col-sm-6">
+									<select class="form-control" name="orga_id" ng-model="searchObj.orga_id" ng-options="e.orga_id as e.orga_name for e in entityListForSearch"  ng-change="getUnitListByEntity(searchObj.orga_id)" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="taskSearchForm.orga_id.$error" ng-if="taskSearchForm.$submitted">
+										  <span class="error-text" ng-message="required">Select Vertical.</span>
+									</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="sel1">Unit :</label>
+							<div class="col-sm-6">
+								<select class="form-control" name="loca_id" ng-model="searchObj.loca_id"  ng-options="u.loca_id  as u.loca_name for u in unitList | orderBy:'loca_name'" ng-change="" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="taskSearchForm.loca_id.$error" ng-if="taskSearchForm.$submitted">
+										  <span class="error-text" ng-message="required">Select unit.</span>
+									</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>	
+				
+				<div class="col-md-12 litigation_buttons">
+					<br>
+					<center>
+					<div id="search">
+						<button type="submit" id="assign" ng-click="getTaskList(taskSearchForm.$valid)"  class="btn btn-myPrimary btn-save">Search</button>
+						</div>
+					</center>
+				</div>
+			</div>
+		</form>
+
+     <!--       <div class="row">
+				<div class="from-group">
+					<div class="col-sm-12">
+						<center>
+							<div id="loader1" class="display_style">
+								<img src="./images/Loader/WaitLoader.gif" width="80px"
+									height="89px" />
+							</div>
+						</center>
+					</div>
+				</div>
+			</div> -->
+
+			<form autocomplete="off" name="assignTaskForm" class="form-horizontal" novalidate>
+			<div class="div_style"></div>
+			<br>
+			<div class="f_form_content re_height">
+				<h2>Assign Compliance</h2>
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Vertical :</label>
+							<div class="col-sm-8">
+<!-- 							 ng-change="getFunctionListByUIdEId(tmapObj.tmap_orga_id,tmapObj.tmap_loca_id)" -->
+									<select class="form-control" name="tmap_orga_id" ng-model="tmapObj.tmap_orga_id" ng-options="e.orga_id as e.orga_name for e in entityList" 
+									ng-change = "getUnitListByEntityOnSearch(tmapObj.tmap_orga_id)" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="assignTaskForm.tmap_orga_id.$error" ng-if="assignTaskForm.$submitted">
+										  <span class="error-text" ng-message="required">Select Vertical.</span>
+									</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Unit :</label>
+							<div class="col-sm-8">
+<!-- 							ng-change="getFunctionListByUIdEId(tmapObj.tmap_orga_id,tmapObj.tmap_loca_id)" -->
+									<select class="form-control" name="tmap_loca_id" ng-model="tmapObj.tmap_loca_id" ng-options="u.loca_id as u.loca_name for u in unitListOnSearch | orderBy:'loca_name'" 
+									ng-change = "getFunctionListByUnit()" multiple style="height:200px" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<!-- <select class="form-control" name="tmap_loca_id" id="tmap_loca_id" ng-model=" selectedUnit" multiple ng-options="u.loca_id as u.loca_name for u in unitList" ng-change = "getFunctionListByUnit()"></select><i class="asterisk_input"></i> -->
+									<div ng-messages="assignTaskForm.tmap_loca_id.$error" ng-if="assignTaskForm.$submitted">
+										  <span class="error-text" ng-message="required">Select unit.</span>
+									</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Function
+								:</label>
+							<div class="col-sm-8">
+									<select class="form-control" name="tmap_dept_id" ng-model="tmapObj.tmap_dept_id" ng-options="f.dept_id as f.dept_name for f in functionList" ng-change= "getExecutorList()"  required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="assignTaskForm.tmap_dept_id.$error" ng-if="assignTaskForm.$submitted">
+										  <span class="error-text" ng-message="required">Select function.</span>
+									</div>
+							</div>
+						</div>
+					</div>
+<br>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Owner
+								:</label>
+							<div class="col-sm-8">
+									<select class="form-control" name="tmap_pr_user_id" ng-model="tmapObj.tmap_pr_user_id" ng-options="ex.user_id as ex.user_name for ex in executorList" ng-change= "getEvaluatorList()" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="assignTaskForm.tmap_pr_user_id.$error" ng-if="assignTaskForm.$submitted">
+										  <span class="error-text" ng-message="required">Select Owner.</span>
+									</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Approver
+								:</label>
+							<div class="col-sm-8">
+									<select class="form-control" name="tmap_rw_user_id" ng-model="tmapObj.tmap_rw_user_id" ng-options="ev.user_id as ev.user_name for ev in evaluatorList" ng-change = "getFunHeadList()" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="assignTaskForm.tmap_rw_user_id.$error" ng-if="assignTaskForm.$submitted">
+										  <span class="error-text" ng-message="required">Select Approver.</span>
+									</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label class="control-label col-sm-4" for="sel1">Function Head
+								:</label>
+							<div class="col-sm-8">
+									<select class="form-control" name="tmap_fh_user_id" ng-model="tmapObj.tmap_fh_user_id" ng-options="fh.user_id as fh.user_name for fh in functionheadList" required>
+									<option value="">--Select--</option>
+									</select><i class="asterisk_input"></i>
+									<div ng-messages="assignTaskForm.tmap_fh_user_id.$error" ng-if="assignTaskForm.$submitted">
+										  <span class="error-text" ng-message="required">Select function head.</span>
+									</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-md-12">
+					<br>
+					<div class="col-md-12 litigation_buttons">
+						<center>
+						<div id="assignButton" >
+							<input type="submit" value="Assign" class="btn btn-myPrimary"  ng-click="assginTask(assignTaskForm.$valid)"/>
+						</div>
+						<div id="loader" class="display_style">
+							<img src="./images/Loader/WaitLoader.gif" width="80px" height="85px" />
+						</div>
+						</center>
+					</div>
+				</div>
+			</div>
+
+			<div class="table_data1">
+				<div class="container">
+					<div class="col-sm-6">
+					<div class="col-sm-4">
+						<label class="control-label" for=""> <input type="checkbox" name="selectall" id="selectAll" ng-model="selectedAll" ng-change="checkAll()">Select
+							All
+						</label>
+						</div>
+						<div class="col-sm-4">
+							<label class="control-label " for="">Total Task : {{taskList.length}}</label> <label
+								class="control-label lblcount" for="totaltask"></label>
+						</div>
+						<div class="col-sm-4">
+							<label class="control-label" for="">Selected Task : {{tmapObj.tasks_list.length}}</label> <label
+								class="control-label lblcount" for="selectedtask"></label>
+						</div>
+					</div>
+					<table id="example" class="table table-striped table-bordered"
+						width="100%" cellspacing="0">
+						<thead>
+							<tr id="table_row">
+								<th></th>
+								<th>Task ID</th>
+								<th>Name of Legislation</th>
+								<th>Rule</th>
+								<th>Reference</th>
+								<th>Who</th>
+								<th>When</th>
+								<th>Activity</th>
+								<th>Procedure</th>
+								<th>Impact</th>
+								<th>Frequency</th>
+
+							</tr>
+						</thead>
+
+						<tbody id="task_table_body">
+							 <tr ng-repeat="list in taskList" ng-if="taskList.length>0">
+							 	<td><input type="checkbox" value="list.task_id"  ng-model="list.SelectedTaskId" ng-change="getCheckTaskId(list.SelectedTaskId,list.lexcare_task_id,list.task_id)"></td>
+								<td>{{list.lexcare_task_id}}</td>
+								<td>{{list.task_legi_name}}</td>
+								<td>{{list.task_rule_name}}</td>
+								<td>{{list.task_reference}}</td>
+								<td>{{list.task_who}}</td>
+								<td>{{list.task_when}}</td>
+								<td>{{list.task_activity}}</td>
+								<td>{{list.task_procedure}}</td>
+								<td>{{list.task_impact}}</td>
+								<td>{{list.task_frequency}}</td>
+								
+							
+							</tr>
+							<tr ng-if="taskList.length==0"><td colspan="11">No record found</td></tr>
+							 
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>

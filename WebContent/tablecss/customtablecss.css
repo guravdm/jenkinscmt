@@ -1,0 +1,150 @@
+
+
+/* html>body tbody.table {
+	height: 262px;
+	overflow: auto;
+}
+
+html>body thead {
+	overflow: auto;
+} */
+
+/* .fixed_header tbody {
+	display: block;
+	overflow: auto;
+	height: 600px;
+}
+
+.fixed_header thead tr {
+	display: block;
+}
+
+.fixed_header thead {
+	background: black;
+	color: #fff;
+}
+
+.fixed_header th, .fixed_header td {
+	width: auto;
+} */
+
+table {
+  text-align: left;
+  position: relative;
+  border-collapse: collapse; 
+}
+
+table.table-bordered {
+	border: 1px solid #3e444b !important;
+	margin-top: 20px;
+}
+
+table.table-bordered>thead>tr>th {
+	border: 1px solid #3e444b !important;
+}
+
+tbody>tr>td {
+	background-color: #dde9f5 !important;
+}
+
+tbody>tr>td {
+    border-color: #333740 !important;
+}
+
+table.table-bordered>tfoot>tr>th {
+	border: 1px solid #3e444b !important;
+}
+
+table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+tr>th {
+	background: #355f91 !important;
+	color: white;
+	font-family: Calibri;
+	font-size: 15.5px;
+	word-break: break-all; 
+}
+
+
+th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+
+
+
+
+/* ================================================================================== */
+
+
+/* 
+table.table-bordered {
+	border: 0.5px solid #3e444b !important;
+	margin-top: 20px;
+}
+
+table.table-bordered>thead>tr>th {
+	border: 0.5px solid #3e444b !important;
+}
+
+tbody>tr>td {
+	background-color: #dde9f5 !important;
+}
+
+tbody>tr>td {
+	border-color: #333740 !important;
+}
+
+table.table-bordered>tfoot>tr>th {
+	border: 0.5px solid #3e444b !important;
+}
+
+tr>th {
+	background: #355f91 !important;
+	color: white;
+	font-family: Calibri;
+	font-size: 15.5px;
+	word-break: break-all;
+}
+
+.fixed_header {
+	overflow: auto;
+	height: 200px;
+}
+
+.fixed_header thead th {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+Just common table stuff. Really.
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	padding: 8px 16px;
+}
+
+th {
+	background: #eee;
+}
+
+Borders (if you need them)
+.fixed_header, .fixed_header td {
+	box-shadow: inset 1px -1px #000;
+}
+
+.fixed_header th {
+	box-shadow: inset 1px 1px #000, 0 1px #000;
+} */
+
